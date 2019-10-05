@@ -6,13 +6,6 @@ namespace Player
 {
     public class Player : MonoBehaviour
     {
-        struct FrameData
-        {
-            public Vector2 moveDirection;
-            public bool interacted;
-            public bool attack;
-        };
-
         enum Facing
         {
             Up,
@@ -21,11 +14,18 @@ namespace Player
             Right
         }
 
+        struct FrameData
+        {
+            public Vector2 moveDirection;
+            public bool interacted;
+            public bool attack;
+            public Facing facing;
+        };
+
         FrameData lastFrame;
         FrameData thisFrame;
 
         PlayerStats stats;
-        Facing facing = Facing.Up;
 
         bool attacking = false;
 
@@ -50,6 +50,7 @@ namespace Player
             thisFrame.moveDirection = Vector2.zero;
             thisFrame.interacted = false;
             thisFrame.attack = false;
+            thisFrame.facing = Facing.Down;
 
             if (Input.GetKey(KeyCode.W))
             {
@@ -90,51 +91,59 @@ namespace Player
 
         void Animate()
         {
-            if (lastFrame.moveDirection.y != 1 &&
-                thisFrame.moveDirection.y == 1)
+            if (thisFrame.moveDirection.x == -1)
             {
-                facing = Facing.Up;
-                GetComponentInChildren<AnimationStateController>().SetState("WalkUp");
+                thisFrame.facing = Facing.Left;
+                if (thisFrame.facing != lastFrame.facing)
+                {
+                    GetComponentInChildren<AnimationStateController>().SetState("WalkLeft");
+                }
             }
-            else if (lastFrame.moveDirection.y != -1 && 
-                thisFrame.moveDirection.y == -1)
+            else if (thisFrame.moveDirection.x == 1)
             {
-                facing = Facing.Down;
-                GetComponentInChildren<AnimationStateController>().SetState("WalkDown");
+                thisFrame.facing = Facing.Right;
+                if (thisFrame.facing != lastFrame.facing)
+                {
+                    GetComponentInChildren<AnimationStateController>().SetState("WalkRight");
+                }
             }
-            else if (lastFrame.moveDirection.x != -1 &&
-                thisFrame.moveDirection.x == -1)
+            else if (thisFrame.moveDirection.y == -1)
             {
-                facing = Facing.Left;
-                GetComponentInChildren<AnimationStateController>().SetState("WalkLeft");
+                thisFrame.facing = Facing.Down;
+                if (thisFrame.facing != lastFrame.facing)
+                {
+                    GetComponentInChildren<AnimationStateController>().SetState("WalkDown");
+                }
             }
-            else if (lastFrame.moveDirection.x != 1 &&
-                thisFrame.moveDirection.x == 1)
+            else if (thisFrame.moveDirection.y == 1)
             {
-                facing = Facing.Right;
-                GetComponentInChildren<AnimationStateController>().SetState("WalkRight");
+                thisFrame.facing = Facing.Up;
+                if (thisFrame.facing != lastFrame.facing)
+                {
+                    GetComponentInChildren<AnimationStateController>().SetState("WalkUp");
+                }
             }
 
             if (thisFrame.moveDirection == Vector2.zero)
             {
                 if (lastFrame.moveDirection.x == -1)
                 {
-                    facing = Facing.Left;
+                    thisFrame.facing = Facing.Left;
                     GetComponentInChildren<AnimationStateController>().SetState("IdleLeft");
                 }
                 else if (lastFrame.moveDirection.x == 1)
                 {
-                    facing = Facing.Right;
+                    thisFrame.facing = Facing.Right;
                     GetComponentInChildren<AnimationStateController>().SetState("IdleRight");
                 }
                 else if (lastFrame.moveDirection.y == -1)
                 {
-                    facing = Facing.Down;
+                    thisFrame.facing = Facing.Down;
                     GetComponentInChildren<AnimationStateController>().SetState("IdleDown");
                 }
                 else if (lastFrame.moveDirection.y == 1)
                 {
-                    facing = Facing.Up;
+                    thisFrame.facing = Facing.Up;
                     GetComponentInChildren<AnimationStateController>().SetState("IdleUp");
                 }
             }
@@ -161,19 +170,19 @@ namespace Player
             attacking = true;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             Vector2 facingDir = Vector2.zero;
-            if (facing == Facing.Left)
+            if (thisFrame.facing == Facing.Left)
             {
                 facingDir.x = -1;
             }
-            else if (facing == Facing.Right)
+            else if (thisFrame.facing == Facing.Right)
             {
                 facingDir.x = 1;
             }
-            else if (facing == Facing.Up)
+            else if (thisFrame.facing == Facing.Up)
             {
                 facingDir.y = 1;
             }
-            else if (facing == Facing.Down)
+            else if (thisFrame.facing == Facing.Down)
             {
                 facingDir.y = -1;
             }
