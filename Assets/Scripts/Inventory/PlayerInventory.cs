@@ -22,7 +22,7 @@ namespace Player
 
         private void Start()
         {
-            for(int i = 0; i < 49; ++i)
+            for(int i = 0; i < 1000; ++i)
                 addItem(ItemDatabase.instance.getRandomItem());
             populateInventory();
         }

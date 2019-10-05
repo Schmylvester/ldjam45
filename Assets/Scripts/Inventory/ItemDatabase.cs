@@ -32,6 +32,7 @@ public class ItemDatabase : MonoBehaviour
 
         for(int i = 0; i < m_allItems.items.Length; ++i)
         {
+            Debug.Log(m_allItems.items[i].rarity);
             for(int j = i + 1; j < m_allItems.items.Length; ++j)
             {
                 if(m_allItems.items[i].name == m_allItems.items[j].name)
