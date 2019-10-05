@@ -22,6 +22,7 @@ public class Monster : MonoBehaviour
     [SerializeField] bool playerInLineOfSight = false;
 
     PlayerStats stats;
+    bool invulnerable = false;
 
     private void Start()
     {
@@ -154,10 +155,29 @@ public class Monster : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = movement;
     }
     
+    IEnumerator MakeInvulnerable(float time)
+    {
+        invulnerable = true;
+        yield return new WaitForSeconds(time);
+        invulnerable = false;
+    }
+
     public void OnHit(float damage)
     {
+        if (invulnerable)
+        {
+            return;
+        }
         //todo: damage reduction
+
         GetComponent<PlayerStats>().currentHealth -= damage;
-        Debug.Log("Monster HP = " + GetComponent<PlayerStats>().currentHealth);
+        StartCoroutine(MakeInvulnerable(0.5f));
+
+        Debug.Log("Monster HP = " + stats.currentHealth);
+
+        if (stats.currentHealth <= 0) //todo: death animation or particles
+        {
+            Destroy(gameObject, 0.2f);
+        }
     }
 }

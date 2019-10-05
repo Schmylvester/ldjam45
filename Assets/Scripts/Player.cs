@@ -202,9 +202,8 @@ namespace Player
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
-        private void OnTriggerEnter2D(Collider2D collider)
+        private void OnTriggerStay2D(Collider2D collider)
         {
-            Debug.Log(collider.transform.parent);
             if (collider.transform.parent)
             {
                 if (collider.transform.parent.name == "Monster") //todo: tag/layer
