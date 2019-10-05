@@ -6,14 +6,14 @@ namespace Player
 {
     public class Player : MonoBehaviour
     {
-        struct PerFrame
+        struct FrameData
         {
             public Vector2 moveDirection;
             public bool interacted;
         };
 
-        PerFrame lastFrame;
-        PerFrame thisFrame;
+        FrameData lastFrame;
+        FrameData thisFrame;
 
         float moveSpeed = 100;
 
@@ -23,13 +23,14 @@ namespace Player
             lastFrame.interacted = false;
             thisFrame.moveDirection = Vector2.zero;
             thisFrame.interacted = false;
-
-            GetComponentInChildren<AnimationStateController>().SetState("IdleDown");
+            GetComponentInChildren<AnimationStateController>().SetState("IdleUp");
         }
 
         void HandleInput()
         {
-            lastFrame.moveDirection = thisFrame.moveDirection;
+            lastFrame = thisFrame;
+
+            thisFrame.interacted = false;
             thisFrame.moveDirection = Vector2.zero;
 
             if (Input.GetKey(KeyCode.W))

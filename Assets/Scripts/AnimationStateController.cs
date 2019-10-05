@@ -9,12 +9,14 @@ public class AnimationStateController : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(transform.childCount);
         for (int i = 0; i < transform.childCount; ++i)
         {
             children.Add(transform.GetChild(i).gameObject);
             children[i].SetActive(false);
         }
+
+        children[0].SetActive(true);
+        activeState = children[0];
     }
 
     public void SetState(string stateName)
@@ -26,10 +28,11 @@ public class AnimationStateController : MonoBehaviour
                 if (activeState) activeState.SetActive(false);
                 activeState = child;
                 activeState.SetActive(true);
+                return;
             }
         }
 
-        Debug.LogWarning("Invalid state " + stateName);
+        Debug.LogError("Invalid state " + stateName);
     }
 
     public void ChangeFPS(float fps)
