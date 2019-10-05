@@ -23,6 +23,8 @@ public class Monster : MonoBehaviour
 
     PlayerStats stats;
     bool invulnerable = false;
+    public bool aggresive = true;
+    bool willAttackPlayer = false;
 
     private void Start()
     {
@@ -34,7 +36,8 @@ public class Monster : MonoBehaviour
     {
         if (state == State.Idle)
         {
-            if (distanceToPlayer < 1 &&
+            if (willAttackPlayer &&
+                distanceToPlayer < 1 &&
                 playerInLineOfSight)
             {
                 state = State.Hunting;
@@ -93,6 +96,8 @@ public class Monster : MonoBehaviour
 
     private void Update()
     {
+        willAttackPlayer = aggresive || stats.currentHealth < stats.GetActualMaxHealth();
+
         vectorToPlayer = player.transform.position - transform.position;
         distanceToPlayer = Mathf.Abs(vectorToPlayer.magnitude);
 

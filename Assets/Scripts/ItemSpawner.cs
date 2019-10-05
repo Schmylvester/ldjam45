@@ -26,7 +26,7 @@ public class ItemSpawner : MonoBehaviour
 
         foreach (LootChance l in lt.table)
         {
-            if (Random.Range(0, 1) < l.weight / sumWeight)
+            if (Random.Range(0.0f, 1.0f) < l.weight / sumWeight)
             {
                 itemPrefab.SetActive(false);
                 GameObject go = Instantiate(itemPrefab);
