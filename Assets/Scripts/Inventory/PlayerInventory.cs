@@ -22,11 +22,8 @@ namespace Player
 
         private void Start()
         {
-            addItem(ItemDatabase.instance.getItem("Hoody"), 2);
-            addItem(ItemDatabase.instance.getItem("Hoody"), 2);
-            addItem(ItemDatabase.instance.getItem("Hoody"), 2);
-            addItem(ItemDatabase.instance.getItem("Nugget"), 2);
-            addItem(ItemDatabase.instance.getItem("Mushroom"));
+            for(int i = 0; i < 49; ++i)
+                addItem(ItemDatabase.instance.getRandomItem());
             populateInventory();
         }
 

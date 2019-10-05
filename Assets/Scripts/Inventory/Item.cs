@@ -15,7 +15,12 @@ public enum ItemType
     Null = -1,
 
     None,
-    Equippable,
+    Weapon,
+    Shield,
+    Headwear,
+    Footwear,
+    Gloves,
+    Clothing,
     Consumable,
 
     COUNT
@@ -29,5 +34,5 @@ public struct Item
     public ItemType type;
     public int baseValue;
     public Rarity rarity;
-    public UnityEngine.Sprite sprite;
+    public int spriteIdx;
 }

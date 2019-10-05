@@ -22,21 +22,26 @@ public class InventroryUIElement : MonoBehaviour, IPointerEnterHandler, IPointer
     public void setItem(Item _item, int _count)
     {
         item = _item;
-        image.sprite = item.sprite;
+        image.sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
         count.text = _count.ToString();
-        switch(item.type)
+        switch (item.type)
         {
             case ItemType.Consumable:
                 type.color = Color.green;
                 break;
-            case ItemType.Equippable:
+            case ItemType.Weapon:
+            case ItemType.Shield:
+            case ItemType.Headwear:
+            case ItemType.Footwear:
+            case ItemType.Gloves:
+            case ItemType.Clothing:
                 type.color = Color.red;
                 break;
             default:
                 type.color = Color.clear;
                 break;
         }
-        if(item.rarity != Rarity.Common)
+        if (item.rarity != Rarity.Common)
         {
             rarity.color = rarityLevels[(int)item.rarity];
         }
@@ -48,28 +53,30 @@ public class InventroryUIElement : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(item.sprite != null)
+        nameField.text = item.name;
+        descriptionField.text = item.description;
+        rarityField.text = item.rarity.ToString();
+        if (item.type != ItemType.None)
         {
-            nameField.text = item.name;
-            descriptionField.text = item.description;
-            rarityField.text = item.rarity.ToString();
-            if(item.type != ItemType.None)
-            {
-                typeField.text = item.type.ToString();
-            }
-            rarityField.color = rarityLevels[(int)item.rarity];
-            switch(item.type)
-            {
-                case ItemType.Consumable:
-                    typeField.color = Color.green;
-                    break;
-                case ItemType.Equippable:
-                    typeField.color = Color.red;
-                    break;
-                default:
-                    typeField.color = Color.black;
-                    break;
-            }
+            typeField.text = item.type.ToString();
+        }
+        rarityField.color = rarityLevels[(int)item.rarity];
+        switch (item.type)
+        {
+            case ItemType.Consumable:
+                typeField.color = Color.green;
+                break;
+            case ItemType.Weapon:
+            case ItemType.Shield:
+            case ItemType.Headwear:
+            case ItemType.Footwear:
+            case ItemType.Gloves:
+            case ItemType.Clothing:
+                typeField.color = Color.red;
+                break;
+            default:
+                typeField.color = Color.black;
+                break;
         }
     }
 

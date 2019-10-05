@@ -1,0 +1,604 @@
+﻿{
+  "items": [
+    {
+      "name": "Simple Axe",
+      "description": "Typically used for cutting wood, makes an adequate weapon.",
+      "type": "Weapon",
+      "rarity": "Common",
+      "baseValue": 25,
+      "spriteIdx": 140
+    },
+    {
+      "name": "Simple Staff",
+      "description": "Said to contain the soul of a web developer.",
+      "type": "Weapon",
+      "rarity": "Common",
+      "baseValue": 35,
+      "spriteIdx": 142
+    },
+    {
+      "name": "Simple Sword",
+      "description": "Enemies who are hit with this sword tend to take damage.",
+      "type": "Weapon",
+      "rarity": "Common",
+      "baseValue": 35,
+      "spriteIdx": 143
+    },
+    {
+      "name": "Simple Bow",
+      "description": "If you want to hurt someone but they are over there and you are over here, you may consider a bow.",
+      "type": "Weapon",
+      "rarity": "Common",
+      "baseValue": 35,
+      "spriteIdx": 145
+    },
+    {
+      "name": "Simple Knife",
+      "description": "Not suitable for use in gun fights.",
+      "type": "Weapon",
+      "rarity": "Common",
+      "baseValue": 30,
+      "spriteIdx": 146
+    },
+    {
+      "name": "Mushroom",
+      "description": "Seems like a fun guy.\n\nHeals you a bit if you eat it.",
+      "type": "Consumable",
+      "rarity": "Common",
+      "baseValue": 15,
+      "spriteIdx": 289
+    },
+    {
+      "name": "Wooden Shield",
+      "description": "Lighter than an iron shield, which makes it easier to hold, but less effective as a shield.",
+      "type": "Shield",
+      "rarity": "Common",
+      "baseValue": 30,
+      "spriteIdx": 156
+    },
+    {
+      "name": "Iron Shield",
+      "description": "Heavier than a wooden shield, which makes it more effective as a shield, but harder to hold.",
+      "type": "Shield",
+      "rarity": "Common",
+      "baseValue": 35,
+      "spriteIdx": 157
+    },
+    {
+      "name": "Cool Hat",
+      "description": "This hat makes its wearer look cool, which makes the hat itself inherently cool.",
+      "type": "Headwear",
+      "rarity": "Uncommon",
+      "baseValue": 50,
+      "spriteIdx": 158
+    },
+    {
+      "name": "Iron Helmet",
+      "description": "Your head is where your brain is, so it's worth looking after.",
+      "type": "Headwear",
+      "rarity": "Common",
+      "baseValue": 45,
+      "spriteIdx": 160
+    },
+    {
+      "name": "Wizard Hat",
+      "description": "No one really understands why pointy hats make magic attacks more powerful, but to be honest no one really understands magic.",
+      "type": "Headwear",
+      "rarity": "Common",
+      "baseValue": 45,
+      "spriteIdx": 161
+    },
+    {
+      "name": "Ruby Bracelet",
+      "description": "It does not serve a practical purpose, but it is shiny and a nice red colour so it is universally coveted.",
+      "type": "None",
+      "rarity": "Uncommon",
+      "baseValue": 80,
+      "spriteIdx": 162
+    },
+    {
+      "name": "Clothes",
+      "description": "For if you are cold or you have personal reservations about being naked.",
+      "type": "Clothing",
+      "rarity": "Common",
+      "baseValue": 20,
+      "spriteIdx": 164
+    },
+    {
+      "name": "Leather Armour",
+      "description": "Can protect you from some damage without impeding your movement or harming your punk aesthetic.",
+      "type": "Clothing",
+      "rarity": "Common",
+      "baseValue": 60,
+      "spriteIdx": 165
+    },
+    {
+      "name": "Iron Armour",
+      "description": "The manufacturer does not recommend this armour for underwater adventures or stealth missions.",
+      "type": "Clothing",
+      "rarity": "Common",
+      "baseValue": 70,
+      "spriteIdx": 166
+    },
+    {
+      "name": "Fancy Cloak",
+      "description": "It makes a very dramatic 'swish' noise when you walk away from someone.",
+      "type": "None",
+      "rarity": "Uncommon",
+      "baseValue": 65,
+      "spriteIdx": 167
+    },
+    {
+      "name": "Leather Boots",
+      "description": "If cowboys existed in this game, these boots would make you look like one, and you would look good because cowboys would look good in this game.",
+      "type": "Footwear",
+      "rarity": "Common",
+      "baseValue": 20,
+      "spriteIdx": 168
+    },
+    {
+      "name": "Iron Boots",
+      "description": "They make a sound as you walk that sounds sort of like 'CLUNK CLUNK CLUNK'",
+      "type": "Footwear",
+      "rarity": "Common",
+      "baseValue": 25,
+      "spriteIdx": 169
+    },
+    {
+      "name": "Gloves",
+      "description": "They don't offer a lot of protection, but they keep your hands nice and warm",
+      "type": "Gloves",
+      "rarity": "Common",
+      "baseValue": 20,
+      "spriteIdx": 170
+    },
+    {
+      "name": "Iron Gauntlets",
+      "description": "Big and heavy and made of metal, they keep your fingers protected against many finger level threats.",
+      "type": "Gloves",
+      "rarity": "Common",
+      "baseValue": 25,
+      "spriteIdx": 171
+    },
+    {
+      "name": "Emerald Ring",
+      "description": "You can tell it's an emerald because it is a green jewel in a video game.",
+      "type": "None",
+      "rarity": "Uncommon",
+      "baseValue": 80,
+      "spriteIdx": 172
+    },
+    {
+      "name": "Cute Ribbon",
+      "description": "Ribbons are used by humans as an accessory to subtly improve their overall aesthetic.",
+      "type": "None",
+      "rarity": "Uncommon",
+      "baseValue": 50,
+      "spriteIdx": 178
+    },
+    {
+      "name": "Cloak",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 179
+    },
+    {
+      "name": "Pearl Jewel",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 180
+    },
+    {
+      "name": "Onyx Jewel",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 181
+    },
+    {
+      "name": "Ruby Jewel",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 183
+    },
+    {
+      "name": "Sapphire Jewel",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 184
+    },
+    {
+      "name": "Emerald Jewel",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 185
+    },
+    {
+      "name": "Health Potion",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 188
+    },
+    {
+      "name": "Weak Poison",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 191
+    },
+    {
+      "name": "Strong Poison",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 191
+    },
+    {
+      "name": "Four Leaved Clover",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 198
+    },
+    {
+      "name": "Magic Lamp",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 213
+    },
+    {
+      "name": "Love Potion",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 218
+    },
+    {
+      "name": "New Book",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 222
+    },
+    {
+      "name": "Old Book",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 225
+    },
+    {
+      "name": "Used Book",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 226
+    },
+    {
+      "name": "Mysterious Map",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 227
+    },
+    {
+      "name": "Magic Scroll",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 234
+    },
+    {
+      "name": "Lyre",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 244
+    },
+    {
+      "name": "Cute Bag",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 259
+    },
+    {
+      "name": "Dusty Bag",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 260
+    },
+    {
+      "name": "Lower Case T",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 277
+    },
+    {
+      "name": "Carrot",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 284
+    },
+    {
+      "name": "Fish",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 288
+    },
+    {
+      "name": "Log",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 327
+    },
+    {
+      "name": "Feather",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 333
+    },
+    {
+      "name": "Cool Feather",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 334
+    },
+    {
+      "name": "Blocks o' Gold",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 356
+    },
+    {
+      "name": "Ruby",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 354
+    },
+    {
+      "name": "Sugar",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 345
+    },
+    {
+      "name": "Crystal",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 341
+    },
+    {
+      "name": "Crystal Ball",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 349
+    },
+    {
+      "name": "Dying Plant",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 379
+    },
+    {
+      "name": "Healthy Plant",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 376
+    },
+    {
+      "name": "Golden Sword",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 388
+    },
+    {
+      "name": "Holy Bow",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 423
+    },
+    {
+      "name": "Demonic Bow",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 424
+    },
+    {
+      "name": "Humble Staff",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 411
+    },
+    {
+      "name": "Fancy Staff",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 419
+    },
+    {
+      "name": "Legendary Sword",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 389
+    },
+    {
+      "name": "Hefty Sword",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 394
+    },
+    {
+      "name": "Cool Axe",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 398
+    },
+    {
+      "name": "Ebony Armour",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 431
+    },
+    {
+      "name": "Samurai Armour",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 433
+    },
+    {
+      "name": "Nice Dress",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 435
+    },
+    {
+      "name": "Fancy Jacket",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 438
+    },
+    {
+      "name": "Plain Dress",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 437
+    },
+    {
+      "name": "Hoody",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 436
+    },
+    {
+      "name": "Trendy Scarf",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 444
+    },
+    {
+      "name": "Yellow Bow",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 457
+    },
+    {
+      "name": "Bunny Ears",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 458
+    },
+    {
+      "name": "Ebony Shield",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 496
+    },
+    {
+      "name": "Gold Ring",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 508
+    },
+    {
+      "name": "Silver Ring",
+      "description": "",
+      "type": "None",
+      "rarity": "Common",
+      "baseValue": 0,
+      "spriteIdx": 509
+    }
+  ]
+}
