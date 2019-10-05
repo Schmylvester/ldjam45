@@ -9,6 +9,7 @@ public class Loot : MonoBehaviour
     public float acceleration = 2;
     public float velocity = 0;
     public string itemName = "Mushroom";
+    float timer = 0;
 
     private void Start()
     {
@@ -29,6 +30,12 @@ public class Loot : MonoBehaviour
 
     private void Update()
     {
+        timer += Time.deltaTime;
+        if (timer < 0.5f)
+        {
+            return;
+        }
+
         if (moveTowardsPlayer)
         {
             MoveTowardsPlayer();
@@ -51,7 +58,7 @@ public class Loot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.parent.gameObject.tag == "Player")
+        if (timer > 0.5f && collision.transform.parent.gameObject.tag == "Player")
         {
             //todo: player inventory singleton
             //Item item = ItemDatabase.instance.getItem(itemName);

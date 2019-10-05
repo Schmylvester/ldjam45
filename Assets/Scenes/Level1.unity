@@ -651,6 +651,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 274aaf0528dc52b4aa8c65e6c33f8516, type: 3}
+--- !u!1 &1396118906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1396118908}
+  - component: {fileID: 1396118907}
+  m_Layer: 0
+  m_Name: ItemSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1396118907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396118906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8547fd41bcb157a4799d301283d3734e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 1132806687859555242, guid: 9759d510d465e9e4c849cf832eff29bc,
+    type: 3}
+--- !u!4 &1396118908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396118906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.19437455, y: 0.31732556, z: 0.025611162}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1740518409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 201290906103218625, guid: 274aaf0528dc52b4aa8c65e6c33f8516,
@@ -1208,6 +1253,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WalkLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967841040148998937, guid: 50115f7f6d8329d4b9506a5829d5e593,
+        type: 3}
+      propertyPath: table.Array.data[0].chance
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50115f7f6d8329d4b9506a5829d5e593, type: 3}

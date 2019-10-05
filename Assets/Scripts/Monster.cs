@@ -200,6 +200,7 @@ public class Monster : MonoBehaviour
 
         if (stats.currentHealth <= 0) //todo: death animation or particles
         {
+            ItemSpawner.instance.Spawn(GetComponent<LootTable>(), transform.position);
             Destroy(gameObject, 0.2f);
         }
     }

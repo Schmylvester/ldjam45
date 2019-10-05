@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 3239037579678289130}
   - component: {fileID: 7269798398436274404}
   - component: {fileID: 6370566704581170455}
+  - component: {fileID: 7967841040148998937}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -636,9 +637,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamage: 1
+  damageModifier: 0
+  multiplicativeDamageMultipliers: []
   baseMoveSpeed: 30
+  moveSpeedModifier: 0
+  multiplicateMoveSpeedMultipliers: []
   baseMaxHealth: 3
+  maxHealthModifier: 0
+  multiplicateMaxHealthMultipliers: []
   currentHealth: 3
+--- !u!114 &7967841040148998937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7608577813278631158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb38cce434a5f347b4feb54dd829cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  table:
+  - itemName: Mushroom
+    weight: 10
+  - itemName: Mushroom
+    weight: 1
 --- !u!1 &8372820276601867210
 GameObject:
   m_ObjectHideFlags: 0

@@ -75,6 +75,7 @@ MonoBehaviour:
   player: {fileID: 0}
   acceleration: 2
   velocity: 0
+  itemName: Mushroom
 --- !u!1 &7542794336072509476
 GameObject:
   m_ObjectHideFlags: 0
