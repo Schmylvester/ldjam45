@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2234738607134015935}
   - component: {fileID: 5391643992134177731}
   - component: {fileID: 3898669752253420432}
+  - component: {fileID: 1695315145931219842}
   m_Layer: 0
   m_Name: WalkDown
   m_TagString: Untagged
@@ -68,8 +69,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300024, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,6 +97,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   - {fileID: 21300004, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   fps: 10
+--- !u!114 &1695315145931219842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657949875366269189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformWithY: {fileID: 4535373939022182983}
 --- !u!1 &1681164482606769806
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +121,7 @@ GameObject:
   - component: {fileID: 8590401807769216646}
   - component: {fileID: 1694150855883678354}
   - component: {fileID: 8520943724770730099}
+  - component: {fileID: 8369335359692477039}
   m_Layer: 0
   m_Name: IdleDown
   m_TagString: Untagged
@@ -164,7 +179,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -191,6 +206,19 @@ MonoBehaviour:
   frames:
   - {fileID: 21300002, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   fps: 10
+--- !u!114 &8369335359692477039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681164482606769806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformWithY: {fileID: 4535373939022182983}
 --- !u!1 &1936804710393249394
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +230,7 @@ GameObject:
   - component: {fileID: 2442787405007477195}
   - component: {fileID: 5545477526035476719}
   - component: {fileID: 6053789984509288480}
+  - component: {fileID: 4440464702264562082}
   m_Layer: 0
   m_Name: WalkUp
   m_TagString: Untagged
@@ -259,7 +288,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -287,6 +316,19 @@ MonoBehaviour:
   - {fileID: 21300072, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   - {fileID: 21300076, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   fps: 10
+--- !u!114 &4440464702264562082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936804710393249394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformWithY: {fileID: 4535373939022182983}
 --- !u!1 &2060674183214158526
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,7 +397,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -393,6 +435,7 @@ GameObject:
   - component: {fileID: 9104610987574381579}
   - component: {fileID: 2497282652643290084}
   - component: {fileID: 5216036926156445153}
+  - component: {fileID: 1909260642494943973}
   m_Layer: 0
   m_Name: WalkRight
   m_TagString: Untagged
@@ -450,7 +493,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -478,6 +521,19 @@ MonoBehaviour:
   - {fileID: 21300048, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   - {fileID: 21300052, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   fps: 10
+--- !u!114 &1909260642494943973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4990683501664038600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformWithY: {fileID: 4535373939022182983}
 --- !u!1 &5868558131244563785
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +545,7 @@ GameObject:
   - component: {fileID: 2981897633305644557}
   - component: {fileID: 2205837222870148715}
   - component: {fileID: 4820179667736967977}
+  - component: {fileID: 8179167797246105575}
   m_Layer: 0
   m_Name: IdleLeft
   m_TagString: Untagged
@@ -546,7 +603,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -573,6 +630,19 @@ MonoBehaviour:
   frames:
   - {fileID: 21300026, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   fps: 10
+--- !u!114 &8179167797246105575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868558131244563785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformWithY: {fileID: 4535373939022182983}
 --- !u!1 &7267423089218482881
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +654,7 @@ GameObject:
   - component: {fileID: 2789203831196607064}
   - component: {fileID: 8093228349443721340}
   - component: {fileID: 6484182184567307026}
+  - component: {fileID: 1164019086764956250}
   m_Layer: 0
   m_Name: IdleRight
   m_TagString: Untagged
@@ -641,7 +712,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -668,6 +739,19 @@ MonoBehaviour:
   frames:
   - {fileID: 21300050, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   fps: 10
+--- !u!114 &1164019086764956250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267423089218482881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformWithY: {fileID: 4535373939022182983}
 --- !u!1 &7298991561012545694
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8154501380338968262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.048, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4535373939022182983}
@@ -841,7 +925,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.3}
+  m_Size: {x: 0.15, y: 0.15}
   m_EdgeRadius: 0
 --- !u!1 &8522924675947514875
 GameObject:
@@ -854,6 +938,7 @@ GameObject:
   - component: {fileID: 837530111266879653}
   - component: {fileID: 2943673113344318826}
   - component: {fileID: 6386121527469625424}
+  - component: {fileID: 426035255007858160}
   m_Layer: 0
   m_Name: WalkLeft
   m_TagString: Untagged
@@ -911,7 +996,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -939,3 +1024,16 @@ MonoBehaviour:
   - {fileID: 21300024, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   - {fileID: 21300028, guid: 242ce1274b4990c4b8b8041b17744a65, type: 3}
   fps: 10
+--- !u!114 &426035255007858160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522924675947514875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformWithY: {fileID: 4535373939022182983}
