@@ -8,8 +8,8 @@ public class PlayerStats : MonoBehaviour
     //todo: make monster stat seperate?
 
     public float baseDamage = 1;
-    float damageModifier = 0;
-    List<float> multiplicativeDamageMultipliers = new List<float>();
+    public float damageModifier = 0;
+    public List<float> multiplicativeDamageMultipliers = new List<float>();
     public float GetActualDamage()
     {
         float multiplier = 1.0f;
@@ -22,8 +22,8 @@ public class PlayerStats : MonoBehaviour
     }
 
     public float baseMoveSpeed = 50;
-    float moveSpeedModifier = 0;
-    List<float> multiplicateMoveSpeedMultipliers = new List<float>();
+    public float moveSpeedModifier = 0;
+    public List<float> multiplicateMoveSpeedMultipliers = new List<float>();
     public float GetActualMovespeed()
     {
         float multiplier = 1.0f;
@@ -36,8 +36,8 @@ public class PlayerStats : MonoBehaviour
     }
 
     public float baseMaxHealth = 10;
-    float maxHealthModifier = 0;
-    List<float> multiplicateMaxHealthMultipliers = new List<float>();
+    public float maxHealthModifier = 0;
+    public List<float> multiplicateMaxHealthMultipliers = new List<float>();
     public float GetActualMaxHealth()
     {
         float multiplier = 1.0f;

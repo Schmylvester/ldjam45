@@ -68,6 +68,27 @@ public class Monster : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
+        else if (state == State.Defending)
+        {
+            StartCoroutine(Defending());
+        }
+    }
+
+    IEnumerator Defending()
+    {
+        GetComponentInChildren<AnimationStateController>().SetState("Defend");
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        yield return new WaitForSeconds(0.4f);
+        state = State.Attacking;
+        StartCoroutine(SpeedUpAfterDefending());
+    }
+
+    IEnumerator SpeedUpAfterDefending()
+    {
+        stats.moveSpeedModifier += 6;
+        yield return new WaitForSeconds(0.4f);
+        stats.moveSpeedModifier -= 6;
+        yield return null;
     }
 
     private void Update()
@@ -171,7 +192,9 @@ public class Monster : MonoBehaviour
         //todo: damage reduction
 
         GetComponent<PlayerStats>().currentHealth -= damage;
-        StartCoroutine(MakeInvulnerable(0.5f));
+        state = State.Defending;
+
+        StartCoroutine(MakeInvulnerable(0.8f));
 
         Debug.Log("Monster HP = " + stats.currentHealth);
 
