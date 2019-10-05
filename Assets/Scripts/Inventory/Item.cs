@@ -35,4 +35,5 @@ public struct Item
     public int baseValue;
     public Rarity rarity;
     public int spriteIdx;
+    public string[] traits;
 }

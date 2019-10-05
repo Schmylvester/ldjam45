@@ -21,10 +21,12 @@ namespace Player
 
         List<Item> m_items = new List<Item>();
         List<int> m_counts = new List<int>();
+        private bool visible = true;
+        List<GameObject> m_activeChildren = new List<GameObject>();
 
         private void Awake()
         {
-            if(instance)
+            if (instance)
             {
                 Destroy(gameObject);
             }
@@ -32,24 +34,39 @@ namespace Player
             {
                 instance = this;
             }
+            toggleInventoryMenu();
         }
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.I))
+            if (Input.GetKeyDown(KeyCode.I))
             {
-                populateInventory();
-                Canvas canvas = GetComponentInParent<Canvas>();
-                canvas.enabled = !canvas.enabled;
+                toggleInventoryMenu();
+            }
+        }
+
+        private void toggleInventoryMenu()
+        {
+            visible = !visible;
+            populateInventory();
+            for(int i = 0; i < transform.childCount; ++i)
+            {
+                transform.GetChild(i).gameObject.SetActive(visible);
+                GetComponent<Image>().enabled = visible;
             }
         }
 
         public void populateInventory()
         {
-            for(int i = 0; i < m_items.Count; ++i)
+            for(int i = m_activeChildren.Count - 1; i >= 0; --i)
+            {
+                Destroy(m_activeChildren[i]);
+            }
+            for (int i = 0; i < m_items.Count; ++i)
             {
                 InventroryUIElement inventroryUIElement =
                     Instantiate(inventoryItemPrefab, inventoryPanel).GetComponent<InventroryUIElement>();
+                m_activeChildren.Add(inventroryUIElement.gameObject);
 
                 (inventroryUIElement.transform as RectTransform).Translate(new Vector3((i % itemsPerRow) * gridSpacing.x, -(i / itemsPerRow) * gridSpacing.y));
 
@@ -60,9 +77,9 @@ namespace Player
 
         public void addItem(Item item, int count = 1)
         {
-            for(int i = 0; i < m_items.Count; ++i)
+            for (int i = 0; i < m_items.Count; ++i)
             {
-                if(m_items[i].name == item.name)
+                if (m_items[i].name == item.name)
                 {
                     m_counts[i] += count;
                     return;
@@ -80,11 +97,11 @@ namespace Player
         /// <returns>Whether the item was successfully removed</returns>
         public bool removeItem(string item, int count = 1)
         {
-            for(int i = 0; i < m_items.Count; ++i)
+            for (int i = 0; i < m_items.Count; ++i)
             {
-                if(m_items[i].name == item)
+                if (m_items[i].name == item)
                 {
-                    if(count <= m_counts[i])
+                    if (count <= m_counts[i])
                     {
                         m_counts[i] -= count;
                         return true;
@@ -97,7 +114,7 @@ namespace Player
             }
             return false;
         }
-        
+
         /// <summary>
         /// Removes an item from the player's inventory
         /// </summary>

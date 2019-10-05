@@ -6,7 +6,8 @@
       "type": 1,
       "rarity": 0,
       "baseValue": 25,
-      "spriteIdx": 140
+      "spriteIdx": 140,
+      "traits": []
     },
     {
       "name": "Simple Staff",
@@ -14,7 +15,8 @@
       "type": 1,
       "rarity": 0,
       "baseValue": 35,
-      "spriteIdx": 142
+      "spriteIdx": 142,
+      "traits": []
     },
     {
       "name": "Simple Sword",
@@ -22,7 +24,8 @@
       "type": 1,
       "rarity": 0,
       "baseValue": 35,
-      "spriteIdx": 143
+      "spriteIdx": 143,
+      "traits": []
     },
     {
       "name": "Simple Bow",
@@ -30,7 +33,8 @@
       "type": 1,
       "rarity": 0,
       "baseValue": 35,
-      "spriteIdx": 145
+      "spriteIdx": 145,
+      "traits": []
     },
     {
       "name": "Simple Knife",
@@ -38,7 +42,8 @@
       "type": 1,
       "rarity": 0,
       "baseValue": 30,
-      "spriteIdx": 146
+      "spriteIdx": 146,
+      "traits": []
     },
     {
       "name": "Mushroom",
@@ -46,7 +51,8 @@
       "type": 7,
       "rarity": 0,
       "baseValue": 15,
-      "spriteIdx": 289
+      "spriteIdx": 289,
+      "traits": []
     },
     {
       "name": "Wooden Shield",
@@ -54,7 +60,8 @@
       "type": 2,
       "rarity": 0,
       "baseValue": 30,
-      "spriteIdx": 156
+      "spriteIdx": 156,
+      "traits": []
     },
     {
       "name": "Iron Shield",
@@ -62,7 +69,8 @@
       "type": 2,
       "rarity": 0,
       "baseValue": 35,
-      "spriteIdx": 157
+      "spriteIdx": 157,
+      "traits": []
     },
     {
       "name": "Cool Hat",
@@ -70,7 +78,8 @@
       "type": 3,
       "rarity": 1,
       "baseValue": 50,
-      "spriteIdx": 158
+      "spriteIdx": 158,
+      "traits": []
     },
     {
       "name": "Iron Helmet",
@@ -78,7 +87,8 @@
       "type": 3,
       "rarity": 0,
       "baseValue": 45,
-      "spriteIdx": 160
+      "spriteIdx": 160,
+      "traits": []
     },
     {
       "name": "Wizard Hat",
@@ -86,7 +96,8 @@
       "type": 3,
       "rarity": 0,
       "baseValue": 45,
-      "spriteIdx": 161
+      "spriteIdx": 161,
+      "traits": []
     },
     {
       "name": "Ruby Bracelet",
@@ -94,7 +105,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 80,
-      "spriteIdx": 162
+      "spriteIdx": 162,
+      "traits": []
     },
     {
       "name": "Clothes",
@@ -102,7 +114,8 @@
       "type": 6,
       "rarity": 0,
       "baseValue": 20,
-      "spriteIdx": 164
+      "spriteIdx": 164,
+      "traits": []
     },
     {
       "name": "Leather Armour",
@@ -110,7 +123,8 @@
       "type": 6,
       "rarity": 0,
       "baseValue": 60,
-      "spriteIdx": 165
+      "spriteIdx": 165,
+      "traits": []
     },
     {
       "name": "Iron Armour",
@@ -118,7 +132,8 @@
       "type": 6,
       "rarity": 0,
       "baseValue": 70,
-      "spriteIdx": 166
+      "spriteIdx": 166,
+      "traits": []
     },
     {
       "name": "Fancy Cloak",
@@ -126,7 +141,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 65,
-      "spriteIdx": 167
+      "spriteIdx": 167,
+      "traits": []
     },
     {
       "name": "Leather Boots",
@@ -134,7 +150,8 @@
       "type": 4,
       "rarity": 0,
       "baseValue": 20,
-      "spriteIdx": 168
+      "spriteIdx": 168,
+      "traits": []
     },
     {
       "name": "Iron Boots",
@@ -142,7 +159,8 @@
       "type": 4,
       "rarity": 0,
       "baseValue": 25,
-      "spriteIdx": 169
+      "spriteIdx": 169,
+      "traits": []
     },
     {
       "name": "Gloves",
@@ -150,7 +168,8 @@
       "type": 5,
       "rarity": 0,
       "baseValue": 20,
-      "spriteIdx": 170
+      "spriteIdx": 170,
+      "traits": []
     },
     {
       "name": "Iron Gauntlets",
@@ -158,7 +177,8 @@
       "type": 5,
       "rarity": 0,
       "baseValue": 25,
-      "spriteIdx": 171
+      "spriteIdx": 171,
+      "traits": []
     },
     {
       "name": "Emerald Ring",
@@ -166,7 +186,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 80,
-      "spriteIdx": 172
+      "spriteIdx": 172,
+      "traits": []
     },
     {
       "name": "Cute Ribbon",
@@ -174,7 +195,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 50,
-      "spriteIdx": 178
+      "spriteIdx": 178,
+      "traits": []
     },
     {
       "name": "Cloak",
@@ -182,7 +204,8 @@
       "type": 0,
       "rarity": 0,
       "baseValue": 45,
-      "spriteIdx": 179
+      "spriteIdx": 179,
+      "traits": []
     },
     {
       "name": "Diamond Jewel",
@@ -190,7 +213,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 150,
-      "spriteIdx": 180
+      "spriteIdx": 180,
+      "traits": []
     },
     {
       "name": "Onyx Jewel",
@@ -198,7 +222,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 120,
-      "spriteIdx": 181
+      "spriteIdx": 181,
+      "traits": []
     },
     {
       "name": "Fake Diamond Jewel",
@@ -206,7 +231,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 95,
-      "spriteIdx": 182
+      "spriteIdx": 182,
+      "traits": []
     },
     {
       "name": "Ruby Jewel",
@@ -214,7 +240,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 100,
-      "spriteIdx": 183
+      "spriteIdx": 183,
+      "traits": []
     },
     {
       "name": "Sapphire Jewel",
@@ -222,7 +249,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 100,
-      "spriteIdx": 184
+      "spriteIdx": 184,
+      "traits": []
     },
     {
       "name": "Emerald Jewel",
@@ -230,7 +258,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 100,
-      "spriteIdx": 185
+      "spriteIdx": 185,
+      "traits": []
     },
     {
       "name": "Health Potion",
@@ -238,7 +267,8 @@
       "type": 7,
       "rarity": 0,
       "baseValue": 40,
-      "spriteIdx": 188
+      "spriteIdx": 188,
+      "traits": []
     },
     {
       "name": "Weak Poison",
@@ -246,7 +276,8 @@
       "type": 7,
       "rarity": 0,
       "baseValue": 35,
-      "spriteIdx": 191
+      "spriteIdx": 191,
+      "traits": []
     },
     {
       "name": "Strong Poison",
@@ -254,7 +285,8 @@
       "type": 7,
       "rarity": 1,
       "baseValue": 80,
-      "spriteIdx": 191
+      "spriteIdx": 191,
+      "traits": []
     },
     {
       "name": "Four Leaved Clover",
@@ -262,7 +294,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 120,
-      "spriteIdx": 198
+      "spriteIdx": 198,
+      "traits": []
     },
     {
       "name": "Magic Lamp",
@@ -270,7 +303,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 120,
-      "spriteIdx": 213
+      "spriteIdx": 213,
+      "traits": []
     },
     {
       "name": "Love Potion",
@@ -278,7 +312,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 100,
-      "spriteIdx": 218
+      "spriteIdx": 218,
+      "traits": []
     },
     {
       "name": "New Book",
@@ -286,7 +321,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 100,
-      "spriteIdx": 222
+      "spriteIdx": 222,
+      "traits": []
     },
     {
       "name": "Old Book",
@@ -294,7 +330,8 @@
       "type": 0,
       "rarity": 0,
       "baseValue": 20,
-      "spriteIdx": 225
+      "spriteIdx": 225,
+      "traits": []
     },
     {
       "name": "Used Book",
@@ -302,7 +339,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 40,
-      "spriteIdx": 226
+      "spriteIdx": 226,
+      "traits": []
     },
     {
       "name": "Mysterious Map",
@@ -310,7 +348,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 150,
-      "spriteIdx": 227
+      "spriteIdx": 227,
+      "traits": []
     },
     {
       "name": "Magic Scroll",
@@ -318,7 +357,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 150,
-      "spriteIdx": 234
+      "spriteIdx": 234,
+      "traits": []
     },
     {
       "name": "Lyre",
@@ -326,7 +366,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 90,
-      "spriteIdx": 244
+      "spriteIdx": 244,
+      "traits": []
     },
     {
       "name": "Cute Bag",
@@ -334,7 +375,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 70,
-      "spriteIdx": 259
+      "spriteIdx": 259,
+      "traits": []
     },
     {
       "name": "Dusty Bag",
@@ -342,7 +384,8 @@
       "type": 0,
       "rarity": 0,
       "baseValue": 20,
-      "spriteIdx": 260
+      "spriteIdx": 260,
+      "traits": []
     },
     {
       "name": "Lower Case T",
@@ -350,7 +393,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 100,
-      "spriteIdx": 277
+      "spriteIdx": 277,
+      "traits": []
     },
     {
       "name": "Carrot",
@@ -358,7 +402,8 @@
       "type": 7,
       "rarity": 0,
       "baseValue": 10,
-      "spriteIdx": 284
+      "spriteIdx": 284,
+      "traits": []
     },
     {
       "name": "Fish",
@@ -366,7 +411,8 @@
       "type": 7,
       "rarity": 0,
       "baseValue": 15,
-      "spriteIdx": 288
+      "spriteIdx": 288,
+      "traits": []
     },
     {
       "name": "Log",
@@ -374,7 +420,8 @@
       "type": 0,
       "rarity": 0,
       "baseValue": 10,
-      "spriteIdx": 327
+      "spriteIdx": 327,
+      "traits": []
     },
     {
       "name": "Feather",
@@ -382,7 +429,8 @@
       "type": 0,
       "rarity": 0,
       "baseValue": 10,
-      "spriteIdx": 333
+      "spriteIdx": 333,
+      "traits": []
     },
     {
       "name": "Cool Feather",
@@ -390,7 +438,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 90,
-      "spriteIdx": 334
+      "spriteIdx": 334,
+      "traits": []
     },
     {
       "name": "Blocks o' Gold",
@@ -398,7 +447,8 @@
       "type": 0,
       "rarity": 3,
       "baseValue": 250,
-      "spriteIdx": 356
+      "spriteIdx": 356,
+      "traits": []
     },
     {
       "name": "Sugar",
@@ -406,7 +456,8 @@
       "type": 0,
       "rarity": 0,
       "baseValue": 30,
-      "spriteIdx": 345
+      "spriteIdx": 345,
+      "traits": []
     },
     {
       "name": "Crystal",
@@ -414,7 +465,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 140,
-      "spriteIdx": 341
+      "spriteIdx": 341,
+      "traits": []
     },
     {
       "name": "Crystal Ball",
@@ -422,7 +474,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 90,
-      "spriteIdx": 349
+      "spriteIdx": 349,
+      "traits": []
     },
     {
       "name": "Dying Plant",
@@ -430,7 +483,8 @@
       "type": 0,
       "rarity": 0,
       "baseValue": 35,
-      "spriteIdx": 379
+      "spriteIdx": 379,
+      "traits": []
     },
     {
       "name": "Healthy Plant",
@@ -438,7 +492,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 55,
-      "spriteIdx": 376
+      "spriteIdx": 376,
+      "traits": []
     },
     {
       "name": "Golden Sword",
@@ -446,7 +501,8 @@
       "type": 1,
       "rarity": 2,
       "baseValue": 150,
-      "spriteIdx": 388
+      "spriteIdx": 388,
+      "traits": []
     },
     {
       "name": "Holy Bow",
@@ -454,7 +510,8 @@
       "type": 1,
       "rarity": 3,
       "baseValue": 400,
-      "spriteIdx": 423
+      "spriteIdx": 423,
+      "traits": []
     },
     {
       "name": "Demonic Bow",
@@ -462,7 +519,8 @@
       "type": 1,
       "rarity": 3,
       "baseValue": 350,
-      "spriteIdx": 424
+      "spriteIdx": 424,
+      "traits": []
     },
     {
       "name": "Humble Staff",
@@ -470,7 +528,8 @@
       "type": 1,
       "rarity": 3,
       "baseValue": 350,
-      "spriteIdx": 411
+      "spriteIdx": 411,
+      "traits": []
     },
     {
       "name": "Fancy Staff",
@@ -478,7 +537,8 @@
       "type": 1,
       "rarity": 2,
       "baseValue": 200,
-      "spriteIdx": 419
+      "spriteIdx": 419,
+      "traits": []
     },
     {
       "name": "Legendary Sword",
@@ -486,7 +546,8 @@
       "type": 1,
       "rarity": 3,
       "baseValue": 350,
-      "spriteIdx": 389
+      "spriteIdx": 389,
+      "traits": []
     },
     {
       "name": "Hefty Sword",
@@ -494,7 +555,8 @@
       "type": 1,
       "rarity": 2,
       "baseValue": 200,
-      "spriteIdx": 394
+      "spriteIdx": 394,
+      "traits": []
     },
     {
       "name": "Cool Axe",
@@ -502,7 +564,8 @@
       "type": 0,
       "rarity": 3,
       "baseValue": 500,
-      "spriteIdx": 398
+      "spriteIdx": 398,
+      "traits": []
     },
     {
       "name": "Ebony Armour",
@@ -510,7 +573,8 @@
       "type": 6,
       "rarity": 3,
       "baseValue": 800,
-      "spriteIdx": 431
+      "spriteIdx": 431,
+      "traits": []
     },
     {
       "name": "Samurai Armour",
@@ -518,7 +582,8 @@
       "type": 6,
       "rarity": 2,
       "baseValue": 400,
-      "spriteIdx": 433
+      "spriteIdx": 433,
+      "traits": []
     },
     {
       "name": "Nice Dress",
@@ -526,7 +591,8 @@
       "type": 6,
       "rarity": 1,
       "baseValue": 70,
-      "spriteIdx": 435
+      "spriteIdx": 435,
+      "traits": []
     },
     {
       "name": "Fancy Jacket",
@@ -534,7 +600,8 @@
       "type": 6,
       "rarity": 2,
       "baseValue": 150,
-      "spriteIdx": 438
+      "spriteIdx": 438,
+      "traits": []
     },
     {
       "name": "Plain Dress",
@@ -542,7 +609,8 @@
       "type": 6,
       "rarity": 0,
       "baseValue": 80,
-      "spriteIdx": 437
+      "spriteIdx": 437,
+      "traits": []
     },
     {
       "name": "Hoodie",
@@ -550,7 +618,8 @@
       "type": 6,
       "rarity": 2,
       "baseValue": 110,
-      "spriteIdx": 436
+      "spriteIdx": 436,
+      "traits": []
     },
     {
       "name": "Trendy Scarf",
@@ -558,7 +627,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 110,
-      "spriteIdx": 444
+      "spriteIdx": 444,
+      "traits": []
     },
     {
       "name": "Yellow Bow",
@@ -566,7 +636,8 @@
       "type": 0,
       "rarity": 1,
       "baseValue": 90,
-      "spriteIdx": 457
+      "spriteIdx": 457,
+      "traits": []
     },
     {
       "name": "Bunny Ears",
@@ -574,7 +645,8 @@
       "type": 3,
       "rarity": 3,
       "baseValue": 250,
-      "spriteIdx": 458
+      "spriteIdx": 458,
+      "traits": []
     },
     {
       "name": "Purple Shield",
@@ -582,7 +654,8 @@
       "type": 2,
       "rarity": 3,
       "baseValue": 400,
-      "spriteIdx": 496
+      "spriteIdx": 496,
+      "traits": []
     },
     {
       "name": "Gold Ring",
@@ -590,7 +663,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 150,
-      "spriteIdx": 508
+      "spriteIdx": 508,
+      "traits": []
     },
     {
       "name": "Silver Ring",
@@ -598,7 +672,8 @@
       "type": 0,
       "rarity": 2,
       "baseValue": 149,
-      "spriteIdx": 509
+      "spriteIdx": 509,
+      "traits": []
     },
     {
       "name": "Egg",
