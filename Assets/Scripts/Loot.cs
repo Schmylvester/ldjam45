@@ -8,10 +8,23 @@ public class Loot : MonoBehaviour
     public GameObject player;
     public float acceleration = 2;
     public float velocity = 0;
+    public string itemName = "Mushroom";
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        if (ItemDatabase.instance != null)
+        {
+            Item item = ItemDatabase.instance.getItem(itemName);
+            if (item.name != new Item().name)
+            {
+                GetComponentInChildren<SpriteRenderer>().sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
+            }
+            else
+            {
+                Debug.LogError("Could not find item " + itemName + " in database");
+            }
+        }
     }
 
     private void Update()
@@ -40,8 +53,10 @@ public class Loot : MonoBehaviour
     {
         if (collision.transform.parent.gameObject.tag == "Player")
         {
+            //todo: player inventory singleton
+            //Item item = ItemDatabase.instance.getItem(itemName);
+            //Player.PlayerInventory.instance.addItem(item);
             Destroy(gameObject);
-            //todo: something with the player
         }
     }
 }
