@@ -509,5 +509,15 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1271602096775976619, guid: fe73cac0c7f72b84891487b96f8f59e8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681164482606769806, guid: fe73cac0c7f72b84891487b96f8f59e8,
+        type: 3}
+      propertyPath: m_Name
+      value: IdleDown
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe73cac0c7f72b84891487b96f8f59e8, type: 3}
