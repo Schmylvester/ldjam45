@@ -148,7 +148,7 @@ public class Monster : MonoBehaviour
 
     void IdleUpdate()
     {
-
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     void PatrolUpdate()

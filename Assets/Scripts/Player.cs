@@ -50,7 +50,6 @@ namespace Player
             thisFrame.moveDirection = Vector2.zero;
             thisFrame.interacted = false;
             thisFrame.attack = false;
-            thisFrame.facing = Facing.Down;
 
             if (Input.GetKey(KeyCode.W))
             {
