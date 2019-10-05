@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformWithY: {fileID: 0}
+  transformWithY: {fileID: 1582420353652543686}
   orderOffset: 0
 --- !u!1 &4170034350925618941
 GameObject:
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformWithY: {fileID: 0}
+  transformWithY: {fileID: 1582420353652543686}
   orderOffset: 0
 --- !u!1 &6108078222571261226
 GameObject:
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformWithY: {fileID: 0}
+  transformWithY: {fileID: 1582420353652543686}
   orderOffset: 0
 --- !u!1 &6154005208024938016
 GameObject:
@@ -563,6 +563,7 @@ GameObject:
   - component: {fileID: 1582420353652543686}
   - component: {fileID: 3239037579678289130}
   - component: {fileID: 7269798398436274404}
+  - component: {fileID: 6370566704581170455}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -621,6 +622,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6370566704581170455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7608577813278631158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379137a2f7ac0a449aae50e37d2ebac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 1
+  baseMoveSpeed: 30
+  baseMaxHealth: 3
+  currentHealth: 3
 --- !u!1 &8372820276601867210
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,5 +748,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d591ee6cf167b94d8e5c44d3747ee90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformWithY: {fileID: 0}
+  transformWithY: {fileID: 1582420353652543686}
   orderOffset: 0

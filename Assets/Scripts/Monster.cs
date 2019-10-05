@@ -19,12 +19,14 @@ public class Monster : MonoBehaviour
     [SerializeField] State state = State.Idle;
     Vector2 vectorToPlayer;
     float distanceToPlayer = 9999;
-    float moveSpeed = 30;
     [SerializeField] bool playerInLineOfSight = false;
+
+    PlayerStats stats;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        stats = GetComponent<PlayerStats>();
     }
 
     void CheckState()
@@ -48,7 +50,7 @@ public class Monster : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
 
-            if (distanceToPlayer < 0.25 &&
+            if (distanceToPlayer < 0.20 &&
                 playerInLineOfSight)
             {
                 state = State.Attacking;
@@ -58,7 +60,7 @@ public class Monster : MonoBehaviour
         }
         else if (state == State.Attacking)
         {
-            if (distanceToPlayer > 0.3)
+            if (distanceToPlayer > 0.25)
             {
                 state = State.Hunting;
                 GetComponentInChildren<AnimationStateController>().SetState("WalkLeft");
@@ -148,7 +150,14 @@ public class Monster : MonoBehaviour
 
     void HuntingFixedUpdate()
     {
-        Vector2 movement = vectorToPlayer.normalized * moveSpeed * Time.fixedDeltaTime;
+        Vector2 movement = vectorToPlayer.normalized * stats.GetActualMovespeed() * Time.fixedDeltaTime;
         GetComponent<Rigidbody2D>().velocity = movement;
+    }
+    
+    public void OnHit(float damage)
+    {
+        //todo: damage reduction
+        GetComponent<PlayerStats>().currentHealth -= damage;
+        Debug.Log("Monster HP = " + GetComponent<PlayerStats>().currentHealth);
     }
 }
