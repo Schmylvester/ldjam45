@@ -206,7 +206,7 @@ namespace Player
         {
             if (collider.transform.parent)
             {
-                if (collider.transform.parent.name == "Monster") //todo: tag/layer
+                if (collider.transform.parent.tag == "Enemy") //todo: tag/layer
                 {
                     collider.transform.parent.GetComponent<Monster>().OnHit(stats.GetActualDamage());
                 }
