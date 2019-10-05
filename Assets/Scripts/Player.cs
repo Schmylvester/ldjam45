@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     PerFrame lastFrame;
     PerFrame thisFrame;
 
-    float moveSpeed = 2;
+    float moveSpeed = 100;
 
     void Start()
     {
@@ -58,8 +58,8 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        Vector2 movement = thisFrame.moveDirection * moveSpeed * Time.deltaTime;
-        transform.Translate(movement, Space.World);
+        Vector2 movement = thisFrame.moveDirection * moveSpeed * Time.fixedDeltaTime;
+        GetComponent<Rigidbody2D>().velocity = movement;
     }
 
     void Animate()
@@ -109,11 +109,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         HandleInput();
-        Move();
         Animate();
     }
 
     private void FixedUpdate()
     {
+        Move();
     }
 }
