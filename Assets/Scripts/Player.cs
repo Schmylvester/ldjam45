@@ -15,7 +15,7 @@ namespace Player
         FrameData lastFrame;
         FrameData thisFrame;
 
-        float moveSpeed = 100;
+        PlayerStats stats;
 
         void Start()
         {
@@ -24,6 +24,7 @@ namespace Player
             thisFrame.moveDirection = Vector2.zero;
             thisFrame.interacted = false;
             GetComponentInChildren<AnimationStateController>().SetState("IdleUp");
+            stats = GetComponent<PlayerStats>();
         }
 
         void HandleInput()
@@ -61,7 +62,7 @@ namespace Player
 
         void Move()
         {
-            Vector2 movement = thisFrame.moveDirection * moveSpeed * Time.fixedDeltaTime;
+            Vector2 movement = thisFrame.moveDirection * stats.GetActualMovespeed() * Time.fixedDeltaTime;
             GetComponent<Rigidbody2D>().velocity = movement;
         }
 

@@ -18,7 +18,7 @@ public class Loot : MonoBehaviour
             Item item = ItemDatabase.instance.getItem(itemName);
             if (item.name != new Item().name)
             {
-                GetComponentInChildren<SpriteRenderer>().sprite = item.sprite;
+                GetComponentInChildren<SpriteRenderer>().sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
             }
             else
             {

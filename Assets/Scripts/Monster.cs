@@ -35,6 +35,7 @@ public class Monster : MonoBehaviour
                 playerInLineOfSight)
             {
                 state = State.Hunting;
+                GetComponentInChildren<AnimationStateController>().SetState("WalkDown");
             }
         }
         else if (state == State.Hunting)
@@ -43,6 +44,7 @@ public class Monster : MonoBehaviour
                 !playerInLineOfSight)
             {
                 state = State.Idle;
+                GetComponentInChildren<AnimationStateController>().SetState("WalkUp");
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
 
@@ -50,6 +52,7 @@ public class Monster : MonoBehaviour
                 playerInLineOfSight)
             {
                 state = State.Attacking;
+                GetComponentInChildren<AnimationStateController>().SetState("Attack");
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
@@ -58,6 +61,7 @@ public class Monster : MonoBehaviour
             if (distanceToPlayer > 0.3)
             {
                 state = State.Hunting;
+                GetComponentInChildren<AnimationStateController>().SetState("WalkLeft");
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
@@ -70,14 +74,14 @@ public class Monster : MonoBehaviour
 
         Vector3 offset = new Vector3(-0.1f, 0, 0);
         bool terrainBlocking = false;
-        for (int i = 0; i < 20; ++i)
+        for (int i = 0; i < 10; ++i)
         {
             RaycastHit2D[] hits = new RaycastHit2D[1];
             ContactFilter2D filter = new ContactFilter2D();
             filter.SetLayerMask(LayerMask.GetMask("Terrain"));
             Physics2D.Raycast(transform.position + offset, new Vector3(vectorToPlayer.x - offset.x, vectorToPlayer.y, 0), filter, hits, 100);
-            Debug.DrawRay(transform.position + offset, new Vector3(vectorToPlayer.x - offset.x, vectorToPlayer.y, 0));
-            offset.x += 0.01f;
+            //Debug.DrawRay(transform.position + offset, new Vector3(vectorToPlayer.x - offset.x, vectorToPlayer.y, 0));
+            offset.x += 0.02f;
             if (hits[0])
             {
                 terrainBlocking = true;

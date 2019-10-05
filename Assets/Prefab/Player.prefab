@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformWithY: {fileID: 4535373939022182983}
+  orderOffset: 0
 --- !u!1 &1681164482606769806
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformWithY: {fileID: 4535373939022182983}
+  orderOffset: 0
 --- !u!1 &1936804710393249394
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformWithY: {fileID: 4535373939022182983}
+  orderOffset: 0
 --- !u!1 &2060674183214158526
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformWithY: {fileID: 4535373939022182983}
+  orderOffset: 0
 --- !u!1 &5868558131244563785
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,6 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformWithY: {fileID: 4535373939022182983}
+  orderOffset: 0
 --- !u!1 &7267423089218482881
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,6 +757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformWithY: {fileID: 4535373939022182983}
+  orderOffset: 0
 --- !u!1 &7298991561012545694
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +769,7 @@ GameObject:
   - component: {fileID: 4535373939022182983}
   - component: {fileID: 5935093113153364880}
   - component: {fileID: 583373778694175972}
+  - component: {fileID: 1657941874769023587}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -819,6 +826,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1657941874769023587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298991561012545694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379137a2f7ac0a449aae50e37d2ebac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7745086073699596258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,3 +1056,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformWithY: {fileID: 4535373939022182983}
+  orderOffset: 0
