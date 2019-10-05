@@ -1,0 +1,14 @@
+bg_clouds = 0 146 528 112
+bg_sky = 0 488 512 112
+bg_towers = 0 260 528 112
+bg_towers_far = 0 374 528 112
+bg_wall = 0 0 528 144
+bg_wall_top = 0 668 480 48
+fg_fence = 482 668 124 48
+fg_water = 0 602 512 64
+terrain_center_A = 530 50 32 32
+terrain_center_B = 530 84 32 32
+terrain_left = 530 152 16 32
+terrain_pillar = 530 0 32 48
+terrain_pillar_top = 530 118 32 32
+terrain_right = 530 186 16 32

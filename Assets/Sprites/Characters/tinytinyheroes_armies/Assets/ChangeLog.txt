@@ -1,0 +1,5 @@
+Version 1.2 | 15.07.2018
+	Added:
+		Elven Faction - 12 characters
+		Pig
+		Boar

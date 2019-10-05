@@ -1,0 +1,16 @@
+bg1 = 0 0 512 272
+bg2 = 0 274 512 272
+bg_cloud_A = 66 548 96 32
+bg_cloud_B = 148 582 48 16
+bg_cloud_C = 164 548 96 32
+bg_cloud_D = 66 582 80 16
+moon = 0 548 64 64
+sky = 514 0 512 272
+stars = 514 274 512 272
+terrain_A = 296 548 16 16
+terrain_B = 232 582 16 16
+terrain_C = 262 574 16 16
+terrain_D = 314 548 16 16
+terrain_fill = 280 574 16 16
+terrain_slope_A = 262 548 32 24
+terrain_slope_B = 198 582 32 24

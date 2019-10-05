@@ -1,0 +1,535 @@
+{
+	".\\bg_castle": {
+		"frame": {
+			"x": 63,
+			"y": 182,
+			"width": 32,
+			"height": 48
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 48
+		},
+		"rotated": false
+	},
+	".\\bg_mountains": {
+		"frame": {
+			"x": 2,
+			"y": 248,
+			"width": 88,
+			"height": 32
+		},
+		"sourceSize": {
+			"width": 88,
+			"height": 32
+		},
+		"rotated": false
+	},
+	".\\bg_sky": {
+		"frame": {
+			"x": 292,
+			"y": 2,
+			"width": 16,
+			"height": 272
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 272
+		},
+		"rotated": false
+	},
+	".\\far_bg_trees_1": {
+		"frame": {
+			"x": 84,
+			"y": 319,
+			"width": 32,
+			"height": 24
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 24
+		},
+		"rotated": false
+	},
+	".\\far_bg_trees_2": {
+		"frame": {
+			"x": 36,
+			"y": 316,
+			"width": 32,
+			"height": 24
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 24
+		},
+		"rotated": false
+	},
+	".\\far_bg_trees_3": {
+		"frame": {
+			"x": 2,
+			"y": 316,
+			"width": 32,
+			"height": 24
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 24
+		},
+		"rotated": false
+	},
+	".\\fence": {
+		"frame": {
+			"x": 2,
+			"y": 282,
+			"width": 80,
+			"height": 32
+		},
+		"sourceSize": {
+			"width": 80,
+			"height": 32
+		},
+		"rotated": false
+	},
+	".\\moon": {
+		"frame": {
+			"x": 2,
+			"y": 2,
+			"width": 96,
+			"height": 96
+		},
+		"sourceSize": {
+			"width": 96,
+			"height": 96
+		},
+		"rotated": false
+	},
+	".\\shooting_star": {
+		"frame": {
+			"x": 84,
+			"y": 282,
+			"width": 55,
+			"height": 35
+		},
+		"sourceSize": {
+			"width": 55,
+			"height": 35
+		},
+		"rotated": false
+	},
+	".\\stars_A_f1": {
+		"frame": {
+			"x": 266,
+			"y": 331,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_A_f2": {
+		"frame": {
+			"x": 284,
+			"y": 331,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_B": {
+		"frame": {
+			"x": 310,
+			"y": 318,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_C_f1": {
+		"frame": {
+			"x": 292,
+			"y": 276,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_C_f2": {
+		"frame": {
+			"x": 200,
+			"y": 329,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_D_f1": {
+		"frame": {
+			"x": 182,
+			"y": 329,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_D_f2": {
+		"frame": {
+			"x": 266,
+			"y": 265,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_D_f3": {
+		"frame": {
+			"x": 164,
+			"y": 329,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_E": {
+		"frame": {
+			"x": 266,
+			"y": 247,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_F_f1": {
+		"frame": {
+			"x": 136,
+			"y": 319,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_F_f2": {
+		"frame": {
+			"x": 118,
+			"y": 319,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_G_f1": {
+		"frame": {
+			"x": 141,
+			"y": 300,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\stars_G_f2": {
+		"frame": {
+			"x": 141,
+			"y": 282,
+			"width": 16,
+			"height": 16
+		},
+		"sourceSize": {
+			"width": 16,
+			"height": 16
+		},
+		"rotated": false
+	},
+	".\\terrain_center_A": {
+		"frame": {
+			"x": 310,
+			"y": 284,
+			"width": 32,
+			"height": 32
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 32
+		},
+		"rotated": false
+	},
+	".\\terrain_center_B": {
+		"frame": {
+			"x": 266,
+			"y": 297,
+			"width": 32,
+			"height": 32
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 32
+		},
+		"rotated": false
+	},
+	".\\terrain_slope_left_1A": {
+		"frame": {
+			"x": 232,
+			"y": 247,
+			"width": 32,
+			"height": 48
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 48
+		},
+		"rotated": false
+	},
+	".\\terrain_slope_left_1B": {
+		"frame": {
+			"x": 310,
+			"y": 84,
+			"width": 32,
+			"height": 48
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 48
+		},
+		"rotated": false
+	},
+	".\\terrain_slope_left_2A": {
+		"frame": {
+			"x": 310,
+			"y": 2,
+			"width": 32,
+			"height": 80
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 80
+		},
+		"rotated": false
+	},
+	".\\terrain_slope_left_2B": {
+		"frame": {
+			"x": 63,
+			"y": 100,
+			"width": 32,
+			"height": 80
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 80
+		},
+		"rotated": false
+	},
+	".\\terrain_slope_right_1A": {
+		"frame": {
+			"x": 310,
+			"y": 184,
+			"width": 32,
+			"height": 48
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 48
+		},
+		"rotated": false
+	},
+	".\\terrain_slope_right_1B": {
+		"frame": {
+			"x": 310,
+			"y": 134,
+			"width": 32,
+			"height": 48
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 48
+		},
+		"rotated": false
+	},
+	".\\terrain_slope_right_2A": {
+		"frame": {
+			"x": 198,
+			"y": 247,
+			"width": 32,
+			"height": 80
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 80
+		},
+		"rotated": false
+	},
+	".\\terrain_slope_right_2B": {
+		"frame": {
+			"x": 164,
+			"y": 247,
+			"width": 32,
+			"height": 80
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 80
+		},
+		"rotated": false
+	},
+	".\\terrain_top_center_A": {
+		"frame": {
+			"x": 310,
+			"y": 234,
+			"width": 32,
+			"height": 48
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 48
+		},
+		"rotated": false
+	},
+	".\\terrain_top_center_B": {
+		"frame": {
+			"x": 232,
+			"y": 297,
+			"width": 32,
+			"height": 48
+		},
+		"sourceSize": {
+			"width": 32,
+			"height": 48
+		},
+		"rotated": false
+	},
+	".\\tree_1": {
+		"frame": {
+			"x": 228,
+			"y": 116,
+			"width": 59,
+			"height": 112
+		},
+		"sourceSize": {
+			"width": 59,
+			"height": 112
+		},
+		"rotated": false
+	},
+	".\\tree_2": {
+		"frame": {
+			"x": 164,
+			"y": 133,
+			"width": 62,
+			"height": 112
+		},
+		"sourceSize": {
+			"width": 62,
+			"height": 112
+		},
+		"rotated": false
+	},
+	".\\tree_3": {
+		"frame": {
+			"x": 164,
+			"y": 2,
+			"width": 62,
+			"height": 129
+		},
+		"sourceSize": {
+			"width": 62,
+			"height": 129
+		},
+		"rotated": false
+	},
+	".\\tree_4": {
+		"frame": {
+			"x": 100,
+			"y": 2,
+			"width": 62,
+			"height": 144
+		},
+		"sourceSize": {
+			"width": 62,
+			"height": 144
+		},
+		"rotated": false
+	},
+	".\\tree_5": {
+		"frame": {
+			"x": 100,
+			"y": 148,
+			"width": 59,
+			"height": 129
+		},
+		"sourceSize": {
+			"width": 59,
+			"height": 129
+		},
+		"rotated": false
+	},
+	".\\tree_6": {
+		"frame": {
+			"x": 2,
+			"y": 100,
+			"width": 59,
+			"height": 146
+		},
+		"sourceSize": {
+			"width": 59,
+			"height": 146
+		},
+		"rotated": false
+	},
+	".\\tree_7": {
+		"frame": {
+			"x": 228,
+			"y": 2,
+			"width": 62,
+			"height": 112
+		},
+		"sourceSize": {
+			"width": 62,
+			"height": 112
+		},
+		"rotated": false
+	}
+}
