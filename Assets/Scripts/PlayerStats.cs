@@ -50,4 +50,32 @@ public class PlayerStats : MonoBehaviour
     }
 
     public float currentHealth = 10;
+
+    public float baseWeaponRange = 20;
+    public float weaponRangeModifier = 0;
+    public List<float> multiplicativeWeaponRangeModifier = new List<float>();
+    public float GetActualWeaponRange()
+    {
+        float multiplier = 1.0f;
+        foreach (float mult in multiplicativeWeaponRangeModifier)
+        {
+            multiplier *= 1.0f + mult;
+        }
+
+        return (baseWeaponRange + weaponRangeModifier) * multiplier;
+    }
+
+    public float baseArmour = 0;
+    public float armourModifier = 0;
+    public List<float> multiplicativeArmourModifier = new List<float>();
+    public float GetActualArmour()
+    {
+        float multiplier = 1.0f;
+        foreach (float mult in multiplicativeArmourModifier)
+        {
+            multiplier *= 1.0f + mult;
+        }
+
+        return (baseArmour + armourModifier) * multiplier;
+    }
 }

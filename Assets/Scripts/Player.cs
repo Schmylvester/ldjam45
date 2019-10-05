@@ -84,12 +84,14 @@ namespace Player
 
         void Move()
         {
+            if (attacking) return;
             Vector2 movement = thisFrame.moveDirection * stats.GetActualMovespeed() * Time.fixedDeltaTime;
             GetComponent<Rigidbody2D>().velocity = movement;
         }
 
         void Animate()
         {
+            if (attacking) return;
             if (thisFrame.moveDirection.x == -1)
             {
                 thisFrame.facing = Facing.Left;
@@ -153,6 +155,28 @@ namespace Player
             HandleInput();
             Animate();
             Attack();
+
+            if (thisFrame.facing == Facing.Up)
+            {
+                transform.GetChild(3).gameObject.GetComponentInChildren<SpriteOrderYSort>().orderOffset = -1;
+            }
+            else
+            {
+                transform.GetChild(3).gameObject.GetComponentInChildren<SpriteOrderYSort>().orderOffset = 1;
+            }
+
+            if (thisFrame.facing == Facing.Right)
+            {
+                Vector3 scale = transform.GetChild(3).gameObject.transform.localScale;
+                scale.x = -1;
+                transform.GetChild(3).gameObject.transform.localScale = scale;
+            }
+            else
+            {
+                Vector3 scale = transform.GetChild(3).gameObject.transform.localScale;
+                scale.x = 1;
+                transform.GetChild(3).gameObject.transform.localScale = scale;
+            }
         }
 
         void Attack()
@@ -166,6 +190,7 @@ namespace Player
         IEnumerator DoAttack()
         {
             transform.GetChild(2).gameObject.SetActive(true);
+            transform.GetChild(3).gameObject.SetActive(true);
             attacking = true;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             Vector2 facingDir = Vector2.zero;
@@ -188,13 +213,19 @@ namespace Player
 
             transform.GetChild(0).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
             transform.GetChild(1).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
-            transform.GetChild(2).transform.Translate(new Vector3(facingDir.x * 0.2f, facingDir.y * 0.2f, 0), Space.Self);
+            float range = stats.GetActualWeaponRange() / 100.0f; //Pixels Per Unit
+            transform.GetChild(2).transform.Translate(new Vector3(facingDir.x * range, facingDir.y * range, 0), Space.Self);
+            transform.GetChild(2).GetChild(0).transform.Translate(new Vector3(facingDir.x * range -(facingDir.x * 0.085f), facingDir.y * range - (facingDir.y * 0.085f), 0), Space.Self);
+            transform.GetChild(3).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
             yield return new WaitForSeconds(0.2f);
             transform.GetChild(0).transform.localPosition = Vector3.zero;
             transform.GetChild(1).transform.localPosition = Vector3.zero;
             transform.GetChild(2).transform.localPosition = Vector3.zero;
+            transform.GetChild(2).GetChild(0).transform.localPosition = Vector3.zero;
+            transform.GetChild(3).transform.localPosition = Vector3.zero;
             yield return new WaitForSeconds(0.1f);
             transform.GetChild(2).gameObject.SetActive(false);
+            transform.GetChild(3).gameObject.SetActive(false);
             attacking = false;
             yield return null;
         }
