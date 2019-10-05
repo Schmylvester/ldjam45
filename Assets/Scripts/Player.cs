@@ -189,6 +189,7 @@ namespace Player
 
         IEnumerator DoAttack()
         {
+            SFXManager.instance.PlaySFX("Break.ogg");
             transform.GetChild(2).gameObject.SetActive(true);
             transform.GetChild(3).gameObject.SetActive(true);
             attacking = true;
