@@ -18,6 +18,18 @@ public class InventroryUIElement : MonoBehaviour, IPointerEnterHandler, IPointer
     Text typeField = null;
 
     Item item;
+    bool selectedItem = false;
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            if(selectedItem && item.type >= 0)
+            {
+                Player.PlayerInventory.instance.equipItem(item);
+            }
+        }
+    }
 
     public void setItem(Item _item, int _count)
     {
@@ -53,6 +65,7 @@ public class InventroryUIElement : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        selectedItem = true;
         nameField.text = item.name;
         descriptionField.text = item.description;
         rarityField.text = item.rarity.ToString();
@@ -82,6 +95,7 @@ public class InventroryUIElement : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        selectedItem = false;
         nameField.text = "";
         descriptionField.text = "";
         rarityField.text = "";

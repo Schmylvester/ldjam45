@@ -12,23 +12,25 @@
 
 public enum ItemType
 {
-    Null = -1,
-
+    Null = -3,
+    
     None,
+    Consumable,
+    
     Weapon,
     Shield,
     Headwear,
     Footwear,
     Gloves,
     Clothing,
-    Consumable,
 
-    COUNT
+    EQUIP_COUNT
 }
 
 [System.Serializable]
 public struct Item
 {
+    public bool isNull;
     public string name;
     public string description;
     public ItemType type;
