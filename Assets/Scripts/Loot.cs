@@ -60,9 +60,8 @@ public class Loot : MonoBehaviour
     {
         if (timer > 0.5f && collision.transform.parent.gameObject.tag == "Player")
         {
-            //todo: player inventory singleton
-            //Item item = ItemDatabase.instance.getItem(itemName);
-            //Player.PlayerInventory.instance.addItem(item);
+            Item item = ItemDatabase.instance.getItem(itemName);
+            Player.PlayerInventory.instance.addItem(item);
             Destroy(gameObject);
         }
     }

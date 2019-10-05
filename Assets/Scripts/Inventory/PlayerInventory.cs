@@ -7,6 +7,8 @@ namespace Player
 {
     public class PlayerInventory : MonoBehaviour
     {
+        [HideInInspector] public static PlayerInventory instance;
+
         [SerializeField] Text nameField;
         [SerializeField] Text descField;
         [SerializeField] Text rareField;
@@ -20,11 +22,26 @@ namespace Player
         List<Item> m_items = new List<Item>();
         List<int> m_counts = new List<int>();
 
-        private void Start()
+        private void Awake()
         {
-            for(int i = 0; i < 1000; ++i)
-                addItem(ItemDatabase.instance.getRandomItem());
-            populateInventory();
+            if(instance)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                instance = this;
+            }
+        }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.I))
+            {
+                populateInventory();
+                Canvas canvas = GetComponentInParent<Canvas>();
+                canvas.enabled = !canvas.enabled;
+            }
         }
 
         public void populateInventory()
