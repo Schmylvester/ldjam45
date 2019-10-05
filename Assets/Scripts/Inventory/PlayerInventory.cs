@@ -24,6 +24,10 @@ namespace Player
         private bool visible = true;
         List<GameObject> m_activeChildren = new List<GameObject>();
 
+        Item[] m_equippedItems = new Item[(int)ItemType.EQUIP_COUNT];
+        [SerializeField] Image[] m_equipSlots = null;
+        [SerializeField] Sprite m_emptyIcon = null;
+
         private void Awake()
         {
             if (instance)
@@ -35,6 +39,19 @@ namespace Player
                 instance = this;
             }
             toggleInventoryMenu();
+            gridSpacing = new Vector2(gridSpacing.x * ((float)Screen.width / 800), gridSpacing.y * ((float)Screen.height / 600));
+        }
+
+        private void Start()
+        {
+            for(int i = 0; i < 100; ++i)
+            {
+                addItem(ItemDatabase.instance.getRandomItem());
+            }
+            for (int i = 0; i < m_equippedItems.Length; ++i)
+            {
+                m_equippedItems[i].isNull = true;
+            }
         }
 
         private void Update()
@@ -48,17 +65,44 @@ namespace Player
         private void toggleInventoryMenu()
         {
             visible = !visible;
-            populateInventory();
-            for(int i = 0; i < transform.childCount; ++i)
+            updateInventoryUI();
+            for (int i = 0; i < transform.childCount; ++i)
             {
                 transform.GetChild(i).gameObject.SetActive(visible);
                 GetComponent<Image>().enabled = visible;
             }
         }
 
-        public void populateInventory()
+        public void equipItem(Item item)
         {
-            for(int i = m_activeChildren.Count - 1; i >= 0; --i)
+            unequipItem(item.type);
+            if(ArrayUtil.arrayContains(item.traits, "Two Handed") != -1)
+            {
+                unequipItem(ItemType.Weapon);
+                unequipItem(ItemType.Shield);
+            }
+            m_equippedItems[(int)item.type] = item;
+            m_equippedItems[(int)item.type].isNull = false;
+            m_equipSlots[(int)item.type].sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
+            m_equipSlots[(int)item.type].GetComponentInParent<Unequip>().setItem(item);
+            removeItem(item.name);
+            updateInventoryUI();
+        }
+
+        public void unequipItem(ItemType item)
+        {
+            if (!m_equippedItems[(int)item].isNull)
+            {
+                addItem(m_equippedItems[(int)item]);
+                m_equippedItems[(int)item].isNull = true;
+                m_equipSlots[(int)item].sprite = m_emptyIcon;
+                updateInventoryUI();
+            }
+        }
+
+        public void updateInventoryUI()
+        {
+            for (int i = m_activeChildren.Count - 1; i >= 0; --i)
             {
                 Destroy(m_activeChildren[i]);
             }
@@ -104,6 +148,11 @@ namespace Player
                     if (count <= m_counts[i])
                     {
                         m_counts[i] -= count;
+                        if (m_counts[i] == 0)
+                        {
+                            m_counts.RemoveAt(i);
+                            m_items.RemoveAt(i);
+                        }
                         return true;
                     }
                     else
