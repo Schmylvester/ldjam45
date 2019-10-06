@@ -64,6 +64,7 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.I))
             {
                 toggleInventoryMenu();
+                togglePlayerHPBar();
             }
         }
 
@@ -76,6 +77,11 @@ namespace Player
                 transform.GetChild(i).gameObject.SetActive(visible);
                 GetComponent<Image>().enabled = visible;
             }
+        }
+
+        private void togglePlayerHPBar()
+        {
+            transform.parent.GetChild(1).gameObject.SetActive(!visible);
         }
 
         public void equipItem(Item item)
