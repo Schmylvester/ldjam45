@@ -9,6 +9,8 @@ namespace Player
     {
         [HideInInspector] public static PlayerInventory instance;
 
+        int m_cash = 0;
+
         [SerializeField] Text nameField;
         [SerializeField] Text descField;
         [SerializeField] Text rareField;
@@ -45,11 +47,12 @@ namespace Player
             }
             toggleInventoryMenu();
             gridSpacing = new Vector2(gridSpacing.x * ((float)Screen.width / 800), gridSpacing.y * ((float)Screen.height / 600));
+            DontDestroyOnLoad(transform.parent.gameObject);
         }
 
         private void Start()
         {
-            for(int i = 0; i < 100; ++i)
+            for (int i = 0; i < 100; ++i)
             {
                 addItem(ItemDatabase.instance.getRandomItem());
             }
@@ -71,6 +74,7 @@ namespace Player
         private void toggleInventoryMenu()
         {
             visible = !visible;
+            GameObservables.gamePaused = visible;
             updateInventoryUI();
             for (int i = 0; i < transform.childCount; ++i)
             {
@@ -96,13 +100,14 @@ namespace Player
 
         private void togglePlayerHPBar()
         {
-            transform.parent.GetChild(1).gameObject.SetActive(!visible);
+            Transform hpBar = transform.parent.Find("PlayerPanel");
+            if(hpBar) hpBar.gameObject.SetActive(!visible);
         }
 
         public void equipItem(Item item)
         {
             unequipItemType(item.type);
-            if(ArrayUtil.arrayContains(item.traits, "Two Handed") != -1)
+            if (ArrayUtil.arrayContains(item.traits, "Two Handed") != -1)
             {
                 unequipItemType(ItemType.Weapon);
                 unequipItemType(ItemType.Shield);
@@ -214,6 +219,17 @@ namespace Player
         public bool removeItem(Item item, int count = 1)
         {
             return removeItem(item.name, count);
+        }
+
+        public int getCash() { return m_cash; }
+        public bool changeCash(int by)
+        {
+            if (m_cash + by < 0)
+            {
+                return false;
+            }
+            m_cash += by;
+            return true;
         }
     }
 }
