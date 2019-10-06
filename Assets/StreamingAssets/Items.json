@@ -49,7 +49,12 @@
       "rarity": 0,
       "baseValue": 35,
       "spriteIdx": 145,
-      "traits": [ "Two Handed" ]
+      "traits": [ "Two Handed", "Ranged" ],
+	  "damage": 0,
+	  "armour": 0,
+	  "speed": 0,
+	  "health": 0,
+	  "range": 0
     },
     {
       "name": "Simple Knife",
@@ -786,7 +791,7 @@
       "rarity": 3,
       "baseValue": 400,
       "spriteIdx": 423,
-      "traits": [ "Two Handed" ]
+      "traits": [ "Two Handed", "Ranged" ]
     },
     {
       "name": "Demonic Bow",
@@ -795,7 +800,12 @@
       "rarity": 3,
       "baseValue": 350,
       "spriteIdx": 424,
-      "traits": [ "Two Handed" ]
+      "traits": [ "Two Handed", "Ranged" ],
+	  "damage": 0,
+	  "armour": 0,
+	  "speed": 0,
+	  "health": 0,
+	  "range": 0
     },
     {
       "name": "Humble Staff",

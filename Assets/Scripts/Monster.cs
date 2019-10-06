@@ -139,14 +139,23 @@ public class Monster : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(0.4f);
         state = State.Attacking;
-        StartCoroutine(SpeedUpAfterDefending());
+        if (distanceToPlayer > 0.75)
+            StartCoroutine(SpeedUpAfterDefending());
         SetAttackAnimationFromFacing();
     }
 
     IEnumerator SpeedUpAfterDefending()
     {
+        Vector2 movement = vectorToPlayer.normalized * stats.GetActualMovespeed() * Time.fixedDeltaTime;
+        if (cat) movement *= -1.5f;
+        GetComponent<Rigidbody2D>().velocity = movement;
+        state = State.Hunting;
         stats.moveSpeedModifier += 6;
         yield return new WaitForSeconds(0.4f);
+        movement = vectorToPlayer.normalized * stats.GetActualMovespeed() * Time.fixedDeltaTime;
+        if (cat) movement *= -1.5f;
+        GetComponent<Rigidbody2D>().velocity = movement;
+        state = State.Hunting;
         stats.moveSpeedModifier -= 6;
         yield return null;
     }

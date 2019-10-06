@@ -30,6 +30,32 @@ namespace Player
         bool attacking = false;
         public bool dead = false;
         bool invulnerable = false;
+        public bool meleeWeapon = true;
+        string itemName = "";
+
+        public void OnWeaponEquip(Item item)
+        {
+            if (item.type == ItemType.Weapon)
+            {
+                itemName = item.name;
+                meleeWeapon = true;
+                for (int i = 0; i < item.traits.Length; ++i)
+                {
+                    if (item.traits[i] == "Ranged")
+                    {
+                        meleeWeapon = false;
+                    }
+                }
+
+                transform.GetChild(3).GetChild(0).GetComponent<SpriteRenderer>().sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
+            }
+        }
+
+        public void OnWeaponUnequip()
+        {
+            meleeWeapon = true;
+            transform.GetChild(3).GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
+        }
 
         void Start()
         {
@@ -185,23 +211,34 @@ namespace Player
 
             if (thisFrame.facing == Facing.Up)
             {
-                transform.GetChild(3).gameObject.GetComponentInChildren<SpriteOrderYSort>().orderOffset = -1;
-            }
-            else
-            {
-                transform.GetChild(3).gameObject.GetComponentInChildren<SpriteOrderYSort>().orderOffset = 1;
-            }
-
-            if (thisFrame.facing == Facing.Right)
-            {
+                transform.GetChild(3).gameObject.GetComponentInChildren<SpriteOrderYSort>().orderOffset = -10;
                 Vector3 scale = transform.GetChild(3).gameObject.transform.localScale;
                 scale.x = -1;
+                scale.y = 1;
+                transform.GetChild(3).gameObject.transform.localScale = scale;
+            }
+            else if (thisFrame.facing == Facing.Down)
+            {
+                transform.GetChild(3).gameObject.GetComponentInChildren<SpriteOrderYSort>().orderOffset = 10;
+                Vector3 scale = transform.GetChild(3).gameObject.transform.localScale;
+                scale.x = 1;
+                scale.y = 1; //wanna make it -1 but then hand position is wrong which is effort to recalc everywhere
+                transform.GetChild(3).gameObject.transform.localScale = scale;
+            }
+            else if (thisFrame.facing == Facing.Right)
+            {
+                transform.GetChild(3).gameObject.GetComponentInChildren<SpriteOrderYSort>().orderOffset = -10;
+                Vector3 scale = transform.GetChild(3).gameObject.transform.localScale;
+                scale.x = -1;
+                scale.y = 1;
                 transform.GetChild(3).gameObject.transform.localScale = scale;
             }
             else
             {
+                transform.GetChild(3).gameObject.GetComponentInChildren<SpriteOrderYSort>().orderOffset = -10;
                 Vector3 scale = transform.GetChild(3).gameObject.transform.localScale;
                 scale.x = 1;
+                scale.y = 1;
                 transform.GetChild(3).gameObject.transform.localScale = scale;
             }
         }
@@ -218,7 +255,12 @@ namespace Player
         {
             GetComponent<Rigidbody2D>().mass = 10;
             SFXManager.instance.PlaySFX("Break");
-            transform.GetChild(2).gameObject.SetActive(true);
+
+            if (meleeWeapon)
+            {
+                transform.GetChild(2).gameObject.SetActive(true);
+            }
+
             transform.GetChild(3).gameObject.SetActive(true);
             attacking = true;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -240,20 +282,28 @@ namespace Player
                 facingDir.y = -1;
             }
 
-            transform.GetChild(0).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
-            transform.GetChild(1).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
-            float range = stats.GetActualWeaponRange() / 100.0f; //Pixels Per Unit
-            transform.GetChild(2).transform.Translate(new Vector3(facingDir.x * range, facingDir.y * range, 0), Space.Self);
-            transform.GetChild(2).GetChild(0).transform.Translate(new Vector3(facingDir.x * range -(facingDir.x * 0.085f), facingDir.y * range - (facingDir.y * 0.085f), 0), Space.Self);
-            transform.GetChild(3).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
+            if (meleeWeapon)
+            {
+                transform.GetChild(0).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
+                transform.GetChild(1).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
+                float range = stats.GetActualWeaponRange() / 100.0f; //Pixels Per Unit
+                transform.GetChild(2).transform.Translate(new Vector3(facingDir.x * range, facingDir.y * range, 0), Space.Self);
+                transform.GetChild(2).GetChild(0).transform.Translate(new Vector3(facingDir.x * range - (facingDir.x * 0.085f), facingDir.y * range - (facingDir.y * 0.085f), 0), Space.Self);
+                transform.GetChild(3).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
+            }
+            else
+            {
+                ProjectileSpawner.instance.SpawnProjectile((Vector2)transform.position + facingDir * 0.2f, itemName, facingDir, stats.GetActualDamage(), 300, stats.GetActualWeaponRange() * 10, true);
+            }
+
             yield return new WaitForSeconds(0.2f);
             transform.GetChild(0).transform.localPosition = Vector3.zero;
             transform.GetChild(1).transform.localPosition = Vector3.zero;
             transform.GetChild(2).transform.localPosition = Vector3.zero;
             transform.GetChild(2).GetChild(0).transform.localPosition = Vector3.zero;
             transform.GetChild(3).transform.localPosition = Vector3.zero;
-            yield return new WaitForSeconds(0.1f);
             transform.GetChild(2).gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
             transform.GetChild(3).gameObject.SetActive(false);
             attacking = false;
             GetComponent<Rigidbody2D>().mass = 0.1f;

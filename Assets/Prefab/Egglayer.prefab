@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 2486867014856238185}
   - component: {fileID: 7127081585792350915}
   m_Layer: 0
-  m_Name: DefendDown
+  m_Name: DefendUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
