@@ -5,7 +5,7 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     private GameObject player;
-    
+
     enum State
     {
         Idle,
@@ -15,8 +15,10 @@ public class Monster : MonoBehaviour
         Defending,
         Hunting
     }
-    
+
+    [SerializeField] State oldState = State.Idle;
     [SerializeField] State state = State.Idle;
+
     Vector2 vectorToPlayer;
     float distanceToPlayer = 9999;
     [SerializeField] bool playerInLineOfSight = false;
@@ -26,23 +28,33 @@ public class Monster : MonoBehaviour
     PlayerStats stats;
     bool invulnerable = false;
     bool willAttackPlayer = false;
+    bool doneAttacking = true;
+
+    float attackDelayTimer = 0;
+    Player.Player.Facing oldFacing = Player.Player.Facing.Down;
+    Player.Player.Facing facing = Player.Player.Facing.Down;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         stats = GetComponent<PlayerStats>();
+        GetComponentInChildren<AnimationStateController>().SetState("Idle");
     }
 
     void CheckState()
     {
         if (state == State.Idle)
         {
+            if (state != oldState)
+            {
+                GetComponentInChildren<AnimationStateController>().SetState("Idle");
+            }
+
             if (willAttackPlayer &&
                 distanceToPlayer < 1 &&
                 playerInLineOfSight)
             {
                 state = State.Hunting;
-                GetComponentInChildren<AnimationStateController>().SetState("WalkDown");
             }
         }
         else if (state == State.Hunting)
@@ -50,43 +62,85 @@ public class Monster : MonoBehaviour
             if (distanceToPlayer > 1.5 ||
                 !playerInLineOfSight)
             {
+                GetComponentInChildren<AnimationStateController>().SetState("Idle");
                 state = State.Idle;
-                GetComponentInChildren<AnimationStateController>().SetState("WalkUp");
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
 
-            if (distanceToPlayer < 0.20 &&
+            if (distanceToPlayer < 0.30 &&
                 playerInLineOfSight &&
                 !cat)
             {
+                AnimateFromFacing();
                 state = State.Attacking;
-                GetComponentInChildren<AnimationStateController>().SetState("Attack");
+                SetAttackAnimationFromFacing();
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
         else if (state == State.Attacking)
         {
-            if (distanceToPlayer > 0.25)
+            if (doneAttacking)
             {
-                state = State.Hunting;
-                GetComponentInChildren<AnimationStateController>().SetState("WalkLeft");
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                if (transform.childCount > 3 &&
+                    attackDelayTimer > 0.5f)
+                {
+                    StartCoroutine(DoAttack());
+                }
+                else if (distanceToPlayer > 0.30)
+                {
+                    AnimateFromFacing();
+                    state = State.Hunting;
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                }
             }
         }
         else if (state == State.Defending)
         {
-            StartCoroutine(Defending());
+            if (doneAttacking)
+                StartCoroutine(Defending());
         }
+    }
+
+    IEnumerator DoAttack()
+    {
+        Debug.Log("yo");
+        doneAttacking = false;
+        transform.GetChild(3).gameObject.SetActive(true);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        Vector2 facingDir = vectorToPlayer.normalized;
+
+        transform.GetChild(0).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
+        transform.GetChild(1).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
+        float range = stats.GetActualWeaponRange() / 100.0f; //Pixels Per Unit
+        transform.GetChild(3).transform.Translate(new Vector3(facingDir.x * range, facingDir.y * range, 0), Space.Self);
+
+        yield return new WaitForSeconds(0.2f);
+
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        transform.GetChild(0).transform.localPosition = Vector3.zero;
+        transform.GetChild(1).transform.localPosition = Vector3.zero;
+        transform.GetChild(3).transform.localPosition = Vector3.zero;
+
+        yield return new WaitForSeconds(0.1f);
+
+        transform.GetChild(3).gameObject.SetActive(false);
+
+        doneAttacking = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        attackDelayTimer = 0.0f;
+        yield return null;
     }
 
     IEnumerator Defending()
     {
         if (cat) yield return null;
-        GetComponentInChildren<AnimationStateController>().SetState("Defend");
+        SetDefendAnimationFromFacing();
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(0.4f);
         state = State.Attacking;
         StartCoroutine(SpeedUpAfterDefending());
+        SetAttackAnimationFromFacing();
     }
 
     IEnumerator SpeedUpAfterDefending()
@@ -104,11 +158,29 @@ public class Monster : MonoBehaviour
             return;
         }
 
+        if (!doneAttacking) return;
+
+        attackDelayTimer += Time.deltaTime;
+
         willAttackPlayer = aggresive || stats.currentHealth < stats.GetActualMaxHealth();
         if (cat) willAttackPlayer = true;
 
         vectorToPlayer = player.transform.position - transform.position;
         distanceToPlayer = Mathf.Abs(vectorToPlayer.magnitude);
+
+        Vector2 facingDir = vectorToPlayer.normalized;
+
+        oldFacing = facing;
+
+        bool horizontal = Mathf.Abs(facingDir.x) > Mathf.Abs(facingDir.y);
+        if (horizontal)
+        {
+            facing = facingDir.x < 0 ? Player.Player.Facing.Left : Player.Player.Facing.Right;
+        }
+        else
+        {
+            facing = facingDir.y < 0 ? Player.Player.Facing.Down : Player.Player.Facing.Up;
+        }
 
         Vector3 offset = new Vector3(-0.1f, 0, 0);
         bool terrainBlocking = false;
@@ -128,9 +200,11 @@ public class Monster : MonoBehaviour
         }
         playerInLineOfSight = !terrainBlocking;
 
+        oldState = state;
         CheckState();
+        AnimateFromFacing();
 
-        switch(state)
+        switch (state)
         {
             case State.Idle: IdleUpdate(); break;
             case State.Patrol: PatrolUpdate(); break;
@@ -141,14 +215,82 @@ public class Monster : MonoBehaviour
         }
     }
 
+    private void AnimateFromFacing()
+    {
+        if (state != State.Idle)
+        {
+            if (facing != oldFacing)
+            {
+                if (facing == Player.Player.Facing.Left)
+                {
+                    GetComponentInChildren<AnimationStateController>().SetState("WalkLeft");
+                }
+                else if (facing == Player.Player.Facing.Right)
+                {
+                    GetComponentInChildren<AnimationStateController>().SetState("WalkRight");
+                }
+                else if (facing == Player.Player.Facing.Up)
+                {
+                    GetComponentInChildren<AnimationStateController>().SetState("WalkUp");
+                }
+                else if (facing == Player.Player.Facing.Down)
+                {
+                    GetComponentInChildren<AnimationStateController>().SetState("WalkDown");
+                }
+            }
+        }
+    }
+
+    private void SetAttackAnimationFromFacing()
+    {
+        if (facing == Player.Player.Facing.Left)
+        {
+            GetComponentInChildren<AnimationStateController>().SetState("AttackLeft");
+        }
+        else if (facing == Player.Player.Facing.Right)
+        {
+            GetComponentInChildren<AnimationStateController>().SetState("AttackRight");
+        }
+        else if (facing == Player.Player.Facing.Up)
+        {
+            GetComponentInChildren<AnimationStateController>().SetState("AttackUp");
+        }
+        else if (facing == Player.Player.Facing.Down)
+        {
+            GetComponentInChildren<AnimationStateController>().SetState("AttackDown");
+        }
+    }
+    private void SetDefendAnimationFromFacing()
+    {
+        if (facing == Player.Player.Facing.Left)
+        {
+            GetComponentInChildren<AnimationStateController>().SetState("DefendLeft");
+        }
+        else if (facing == Player.Player.Facing.Right)
+        {
+            GetComponentInChildren<AnimationStateController>().SetState("DefendRight");
+        }
+        else if (facing == Player.Player.Facing.Up)
+        {
+            GetComponentInChildren<AnimationStateController>().SetState("DefendUp");
+        }
+        else if (facing == Player.Player.Facing.Down)
+        {
+            GetComponentInChildren<AnimationStateController>().SetState("DefendDown");
+        }
+    }
+
     private void FixedUpdate()
     {
-        if (GameObservables.gamePaused)
-        {
-            return;
-        }
+        if (!doneAttacking)
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        if (GameObservables.gamePaused) return;
 
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        if (!doneAttacking) return;
+
         switch (state)
         {
             //case State.Idle: IdleUpdate(); break;
@@ -193,17 +335,12 @@ public class Monster : MonoBehaviour
     void HuntingFixedUpdate()
     {
         Vector2 movement = vectorToPlayer.normalized * stats.GetActualMovespeed() * Time.fixedDeltaTime;
-        if (cat) movement *= -1;
+        if (cat) movement *= -1.5f;
         GetComponent<Rigidbody2D>().velocity = movement;
     }
     
     IEnumerator MakeInvulnerable(float time)
     {
-        if (GameObservables.gamePaused)
-        {
-            yield return null;
-        }
-
         invulnerable = true;
         yield return new WaitForSeconds(time);
         invulnerable = false;
@@ -215,14 +352,14 @@ public class Monster : MonoBehaviour
         {
             return;
         }
-        //todo: damage reduction
+
+        damage -= stats.GetActualArmour(); //monsters can heal :)
+        damage = Mathf.Max(damage, 1); //thomas is mean
 
         GetComponent<PlayerStats>().currentHealth -= damage;
         state = State.Defending;
 
         StartCoroutine(MakeInvulnerable(0.8f));
-
-        Debug.Log("Monster HP = " + stats.currentHealth);
 
         if (stats.currentHealth <= 0) //todo: death animation or particles
         {
@@ -230,4 +367,15 @@ public class Monster : MonoBehaviour
             Destroy(gameObject, 0.2f);
         }
     }
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.transform.parent &&
+            collider.name == "Collider" &&
+            collider.transform.parent.tag == "Player")
+        {
+            collider.transform.parent.GetComponent<Player.Player>().OnHit(stats.GetActualDamage());
+        }
+    }
+
+    //todo: deal damage to player on trigger
 }

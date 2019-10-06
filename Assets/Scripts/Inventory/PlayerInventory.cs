@@ -67,6 +67,7 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.I))
             {
                 toggleInventoryMenu();
+                togglePlayerHPBar();
             }
         }
 
@@ -80,6 +81,26 @@ namespace Player
                 transform.GetChild(i).gameObject.SetActive(visible);
                 GetComponent<Image>().enabled = visible;
             }
+        }
+
+        public void removeAllItemsAndEquipment()
+        {
+            for (int i = 0; i < (int)ItemType.EQUIP_COUNT; ++i)
+            {
+                unequipItemType((ItemType)i);
+            }
+
+            for (int i = 0; i < m_items.Count; ++i)
+            {
+                m_counts[i] = 0;
+                m_counts.RemoveAt(i);
+                m_items.RemoveAt(i);
+            }
+        }
+
+        private void togglePlayerHPBar()
+        {
+            transform.parent.GetChild(1).gameObject.SetActive(!visible);
         }
 
         public void equipItem(Item item)

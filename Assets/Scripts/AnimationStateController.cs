@@ -19,6 +19,19 @@ public class AnimationStateController : MonoBehaviour
         activeState = children[0];
     }
 
+    public bool StateExists(string stateName)
+    {
+        foreach (GameObject child in children)
+        {
+            if (child.name == stateName)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void SetState(string stateName)
     {
         foreach (GameObject child in children)
