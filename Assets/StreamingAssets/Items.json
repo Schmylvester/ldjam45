@@ -791,7 +791,7 @@
       "rarity": 3,
       "baseValue": 400,
       "spriteIdx": 423,
-      "traits": [ "Two Handed" ]
+      "traits": [ "Two Handed", "Ranged" ]
     },
     {
       "name": "Demonic Bow",

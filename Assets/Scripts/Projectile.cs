@@ -13,8 +13,11 @@ public class Projectile : MonoBehaviour
     Vector2 spawnPos;
     private void Start()
     {
+        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         spawnPos = transform.position;
-        GetComponent<Rigidbody2D>().transform.LookAt(Vector3.forward, direction);
+        Debug.Log(angle);
+
+        GetComponent<Rigidbody2D>().transform.rotation = Quaternion.Euler(0, 0, angle);
         Destroy(gameObject, 10);
     }
 

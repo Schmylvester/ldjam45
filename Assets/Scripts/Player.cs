@@ -31,11 +31,13 @@ namespace Player
         public bool dead = false;
         bool invulnerable = false;
         public bool meleeWeapon = true;
+        string itemName = "";
 
         public void OnWeaponEquip(Item item)
         {
             if (item.type == ItemType.Weapon)
             {
+                itemName = item.name;
                 meleeWeapon = true;
                 for (int i = 0; i < item.traits.Length; ++i)
                 {
@@ -46,10 +48,6 @@ namespace Player
                 }
 
                 transform.GetChild(3).GetChild(0).GetComponent<SpriteRenderer>().sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
-            }
-            else
-            {
-                Debug.LogError("yo dude sup");
             }
         }
 
@@ -295,7 +293,7 @@ namespace Player
             }
             else
             {
-                ProjectileSpawner.instance.SpawnProjectile((Vector2)transform.position + facingDir * 0.2f, 10, facingDir, stats.GetActualDamage(), 300, stats.GetActualWeaponRange() * 10, true);
+                ProjectileSpawner.instance.SpawnProjectile((Vector2)transform.position + facingDir * 0.2f, itemName, facingDir, stats.GetActualDamage(), 300, stats.GetActualWeaponRange() * 10, true);
             }
 
             yield return new WaitForSeconds(0.2f);
