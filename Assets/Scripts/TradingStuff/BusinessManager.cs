@@ -51,11 +51,31 @@ public struct BusinessData
 
 public class BusinessManager : MonoBehaviour
 {
+    public static BusinessManager instance = null;
     BusinessData[] businessData = new BusinessData[(int)BusinessType.COUNT];
     HireeData[] hireeDatas = new HireeData[(int)HireeType.COUNT];
 
+    public BusinessData getData(BusinessType type) { return businessData[(int)type]; }
+    public HireeData getData(HireeType type) { return hireeDatas[(int)type]; }
+    public void setOwned(BusinessType type, int setTo)
+    {
+        businessData[(int)type].rented = setTo == 1;
+        businessData[(int)type].owned = setTo == 2;
+    }
+
+    public void changeHired(HireeType type, int changeBy)
+    {
+        hireeDatas[(int)type].numberHired += changeBy;
+    }
+
     private void Awake()
     {
+        if(instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
