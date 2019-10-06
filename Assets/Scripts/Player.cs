@@ -264,6 +264,7 @@ namespace Player
         {
             if (GameObservables.gamePaused)
             {
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 return;
             }
 
