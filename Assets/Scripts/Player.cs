@@ -29,6 +29,7 @@ namespace Player
 
         bool attacking = false;
         public bool dead = false;
+        bool invulnerable = false;
 
         void Start()
         {
@@ -215,6 +216,7 @@ namespace Player
 
         IEnumerator DoAttack()
         {
+            GetComponent<Rigidbody2D>().mass = 10;
             SFXManager.instance.PlaySFX("Break");
             transform.GetChild(2).gameObject.SetActive(true);
             transform.GetChild(3).gameObject.SetActive(true);
@@ -254,6 +256,7 @@ namespace Player
             transform.GetChild(2).gameObject.SetActive(false);
             transform.GetChild(3).gameObject.SetActive(false);
             attacking = false;
+            GetComponent<Rigidbody2D>().mass = 0.1f;
             yield return null;
         }
 
@@ -286,10 +289,35 @@ namespace Player
         {
             if (collider.transform.parent)
             {
-                if (collider.transform.parent.tag == "Enemy") //todo: tag/layer
+                if (collider.transform.tag == "Enemy") //todo: tag/layer
                 {
                     collider.transform.parent.GetComponent<Monster>().OnHit(stats.GetActualDamage());
                 }
+            }
+        }
+        IEnumerator MakeInvulnerable(float time)
+        {
+            invulnerable = true;
+            yield return new WaitForSeconds(time);
+            invulnerable = false;
+        }
+
+        public void OnHit(float damage)
+        {
+            if (invulnerable)
+            {
+                return;
+            }
+
+            damage -= stats.GetActualArmour(); //yay heals
+            damage = Mathf.Max(damage, 1); //thomas is mean
+
+            GetComponent<PlayerStats>().currentHealth -= damage;
+            StartCoroutine(MakeInvulnerable(0.8f));
+
+            if (stats.currentHealth <= 0) //todo: death animation or particles
+            {
+                OnDeath();
             }
         }
     }

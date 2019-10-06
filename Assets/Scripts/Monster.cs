@@ -26,6 +26,9 @@ public class Monster : MonoBehaviour
     PlayerStats stats;
     bool invulnerable = false;
     bool willAttackPlayer = false;
+    bool doneAttacking = true;
+
+    float attackDelayTimer = 0;
 
     private void Start()
     {
@@ -55,7 +58,7 @@ public class Monster : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
 
-            if (distanceToPlayer < 0.20 &&
+            if (distanceToPlayer < 0.30 &&
                 playerInLineOfSight &&
                 !cat)
             {
@@ -66,17 +69,57 @@ public class Monster : MonoBehaviour
         }
         else if (state == State.Attacking)
         {
-            if (distanceToPlayer > 0.25)
+            if (doneAttacking)
             {
-                state = State.Hunting;
-                GetComponentInChildren<AnimationStateController>().SetState("WalkLeft");
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                if (transform.childCount > 3 && 
+                    attackDelayTimer > 0.5f)
+                {
+                    StartCoroutine(DoAttack());
+                }
+                else if (distanceToPlayer > 0.30)
+                {
+                    state = State.Hunting;
+                    GetComponentInChildren<AnimationStateController>().SetState("WalkLeft");
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                }
             }
         }
         else if (state == State.Defending)
         {
             StartCoroutine(Defending());
         }
+    }
+
+    IEnumerator DoAttack()
+    {
+        Debug.Log("yo");
+        doneAttacking = false;
+        transform.GetChild(3).gameObject.SetActive(true);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        Vector2 facingDir = vectorToPlayer.normalized;
+
+        transform.GetChild(0).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
+        transform.GetChild(1).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
+        float range = stats.GetActualWeaponRange() / 100.0f; //Pixels Per Unit
+        transform.GetChild(3).transform.Translate(new Vector3(facingDir.x * range, facingDir.y * range, 0), Space.Self);
+        
+        yield return new WaitForSeconds(0.2f);
+
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        transform.GetChild(0).transform.localPosition = Vector3.zero;
+        transform.GetChild(1).transform.localPosition = Vector3.zero;
+        transform.GetChild(3).transform.localPosition = Vector3.zero;
+
+        yield return new WaitForSeconds(0.1f);
+
+        transform.GetChild(3).gameObject.SetActive(false);
+        
+        doneAttacking = true;
+        GetComponentInChildren<AnimationStateController>().SetState("WalkLeft");
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        attackDelayTimer = 0.0f;
+        yield return null;
     }
 
     IEnumerator Defending()
@@ -103,6 +146,10 @@ public class Monster : MonoBehaviour
         {
             return;
         }
+
+        if (!doneAttacking) return;
+
+        attackDelayTimer += Time.deltaTime;
 
         willAttackPlayer = aggresive || stats.currentHealth < stats.GetActualMaxHealth();
         if (cat) willAttackPlayer = true;
@@ -143,12 +190,15 @@ public class Monster : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameObservables.gamePaused)
-        {
-            return;
-        }
+        if (!doneAttacking)
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        if (GameObservables.gamePaused) return;
 
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        if (!doneAttacking) return;
+
         switch (state)
         {
             //case State.Idle: IdleUpdate(); break;
@@ -193,17 +243,12 @@ public class Monster : MonoBehaviour
     void HuntingFixedUpdate()
     {
         Vector2 movement = vectorToPlayer.normalized * stats.GetActualMovespeed() * Time.fixedDeltaTime;
-        if (cat) movement *= -1;
+        if (cat) movement *= -1.5f;
         GetComponent<Rigidbody2D>().velocity = movement;
     }
     
     IEnumerator MakeInvulnerable(float time)
     {
-        if (GameObservables.gamePaused)
-        {
-            yield return null;
-        }
-
         invulnerable = true;
         yield return new WaitForSeconds(time);
         invulnerable = false;
@@ -217,13 +262,12 @@ public class Monster : MonoBehaviour
         }
 
         damage -= stats.GetActualArmour(); //monsters can heal :)
+        damage = Mathf.Max(damage, 1); //thomas is mean
 
         GetComponent<PlayerStats>().currentHealth -= damage;
         state = State.Defending;
 
         StartCoroutine(MakeInvulnerable(0.8f));
-
-        Debug.Log("Monster HP = " + stats.currentHealth);
 
         if (stats.currentHealth <= 0) //todo: death animation or particles
         {
@@ -231,4 +275,15 @@ public class Monster : MonoBehaviour
             Destroy(gameObject, 0.2f);
         }
     }
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.transform.parent &&
+            collider.name == "Collider" &&
+            collider.transform.parent.tag == "Player")
+        {
+            collider.transform.parent.GetComponent<Player.Player>().OnHit(stats.GetActualDamage());
+        }
+    }
+
+    //todo: deal damage to player on trigger
 }
