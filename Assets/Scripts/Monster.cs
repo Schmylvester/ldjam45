@@ -38,6 +38,7 @@ public class Monster : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         stats = GetComponent<PlayerStats>();
+        GetComponentInChildren<AnimationStateController>().SetState("Idle");
     }
 
     void CheckState()
@@ -95,7 +96,8 @@ public class Monster : MonoBehaviour
         }
         else if (state == State.Defending)
         {
-            StartCoroutine(Defending());
+            if (doneAttacking)
+                StartCoroutine(Defending());
         }
     }
 
@@ -138,6 +140,7 @@ public class Monster : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         state = State.Attacking;
         StartCoroutine(SpeedUpAfterDefending());
+        SetAttackAnimationFromFacing();
     }
 
     IEnumerator SpeedUpAfterDefending()

@@ -431,7 +431,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frames:
   - {fileID: 21300006, guid: 23a46cfe02eb9104781968157cf0fe8d, type: 3}
-  fps: 4
+  - {fileID: 21300008, guid: 23a46cfe02eb9104781968157cf0fe8d, type: 3}
+  - {fileID: 21300032, guid: 23a46cfe02eb9104781968157cf0fe8d, type: 3}
+  - {fileID: 21300034, guid: 23a46cfe02eb9104781968157cf0fe8d, type: 3}
+  - {fileID: 21300054, guid: 23a46cfe02eb9104781968157cf0fe8d, type: 3}
+  - {fileID: 21300056, guid: 23a46cfe02eb9104781968157cf0fe8d, type: 3}
+  fps: 1
 --- !u!114 &3750364529204394933
 MonoBehaviour:
   m_ObjectHideFlags: 0
