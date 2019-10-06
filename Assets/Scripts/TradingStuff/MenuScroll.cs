@@ -6,12 +6,18 @@ public class MenuScroll : MonoBehaviour
 {
     float maxY;
     float minY;
+    float initPos = 0;
     [SerializeField] float scrollSpeed = 0;
 
     private void Start()
     {
         minY = (Screen.height / 2) + 50;
-        maxY = (Screen.height / 23) * transform.childCount;
+        maxY = float.MaxValue;
+    }
+
+    public void reset()
+    {
+        transform.position = new Vector3(transform.position.x, minY);
     }
 
     void Update()

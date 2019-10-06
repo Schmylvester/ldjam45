@@ -19,7 +19,7 @@ public class StoreInventory : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void Start()
+    public void initStoreInventory()
     {
         int num = Random.Range(0, 9);
         for (int i = 0; i < num; ++i)

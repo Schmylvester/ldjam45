@@ -10,8 +10,10 @@ public class OpenTradingMenu : MonoBehaviour
 
     private void Update()
     {
-        if(playerInTrigger && Input.GetKeyDown(KeyCode.Space))
+        if (playerInTrigger && Input.GetKeyDown(KeyCode.Space))
         {
+            foreach (MenuScroll menu in tradingMenu.GetComponentsInChildren<MenuScroll>())
+                menu.reset();
             menuActive = !menuActive;
             tradingMenu.SetActive(menuActive);
             GameObservables.gamePaused = menuActive;
