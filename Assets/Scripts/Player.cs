@@ -6,7 +6,7 @@ namespace Player
 {
     public class Player : MonoBehaviour
     {
-        enum Facing
+        public enum Facing
         {
             Up,
             Down,
@@ -14,7 +14,7 @@ namespace Player
             Right
         }
 
-        struct FrameData
+        public struct FrameData
         {
             public Vector2 moveDirection;
             public bool interacted;
@@ -22,8 +22,8 @@ namespace Player
             public Facing facing;
         };
 
-        FrameData lastFrame;
-        FrameData thisFrame;
+        public FrameData lastFrame;
+        public FrameData thisFrame;
 
         PlayerStats stats;
 
