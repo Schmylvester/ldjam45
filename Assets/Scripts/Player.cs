@@ -45,6 +45,11 @@ namespace Player
 
         void HandleInput()
         {
+            if (GameObservables.gamePaused)
+            {
+                return;
+            }
+
             lastFrame = thisFrame;
 
             thisFrame.moveDirection = Vector2.zero;
@@ -152,6 +157,17 @@ namespace Player
 
         void Update()
         {
+            if (GameObservables.gamePaused)
+            {
+                return;
+            }
+
+            if (stats.currentHealth <= 0)
+            {
+                //todo: fade screen to black, switch scenes
+                return;
+            }
+
             HandleInput();
             Animate();
             Attack();
@@ -233,6 +249,17 @@ namespace Player
 
         private void FixedUpdate()
         {
+            if (GameObservables.gamePaused)
+            {
+                return;
+            }
+
+            if (stats.currentHealth <= 0)
+            {
+                //todo: fade screen to black, switch scenes
+                return;
+            }
+
             if (!attacking)
             {
                 Move();

@@ -99,6 +99,11 @@ public class Monster : MonoBehaviour
 
     private void Update()
     {
+        if (GameObservables.gamePaused)
+        {
+            return;
+        }
+
         willAttackPlayer = aggresive || stats.currentHealth < stats.GetActualMaxHealth();
         if (cat) willAttackPlayer = true;
 
@@ -138,6 +143,11 @@ public class Monster : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameObservables.gamePaused)
+        {
+            return;
+        }
+
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         switch (state)
         {
@@ -189,6 +199,11 @@ public class Monster : MonoBehaviour
     
     IEnumerator MakeInvulnerable(float time)
     {
+        if (GameObservables.gamePaused)
+        {
+            yield return null;
+        }
+
         invulnerable = true;
         yield return new WaitForSeconds(time);
         invulnerable = false;

@@ -642,6 +642,8 @@ MonoBehaviour:
   - prefab: {fileID: 7608577813278631158, guid: 50115f7f6d8329d4b9506a5829d5e593,
       type: 3}
     weight: 1
+  - prefab: {fileID: 0}
+    weight: 1574
 --- !u!224 &659392396 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 650134308851887761, guid: f8968863a6e338a469b5a126fb7c714a,
@@ -1628,6 +1630,12 @@ MonoBehaviour:
   - prefab: {fileID: 7608577813278631158, guid: 50115f7f6d8329d4b9506a5829d5e593,
       type: 3}
     weight: 1
+  - prefab: {fileID: 7949803050333889064, guid: 14b0436f026fec44c9d8c56e450b38a3,
+      type: 3}
+    weight: 2
+  - prefab: {fileID: 5622357076181454190, guid: f17f49bd7383403479d8ffff45b9c136,
+      type: 3}
+    weight: 3
 --- !u!1001 &184236306848544623
 PrefabInstance:
   m_ObjectHideFlags: 0
