@@ -32,6 +32,24 @@ namespace Player
         bool invulnerable = false;
         public bool meleeWeapon = true;
 
+        public void OnWeaponEquip(Item item)
+        {
+            if (item.type == ItemType.Weapon)
+            {
+                //todo: if trait for ranged
+
+                //ranged
+                meleeWeapon = false;
+                Debug.Log(transform.GetChild(3).GetChild(1).GetComponent<SpriteRenderer>().sprite);
+                transform.GetChild(3).GetChild(1).GetComponent<SpriteRenderer>().sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
+                Debug.Log(transform.GetChild(3).GetChild(1).GetComponent<SpriteRenderer>().sprite);
+            }
+            else
+            {
+                Debug.LogError("yo dude sup");
+            }
+        }
+
         void Start()
         {
             lastFrame.moveDirection = Vector2.zero;

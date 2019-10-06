@@ -119,6 +119,8 @@ namespace Player
             stats.moveSpeedModifier += item.speed;
             stats.weaponRangeModifier += item.range;
 
+            stats.gameObject.GetComponent<Player>().OnWeaponEquip(item);
+
             m_equippedItems[(int)item.type] = item;
             m_equippedItems[(int)item.type].isNull = false;
             m_equipSlots[(int)item.type].sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
