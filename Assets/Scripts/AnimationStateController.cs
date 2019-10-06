@@ -45,7 +45,7 @@ public class AnimationStateController : MonoBehaviour
             }
         }
 
-        Debug.LogError("Invalid state " + stateName);
+        //Debug.LogError("Invalid state " + stateName);
     }
 
     public void ChangeFPS(float fps)

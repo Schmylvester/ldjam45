@@ -94,8 +94,8 @@ namespace Player
             {
                 m_counts[i] = 0;
                 m_counts.RemoveAt(i);
-                m_items.RemoveAt(i);
             }
+            m_items.Clear();
         }
 
         private void togglePlayerHPBar()
@@ -171,6 +171,8 @@ namespace Player
 
         public void addItem(Item item, int count = 1)
         {
+            if (item.spriteIdx == 0) return;
+
             for (int i = 0; i < m_items.Count; ++i)
             {
                 if (m_items[i].name == item.name)

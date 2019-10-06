@@ -24,18 +24,40 @@ public class ItemSpawner : MonoBehaviour
             sumWeight += l.weight;
         }
 
-        foreach (LootChance l in lt.table)
+        bool droppedItem = false;
+        while (!droppedItem)
         {
-            if (Random.Range(0.0f, 1.0f) < l.weight / sumWeight)
+            foreach (LootChance l in lt.table)
             {
-                itemPrefab.SetActive(false);
-                GameObject go = Instantiate(itemPrefab);
-                go.GetComponent<Loot>().itemName = l.itemName;
-                go.SetActive(true);
-                itemPrefab.SetActive(true);
+                if (Random.Range(0.0f, 1.0f) < l.weight / sumWeight)
+                {
+                    droppedItem = true;
+                    if (l.itemName == "None") continue;
 
-                Vector2 randOffset = new Vector2(Random.Range(-1, 1) * 0.1f, Random.Range(-1, 1) * 0.1f);
-                go.transform.position = pos + randOffset;
+                    itemPrefab.SetActive(false);
+                    GameObject go = Instantiate(itemPrefab);
+                    go.GetComponent<Loot>().itemName = l.itemName;
+                    go.SetActive(true);
+                    itemPrefab.SetActive(true);
+
+                    Vector2 randOffset = new Vector2(Random.Range(-1, 1) * 0.1f, Random.Range(-1, 1) * 0.1f);
+                    go.transform.position = pos + randOffset;
+                }
+
+                if (Random.Range(0.0f, 1.0f) < 0.05f)
+                {
+                    droppedItem = true;
+
+                    itemPrefab.SetActive(false);
+                    GameObject go = Instantiate(itemPrefab);
+                    Item item = ItemDatabase.instance.getRandomItem();
+                    go.GetComponent<Loot>().itemName = item.name;
+                    go.SetActive(true);
+                    itemPrefab.SetActive(true);
+
+                    Vector2 randOffset = new Vector2(Random.Range(-1, 1) * 0.1f, Random.Range(-1, 1) * 0.1f);
+                    go.transform.position = pos + randOffset;
+                }
             }
         }
     }
