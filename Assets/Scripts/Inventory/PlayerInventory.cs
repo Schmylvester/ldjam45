@@ -100,7 +100,8 @@ namespace Player
 
         private void togglePlayerHPBar()
         {
-            transform.parent.GetChild(1).gameObject.SetActive(!visible);
+            Transform hpBar = transform.parent.Find("PlayerPanel");
+            if(hpBar) hpBar.gameObject.SetActive(!visible);
         }
 
         public void equipItem(Item item)
