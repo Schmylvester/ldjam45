@@ -28,6 +28,7 @@ namespace Player
         PlayerStats stats;
 
         bool attacking = false;
+        public bool dead = false;
 
         void Start()
         {
@@ -92,6 +93,11 @@ namespace Player
             if (attacking) return;
             Vector2 movement = thisFrame.moveDirection * stats.GetActualMovespeed() * Time.fixedDeltaTime;
             GetComponent<Rigidbody2D>().velocity = movement;
+        }
+
+        void OnDeath()
+        {
+            PlayerInventory.instance.removeAllItemsAndEquipment();
         }
 
         void Animate()
@@ -164,7 +170,10 @@ namespace Player
 
             if (stats.currentHealth <= 0)
             {
-                //todo: fade screen to black, switch scenes
+                if (!dead)
+                {
+                    OnDeath();
+                }
                 return;
             }
 
@@ -256,7 +265,10 @@ namespace Player
 
             if (stats.currentHealth <= 0)
             {
-                //todo: fade screen to black, switch scenes
+                if (!dead)
+                {
+                    OnDeath();
+                }
                 return;
             }
 
