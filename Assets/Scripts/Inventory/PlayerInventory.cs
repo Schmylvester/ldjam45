@@ -141,6 +141,8 @@ namespace Player
                 stats.moveSpeedModifier -= item.speed;
                 stats.weaponRangeModifier -= item.range;
 
+                stats.gameObject.GetComponent<Player>().OnWeaponUnequip();
+
                 addItem(m_equippedItems[(int)itemType]);
                 m_equippedItems[(int)itemType].isNull = true;
                 m_equipSlots[(int)itemType].sprite = m_emptyIcon;

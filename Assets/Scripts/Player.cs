@@ -36,18 +36,27 @@ namespace Player
         {
             if (item.type == ItemType.Weapon)
             {
-                //todo: if trait for ranged
+                meleeWeapon = true;
+                for (int i = 0; i < item.traits.Length; ++i)
+                {
+                    if (item.traits[i] == "Ranged")
+                    {
+                        meleeWeapon = false;
+                    }
+                }
 
-                //ranged
-                meleeWeapon = false;
-                Debug.Log(transform.GetChild(3).GetChild(1).GetComponent<SpriteRenderer>().sprite);
-                transform.GetChild(3).GetChild(1).GetComponent<SpriteRenderer>().sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
-                Debug.Log(transform.GetChild(3).GetChild(1).GetComponent<SpriteRenderer>().sprite);
+                transform.GetChild(3).GetChild(0).GetComponent<SpriteRenderer>().sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
             }
             else
             {
                 Debug.LogError("yo dude sup");
             }
+        }
+
+        public void OnWeaponUnequip()
+        {
+            meleeWeapon = true;
+            transform.GetChild(3).GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
         }
 
         void Start()

@@ -1914,15 +1914,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 5935093113153364880, guid: fe73cac0c7f72b84891487b96f8f59e8,
-        type: 3}
-      propertyPath: meleeWeapon
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5177552089911670511, guid: fe73cac0c7f72b84891487b96f8f59e8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3769482838774694963, guid: fe73cac0c7f72b84891487b96f8f59e8,
         type: 3}
