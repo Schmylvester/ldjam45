@@ -655,6 +655,7 @@ MonoBehaviour:
   baseArmour: 0
   armourModifier: 0
   multiplicativeArmourModifier: []
+  status: 0
 --- !u!114 &7967841040148998937
 MonoBehaviour:
   m_ObjectHideFlags: 0
