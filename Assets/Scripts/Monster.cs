@@ -20,10 +20,11 @@ public class Monster : MonoBehaviour
     Vector2 vectorToPlayer;
     float distanceToPlayer = 9999;
     [SerializeField] bool playerInLineOfSight = false;
+    public bool cat = false;
+    public bool aggresive = true;
 
     PlayerStats stats;
     bool invulnerable = false;
-    public bool aggresive = true;
     bool willAttackPlayer = false;
 
     private void Start()
@@ -55,7 +56,8 @@ public class Monster : MonoBehaviour
             }
 
             if (distanceToPlayer < 0.20 &&
-                playerInLineOfSight)
+                playerInLineOfSight &&
+                !cat)
             {
                 state = State.Attacking;
                 GetComponentInChildren<AnimationStateController>().SetState("Attack");
@@ -79,6 +81,7 @@ public class Monster : MonoBehaviour
 
     IEnumerator Defending()
     {
+        if (cat) yield return null;
         GetComponentInChildren<AnimationStateController>().SetState("Defend");
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(0.4f);
@@ -97,6 +100,7 @@ public class Monster : MonoBehaviour
     private void Update()
     {
         willAttackPlayer = aggresive || stats.currentHealth < stats.GetActualMaxHealth();
+        if (cat) willAttackPlayer = true;
 
         vectorToPlayer = player.transform.position - transform.position;
         distanceToPlayer = Mathf.Abs(vectorToPlayer.magnitude);
@@ -134,6 +138,7 @@ public class Monster : MonoBehaviour
 
     private void FixedUpdate()
     {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         switch (state)
         {
             //case State.Idle: IdleUpdate(); break;
@@ -178,6 +183,7 @@ public class Monster : MonoBehaviour
     void HuntingFixedUpdate()
     {
         Vector2 movement = vectorToPlayer.normalized * stats.GetActualMovespeed() * Time.fixedDeltaTime;
+        if (cat) movement *= -1;
         GetComponent<Rigidbody2D>().velocity = movement;
     }
     

@@ -22,7 +22,7 @@ public class SFXManager : MonoBehaviour
     {
         if (!clips.ContainsKey(fileName))
         {
-            AudioClip clip = (AudioClip)Resources.Load("Audio/Break.ogg");
+            AudioClip clip = (AudioClip)Resources.Load("Audio/" + fileName);
             if (!clip)
             {
                 Debug.Log("Could not find Audio/" + fileName);
@@ -31,23 +31,22 @@ public class SFXManager : MonoBehaviour
             clips.Add(fileName, clip);
         }
 
-        bool found = false;
+        AudioSource src = null;
         foreach (AudioSource source in audioSources)
         {
             if (source && !source.isPlaying)
             {
-                found = true;
-                source.PlayOneShot(clips[fileName]);
+                src = source;
                 break;
             }
         }
 
-        if (!found)
+        if (src == null)
         {
-            AudioSource source = new AudioSource();
-            source.clip = clips[fileName];
-            source.PlayOneShot(clips[fileName]);
-            audioSources.Add(source);
+            src = gameObject.AddComponent<AudioSource>();
+            audioSources.Add(src);
         }
+
+        src.PlayOneShot(clips[fileName], 0.001f);
     }
 }

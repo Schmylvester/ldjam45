@@ -6,7 +6,7 @@ namespace Player
 {
     public class Player : MonoBehaviour
     {
-        enum Facing
+        public enum Facing
         {
             Up,
             Down,
@@ -14,7 +14,7 @@ namespace Player
             Right
         }
 
-        struct FrameData
+        public struct FrameData
         {
             public Vector2 moveDirection;
             public bool interacted;
@@ -22,8 +22,8 @@ namespace Player
             public Facing facing;
         };
 
-        FrameData lastFrame;
-        FrameData thisFrame;
+        public FrameData lastFrame;
+        public FrameData thisFrame;
 
         PlayerStats stats;
 
@@ -189,7 +189,7 @@ namespace Player
 
         IEnumerator DoAttack()
         {
-            SFXManager.instance.PlaySFX("Break.ogg");
+            SFXManager.instance.PlaySFX("Break");
             transform.GetChild(2).gameObject.SetActive(true);
             transform.GetChild(3).gameObject.SetActive(true);
             attacking = true;

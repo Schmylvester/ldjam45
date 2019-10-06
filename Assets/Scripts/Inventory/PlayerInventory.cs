@@ -28,6 +28,11 @@ namespace Player
         [SerializeField] Image[] m_equipSlots = null;
         [SerializeField] Sprite m_emptyIcon = null;
 
+        Item[] getEquippedItems()
+        {
+            return (Item[])m_equippedItems.Clone();
+        }
+
         private void Awake()
         {
             if (instance)
@@ -75,12 +80,19 @@ namespace Player
 
         public void equipItem(Item item)
         {
-            unequipItem(item.type);
+            unequipItemType(item.type);
             if(ArrayUtil.arrayContains(item.traits, "Two Handed") != -1)
             {
-                unequipItem(ItemType.Weapon);
-                unequipItem(ItemType.Shield);
+                unequipItemType(ItemType.Weapon);
+                unequipItemType(ItemType.Shield);
             }
+            PlayerStats stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+            stats.damageModifier += item.damage;
+            stats.armourModifier += item.armour;
+            stats.maxHealthModifier += item.health;
+            stats.moveSpeedModifier += item.speed;
+            stats.weaponRangeModifier += item.range;
+
             m_equippedItems[(int)item.type] = item;
             m_equippedItems[(int)item.type].isNull = false;
             m_equipSlots[(int)item.type].sprite = ItemDatabase.instance.getSprite(item.spriteIdx);
@@ -89,13 +101,21 @@ namespace Player
             updateInventoryUI();
         }
 
-        public void unequipItem(ItemType item)
+        public void unequipItemType(ItemType itemType)
         {
-            if (!m_equippedItems[(int)item].isNull)
+            if (!m_equippedItems[(int)itemType].isNull)
             {
-                addItem(m_equippedItems[(int)item]);
-                m_equippedItems[(int)item].isNull = true;
-                m_equipSlots[(int)item].sprite = m_emptyIcon;
+                Item item = m_equippedItems[(int)itemType];
+                PlayerStats stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+                stats.damageModifier -= item.damage;
+                stats.armourModifier -= item.armour;
+                stats.maxHealthModifier -= item.health;
+                stats.moveSpeedModifier -= item.speed;
+                stats.weaponRangeModifier -= item.range;
+
+                addItem(m_equippedItems[(int)itemType]);
+                m_equippedItems[(int)itemType].isNull = true;
+                m_equipSlots[(int)itemType].sprite = m_emptyIcon;
                 updateInventoryUI();
             }
         }

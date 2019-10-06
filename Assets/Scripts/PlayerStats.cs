@@ -78,4 +78,13 @@ public class PlayerStats : MonoBehaviour
 
         return (baseArmour + armourModifier) * multiplier;
     }
+
+    public enum Status
+    {
+        Fine,
+        Fire,
+        Poison,
+    }
+
+    public Status status;
 }
