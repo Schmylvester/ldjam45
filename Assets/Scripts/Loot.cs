@@ -56,9 +56,9 @@ public class Loot : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, velocity * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (timer > 0.5f && collision.transform.parent.gameObject.tag == "Player")
+        if (timer > 1.0f && collision.transform.parent.gameObject.tag == "Player")
         {
             Item item = ItemDatabase.instance.getItem(itemName);
             Player.PlayerInventory.instance.addItem(item);
