@@ -21,8 +21,8 @@ namespace Player
         [SerializeField] int itemsPerRow;
         [SerializeField] Vector2 gridSpacing;
 
-        List<Item> m_items = new List<Item>();
-        List<int> m_counts = new List<int>();
+        public List<Item> m_items { get; } = new List<Item>();
+        public List<int> m_counts { get; } = new List<int>();
         private bool visible = true;
         List<GameObject> m_activeChildren = new List<GameObject>();
 
@@ -52,7 +52,7 @@ namespace Player
 
         private void Start()
         {
-            for (int i = 0; i < 100; ++i)
+            for (int i = 0; i < 120; ++i)
             {
                 addItem(ItemDatabase.instance.getRandomItem());
             }
