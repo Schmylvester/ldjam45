@@ -97,6 +97,7 @@ namespace Player
 
         void OnDeath()
         {
+            dead = true;
             PlayerInventory.instance.removeAllItemsAndEquipment();
         }
 

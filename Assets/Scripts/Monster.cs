@@ -215,7 +215,8 @@ public class Monster : MonoBehaviour
         {
             return;
         }
-        //todo: damage reduction
+
+        damage -= stats.GetActualArmour(); //monsters can heal :)
 
         GetComponent<PlayerStats>().currentHealth -= damage;
         state = State.Defending;
