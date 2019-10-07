@@ -83,6 +83,7 @@ public class PlayerInventory : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(visible);
             GetComponent<Image>().enabled = visible;
         }
+        inventoryPanel.gameObject.SetActive(visible);
     }
 
     public void removeAllItemsAndEquipment()

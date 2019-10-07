@@ -92,11 +92,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoField: {fileID: 650134310337478332}
+  myInfo: You don't have anything on your head.
+  defaultInfo: You don't have anything on your head.
   nameField: {fileID: 650134309794242602}
   rareField: {fileID: 650134308929539277}
   typeField: {fileID: 650134309166491676}
-  myInfo: You don't have anything on your head.
-  defaultInfo: You don't have anything on your head.
 --- !u!1 &466090288
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,11 +189,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoField: {fileID: 650134310337478332}
+  myInfo: You don't have any shield equipped.
+  defaultInfo: You don't have any shield equipped.
   nameField: {fileID: 650134309794242602}
   rareField: {fileID: 650134308929539277}
   typeField: {fileID: 650134309166491676}
-  myInfo: You don't have any shield equipped.
-  defaultInfo: You don't have any shield equipped.
 --- !u!1 &502149767
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +307,41 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!1 &915354488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 915354489}
+  m_Layer: 5
+  m_Name: ItemHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &915354489
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915354488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 650134308851887761}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &949408588
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,11 +582,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoField: {fileID: 650134310337478332}
+  myInfo: You don't have any weapons equipped.
+  defaultInfo: You don't have any weapons equipped.
   nameField: {fileID: 650134309794242602}
   rareField: {fileID: 650134308929539277}
   typeField: {fileID: 650134309166491676}
-  myInfo: You don't have any weapons equipped.
-  defaultInfo: You don't have any weapons equipped.
 --- !u!1 &1059879813
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,11 +823,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoField: {fileID: 650134310337478332}
+  myInfo: You don't have anything on your feet.
+  defaultInfo: You don't have anything on your feet.
   nameField: {fileID: 650134309794242602}
   rareField: {fileID: 650134308929539277}
   typeField: {fileID: 650134309166491676}
-  myInfo: You don't have anything on your feet.
-  defaultInfo: You don't have anything on your feet.
 --- !u!1 &1387386430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,9 +1064,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoField: {fileID: 650134310337478332}
-  nameField: {fileID: 650134309794242602}
-  rareField: {fileID: 650134308929539277}
-  typeField: {fileID: 650134309166491676}
   myInfo: It you.
   defaultInfo: 
 --- !u!1 &1834098324
@@ -1126,11 +1158,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoField: {fileID: 650134310337478332}
+  myInfo: You don't have any gloves on.
+  defaultInfo: You don't have any gloves on.
   nameField: {fileID: 650134309794242602}
   rareField: {fileID: 650134308929539277}
   typeField: {fileID: 650134309166491676}
-  myInfo: You don't have any gloves on.
-  defaultInfo: You don't have any gloves on.
 --- !u!1 &1906009354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,9 +1326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoField: {fileID: 650134310337478332}
-  nameField: {fileID: 650134309794242602}
-  rareField: {fileID: 650134308929539277}
-  typeField: {fileID: 650134309166491676}
   myInfo: Doing all right.
   defaultInfo: 
 --- !u!1 &650134308851887760
@@ -1331,6 +1360,7 @@ RectTransform:
   m_Children:
   - {fileID: 650134309059075289}
   - {fileID: 949408589}
+  - {fileID: 915354489}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1392,7 +1422,7 @@ MonoBehaviour:
   typeField: {fileID: 650134309166491676}
   inventoryItemPrefab: {fileID: 97515218501706935, guid: d933f8a50fc6c0c4cb2bffd87fb07b52,
     type: 3}
-  inventoryPanel: {fileID: 650134308851887761}
+  inventoryPanel: {fileID: 915354489}
   itemsPerRow: 19
   gridSpacing: {x: 37, y: 60}
   m_equipSlots:
@@ -1999,8 +2029,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoField: {fileID: 650134310337478332}
+  myInfo: You don't have anything equipped here.
+  defaultInfo: You don't have anything equipped here.
   nameField: {fileID: 650134309794242602}
   rareField: {fileID: 650134308929539277}
   typeField: {fileID: 650134309166491676}
-  myInfo: You don't have anything equipped here.
-  defaultInfo: You don't have anything equipped here.

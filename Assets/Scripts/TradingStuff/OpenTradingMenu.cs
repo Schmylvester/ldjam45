@@ -13,8 +13,6 @@ public class OpenTradingMenu : MonoBehaviour
     {
         if (playerInTrigger && Input.GetKeyDown(KeyCode.Space))
         {
-            foreach (MenuScroll menu in tradingMenu.GetComponentsInChildren<MenuScroll>())
-                menu.reset();
             menuActive = !menuActive;
             tradingMenu.SetActive(menuActive);
             tradingMenu.GetComponentsInChildren<ShopMenu>()[0].setStoreIdx(storeIdx);

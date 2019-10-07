@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1613950316}
-  - component: {fileID: 1613950319}
   - component: {fileID: 1613950318}
   - component: {fileID: 1613950317}
+  - component: {fileID: 1660537919}
   m_Layer: 0
   m_Name: Sign
   m_TagString: Untagged
@@ -33,23 +33,6 @@ Transform:
   m_Father: {fileID: 6212946794276386889}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1613950319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613950315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10085f7735a9ef641a42f1c86f40cbd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_messageBox: {fileID: 0}
-  m_messageText: {fileID: 0}
-  m_messages:
-  - This is the biggest and fanciest shop in the game, and I am far better than you
-    because I own it. - The Owner
 --- !u!61 &1613950318
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -102,6 +85,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.96}
   m_EdgeRadius: 0
+--- !u!114 &1660537919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613950315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6215a603f3b62d489b35b28b13c1bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_messages:
+  - This is the biggest and fanciest shop in the game, and I am far better than you
+    because I own it. - The Owner
+  businessType: 0
 --- !u!1 &5557613970280132675
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,13 +9,14 @@ public class Sign : MonoBehaviour
     bool m_inTrigger = false;
     bool m_boxActive = false;
 
-    private void Update()
+    private void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Space) && m_inTrigger)
         {
             m_boxActive = !m_boxActive;
             if (m_boxActive)
             {
+                GameObservables.gamePaused = true;
                 showMessage();
             }
             else
@@ -28,7 +29,8 @@ public class Sign : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        m_inTrigger = true;
+        if (collision.transform.parent.tag == "Player")
+            m_inTrigger = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -43,7 +45,6 @@ public class Sign : MonoBehaviour
 
     protected virtual void showMessage()
     {
-        GameObservables.gamePaused = true;
         MessageQueue.addToQueue(m_messages[m_activeMessage]);
         ++m_activeMessage;
         m_activeMessage %= m_messages.Length;

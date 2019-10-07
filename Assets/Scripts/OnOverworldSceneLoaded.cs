@@ -19,7 +19,9 @@ public class OnOverworldSceneLoaded : MonoBehaviour
     void sceneLoaded()
     {
         BusinessManager.instance.handleExpenses();
+        AssignmentManager.instance.updateUI();
         buttonManager.updateUI();
         StoreInventory.instance.initStoreInventory();
+        Adventurer.onAdvanceDay();
     }
 }

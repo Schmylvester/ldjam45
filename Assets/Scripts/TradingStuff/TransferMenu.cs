@@ -3,28 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ShopMenu : MonoBehaviour
+public abstract class TransferMenu : MonoBehaviour
 {
     [SerializeField] protected GameObject itemPrefab;
     [SerializeField] protected Transform panel;
 
-    [SerializeField] protected int itemsPerRow;
+    [SerializeField] protected int itemsPerCol;
     [SerializeField] protected Vector2 gridSpacing;
 
-    [SerializeField] protected Text playerMoney = null;
-    [SerializeField] protected ShopMenu otherPanel;
+    [SerializeField] protected TransferMenu otherPanel;
 
-    List<BuySellUIElement> elements = new List<BuySellUIElement>();
+    List<TransferUIElement> elements = new List<TransferUIElement>();
 
     [SerializeField] GameObject nothingToBuy = null;
-    protected int storeIdx;
+    protected BusinessType storeIdx;
 
     private void Awake()
     {
         gridSpacing = new Vector2(gridSpacing.x * ((float)Screen.width / 800), gridSpacing.y * ((float)Screen.height / 600));
     }
 
-    public void setStoreIdx(int idx)
+    public void setStoreIdx(BusinessType idx)
     {
         storeIdx = idx;
         updateInventoryUI(idx);
@@ -35,7 +34,7 @@ public abstract class ShopMenu : MonoBehaviour
 
     protected abstract int initValue(Item item);
 
-    public void updateInventoryUI(int storeIdx, bool updateY = false)
+    public void updateInventoryUI(BusinessType storeIdx, bool updateY = false)
     {
         for (int i = elements.Count - 1; i >= 0; --i)
         {
@@ -46,17 +45,13 @@ public abstract class ShopMenu : MonoBehaviour
         List<int> counts = getCounts();
         for (int i = 0; i < items.Count; ++i)
         {
-            BuySellUIElement buySellElement =
-                Instantiate(itemPrefab, panel.GetChild(0)).GetComponent<BuySellUIElement>();
-            elements.Add(buySellElement);
-            (buySellElement.transform as RectTransform).Translate(new Vector3((i % itemsPerRow) * gridSpacing.x, -(i / itemsPerRow) * gridSpacing.y));
-            buySellElement.init((this as SellMenu) != null, initValue(items[i]), this, otherPanel, storeIdx);
-            buySellElement.setItem(items[i], counts[i]);
+            TransferUIElement transferElement =
+                Instantiate(itemPrefab, panel).GetComponent<TransferUIElement>();
+            elements.Add(transferElement);
+            (transferElement.transform as RectTransform).Translate(new Vector3((i / itemsPerCol) * gridSpacing.x, -(i % itemsPerCol) * gridSpacing.y));
+            transferElement.init((this as TransferTo) != null, initValue(items[i]), this, otherPanel, storeIdx);
+            transferElement.setItem(items[i], counts[i]);
         }
         nothingToBuy.SetActive(items.Count == 0);
-        if (playerMoney)
-        {
-            playerMoney.text = "£" + PlayerInventory.instance.getCash();
-        }
     }
 }

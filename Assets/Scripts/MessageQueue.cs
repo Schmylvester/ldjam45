@@ -19,11 +19,10 @@ public class MessageQueue : MonoBehaviour
             GameObservables.gamePaused = true;
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                GameObservables.gamePaused = true;
+                GameObservables.gamePaused = false;
                 messageQueue.RemoveAt(0);
                 box.enabled = false;
                 text.enabled = false;
-
             }
         }
     }

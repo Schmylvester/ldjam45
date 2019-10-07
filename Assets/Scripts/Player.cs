@@ -286,7 +286,7 @@ public class Player : MonoBehaviour
             transform.GetChild(1).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
             float range = stats.GetActualWeaponRange() / 100.0f; //Pixels Per Unit
             transform.GetChild(2).transform.Translate(new Vector3(facingDir.x * range, facingDir.y * range, 0), Space.Self);
-            transform.GetChild(2).GetChild(0).transform.Translate(new Vector3(facingDir.x * range - (facingDir.x * 0.085f), facingDir.y * range - (facingDir.y * 0.085f), 0), Space.Self);
+            if (transform.GetChild(2).childCount > 0) transform.GetChild(2).GetChild(0).transform.Translate(new Vector3(facingDir.x * range - (facingDir.x * 0.085f), facingDir.y * range - (facingDir.y * 0.085f), 0), Space.Self);
             if (transform.childCount > 3) transform.GetChild(3).transform.Translate(new Vector3(facingDir.x * 0.1f, facingDir.y * 0.1f, 0), Space.Self);
         }
         else
@@ -298,7 +298,7 @@ public class Player : MonoBehaviour
         transform.GetChild(0).transform.localPosition = Vector3.zero;
         transform.GetChild(1).transform.localPosition = Vector3.zero;
         transform.GetChild(2).transform.localPosition = Vector3.zero;
-        transform.GetChild(2).GetChild(0).transform.localPosition = Vector3.zero;
+        if (transform.GetChild(2).childCount > 0) transform.GetChild(2).GetChild(0).transform.localPosition = Vector3.zero;
         if (transform.childCount > 3) transform.GetChild(3).transform.localPosition = Vector3.zero;
         transform.GetChild(2).gameObject.SetActive(false);
         yield return new WaitForSeconds(0.1f);

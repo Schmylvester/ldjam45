@@ -66,6 +66,38 @@ public class BusinessManager : MonoBehaviour
     public void changeHired(HireeType type, int changeBy)
     {
         hireeDatas[(int)type].numberHired += changeBy;
+        hireeDatas[(int)type].numberUnassigned += changeBy;
+        while (hireeDatas[(int)type].numberUnassigned < 0)
+        {
+            for (int i = 0; i < (int)BusinessType.COUNT; ++i)
+            {
+                if (businessData[i].workersAssigned.Remove(type))
+                {
+                    hireeDatas[(int)type].numberUnassigned++;
+                    break;
+                }
+            }
+        }
+    }
+
+    public void changeUnassigned(HireeType type, int changeBy)
+    {
+        hireeDatas[(int)type].numberUnassigned += changeBy;
+    }
+
+    public void setCost(BusinessType business, Item item, int _cost)
+    {
+        for(int i = 0; i < businessData[(int)business].itemsForSale.Count; ++i)
+        {
+            if(businessData[(int)business].itemsForSale[i].item.name == item.name)
+            {
+                businessData[(int)business].itemsForSale[i] = new ItemForSale()
+                {
+                    item = businessData[(int)business].itemsForSale[i].item,
+                    cost = _cost
+                };
+            }
+        }
     }
 
     private void Awake()
@@ -77,10 +109,6 @@ public class BusinessManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
-    {
         initData();
     }
 
@@ -171,14 +199,15 @@ public class BusinessManager : MonoBehaviour
 
     public void handleExpenses()
     {
-        foreach (HireeData hireeData in hireeDatas)
+        for (int i = 0; i < hireeDatas.Length; ++i)
         {
-            for (int i = 0; i < hireeData.numberHired; ++i)
+            for (int j = 0; j < hireeDatas[i].numberHired; ++j)
             {
-                if (!PlayerInventory.instance.changeCash(-hireeData.cost))
+                if (!PlayerInventory.instance.changeCash(-hireeDatas[i].cost))
                 {
-                    int numberLost = hireeData.numberHired - i;
-                    MessageQueue.addToQueue(numberLost + " of your " + hireeData.type + "s had to quit as you could not pay them.");
+                    int numberLost = hireeDatas[i].numberHired - j;
+                    MessageQueue.addToQueue(numberLost + " of your " + hireeDatas[i].type + "s had to quit as you could not pay them.");
+                    changeHired((HireeType)i, -numberLost);
                     break;
                 }
             }

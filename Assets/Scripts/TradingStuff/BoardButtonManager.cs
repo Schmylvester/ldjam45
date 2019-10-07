@@ -77,6 +77,7 @@ public class BoardButtonManager : MonoBehaviour
             fireButtons[idx].interactable = true;
             BusinessManager.instance.changeHired((HireeType)idx, 1);
         }
+        AssignmentManager.instance.updateUI();
     }
 
     public void fireWorker(int idx)
@@ -87,6 +88,7 @@ public class BoardButtonManager : MonoBehaviour
         {
             fireButtons[idx].interactable = false;
         }
+        AssignmentManager.instance.updateUI();
     }
 
     bool attemptBuy(int cost)

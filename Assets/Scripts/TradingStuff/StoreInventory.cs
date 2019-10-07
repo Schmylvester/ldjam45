@@ -18,8 +18,6 @@ public class StoreInventory : MonoBehaviour
         new List<int>(),
     };
 
-    int[] profitForPlayer = new int[3] { 0, 0, 0 };
-
     public string playerAtStall = "";
 
     private void Awake()
@@ -63,6 +61,7 @@ public class StoreInventory : MonoBehaviour
                 data = BusinessManager.instance.getData(BusinessType.Stall);
                 break;
         }
+        string message = "";
         for (int i = 0; i < data.itemsForSale.Count; ++i)
         {
             if (Random.Range(0.0f, 1.0f) < getStolenChance(data))
@@ -71,13 +70,15 @@ public class StoreInventory : MonoBehaviour
                 data.itemsForSale.RemoveAt(i--);
                 continue;
             }
-            else if (Random.Range(0.0f, 1.0f) < getSoldChance(data))
+            else if (Random.Range(0.0f, 1.0f) < getSoldChance(data.itemsForSale[i], data, ref message))
             {
                 MessageQueue.addToQueue(data.itemsForSale[i].item.name + " was sold for £" + data.itemsForSale[i].cost + ".");
+                PlayerInventory.instance.changeCash(data.itemsForSale[i].cost);
                 data.itemsForSale.RemoveAt(i--);
-                profitForPlayer[store] += data.itemsForSale[i].cost;
             }
         }
+        if (message != "")
+            MessageQueue.addToQueue(message);
     }
 
     void initNPCInventory(int store)
@@ -159,11 +160,11 @@ public class StoreInventory : MonoBehaviour
         return stolenChance;
     }
 
-    float getSoldChance(BusinessData data)
+    float getSoldChance(ItemForSale item, BusinessData data, ref string message)
     {
         if (!data.workersAssigned.Contains(HireeType.Sales) && playerAtStall != data.name)
         {
-            MessageQueue.addToQueue("You should assign a sales assistant to your " + data.name + " so it can operate while you are busy.");
+            message = ("You should assign a sales assistant to your " + data.name + " so it can operate while you are busy.");
             return 0;
         }
         float soldChance = 0.6f;
@@ -174,6 +175,9 @@ public class StoreInventory : MonoBehaviour
             if (hireeData == HireeType.Sales)
                 soldChance *= 1.2f;
         }
+
+        soldChance *= item.item.baseValue / item.cost;
+
         return soldChance;
     }
 }
