@@ -170,7 +170,7 @@ public class Monster : MonoBehaviour
 
         attackDelayTimer += Time.deltaTime;
 
-        willAttackPlayer = aggresive || stats.currentHealth < stats.GetActualMaxHealth();
+        willAttackPlayer = aggresive || stats.getCurrentHealth() < stats.GetActualMaxHealth();
         if (cat) willAttackPlayer = true;
 
         vectorToPlayer = player.transform.position - transform.position;
@@ -364,12 +364,12 @@ public class Monster : MonoBehaviour
         damage -= stats.GetActualArmour(); //monsters can heal :)
         damage = Mathf.Max(damage, 1); //thomas is mean
 
-        GetComponent<PlayerStats>().currentHealth -= damage;
+        GetComponent<PlayerStats>().changeCurrentHealth(-damage);
         state = State.Defending;
 
         StartCoroutine(MakeInvulnerable(0.8f));
 
-        if (stats.currentHealth <= 0) //todo: death animation or particles
+        if (stats.getCurrentHealth() <= 0) //todo: death animation or particles
         {
             ItemSpawner.instance.Spawn(GetComponent<LootTable>(), transform.position);
             Destroy(gameObject, 0.2f);

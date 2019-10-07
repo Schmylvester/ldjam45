@@ -30,8 +30,8 @@ public class InventroryUIElement : MonoBehaviour, IPointerEnterHandler, IPointer
             }
             else if (item.type == ItemType.Consumable)
             {
-                PlayerStats stats = FindObjectOfType<PlayerStats>();
-                stats.currentHealth = Mathf.Min(stats.currentHealth + item.health, stats.GetActualMaxHealth());
+                PlayerStats stats = GameObject.Find("Player").GetComponent<PlayerStats>();
+                stats.changeCurrentHealth(item.health);
                 PlayerInventory.instance.removeItem(item);
                 SFXManager.instance.PlaySFX("Up1", 1);
             }

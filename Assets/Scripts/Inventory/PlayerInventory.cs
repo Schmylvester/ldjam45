@@ -82,15 +82,16 @@ public class PlayerInventory : MonoBehaviour
         PlayerStats stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         foreach (Item item in m_equippedItems)
         {
-            if(item.isNull) continue;
+            if (item.isNull) continue;
             stats.damageModifier += item.damage;
             stats.armourModifier += item.armour;
-            stats.maxHealthModifier += item.health;
+            stats.maxHealthMod(item.health);
             stats.moveSpeedModifier += item.speed;
             stats.weaponRangeModifier += item.range;
 
             stats.gameObject.GetComponent<Player>().OnWeaponEquip(item);
         }
+        stats.setCurrentHealth(stats.GetActualMaxHealth());
     }
 
     private void toggleInventoryMenu(bool playSound)
@@ -141,13 +142,13 @@ public class PlayerInventory : MonoBehaviour
         }
         if (item.type == ItemType.Shield && !m_equippedItems[(int)ItemType.Weapon].isNull)
         {
-            if(ArrayUtil.arrayContains(m_equippedItems[(int)ItemType.Weapon].traits, "Two Handed") != -1)
+            if (ArrayUtil.arrayContains(m_equippedItems[(int)ItemType.Weapon].traits, "Two Handed") != -1)
                 unequipItemType(ItemType.Weapon);
         }
         PlayerStats stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         stats.damageModifier += item.damage;
         stats.armourModifier += item.armour;
-        stats.maxHealthModifier += item.health;
+        stats.maxHealthMod(item.health);
         stats.moveSpeedModifier += item.speed;
         stats.weaponRangeModifier += item.range;
 
@@ -170,7 +171,7 @@ public class PlayerInventory : MonoBehaviour
             PlayerStats stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
             stats.damageModifier -= item.damage;
             stats.armourModifier -= item.armour;
-            stats.maxHealthModifier -= item.health;
+            stats.maxHealthMod(-item.health);
             stats.moveSpeedModifier -= item.speed;
             stats.weaponRangeModifier -= item.range;
 

@@ -15,7 +15,6 @@ public class Projectile : MonoBehaviour
     {
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         spawnPos = transform.position;
-        Debug.Log(angle);
 
         GetComponent<Rigidbody2D>().transform.rotation = Quaternion.Euler(0, 0, angle);
         Destroy(gameObject, 10);

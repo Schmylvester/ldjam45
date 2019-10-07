@@ -199,7 +199,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (stats.currentHealth <= 0)
+        if (stats.getCurrentHealth() <= 0)
         {
             if (!dead)
             {
@@ -321,7 +321,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (stats.currentHealth <= 0)
+        if (stats.getCurrentHealth() <= 0)
         {
             if (!dead)
             {
@@ -367,10 +367,10 @@ public class Player : MonoBehaviour
         damage -= stats.GetActualArmour(); //yay heals
         damage = Mathf.Max(damage, 1); //ricardo is lazy
 
-        GetComponent<PlayerStats>().currentHealth -= damage;
+        GetComponent<PlayerStats>().changeCurrentHealth(-damage);
         StartCoroutine(MakeInvulnerable(0.8f));
 
-        if (stats.currentHealth <= 0 && !dead) //todo: death animation or particles
+        if (stats.getCurrentHealth() <= 0 && !dead) //todo: death animation or particles
         {
             OnDeath();
         }

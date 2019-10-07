@@ -35,7 +35,12 @@ public class PlayerStats : MonoBehaviour
     }
 
     public float baseMaxHealth = 10;
-    public float maxHealthModifier = 0;
+    float maxHealthModifier = 0;
+    public void maxHealthMod(float by)
+    {
+        if (by > 0)
+            currentHealth += by;
+    }
     public List<float> multiplicateMaxHealthMultipliers = new List<float>();
     public float GetActualMaxHealth()
     {
@@ -49,6 +54,13 @@ public class PlayerStats : MonoBehaviour
     }
 
     public float currentHealth = 10;
+    public void setCurrentHealth(float to) { currentHealth = to; }
+    public float getCurrentHealth() { return currentHealth; }
+    public void changeCurrentHealth(float by)
+    {
+        currentHealth += by;
+        currentHealth = Mathf.Min(currentHealth, GetActualMaxHealth());
+    }
 
     public float baseWeaponRange = 20;
     public float weaponRangeModifier = 0;

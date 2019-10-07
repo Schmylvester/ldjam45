@@ -9,18 +9,18 @@ public class PlayerHPBar : MonoBehaviour
     float originalWidth = 0;
     private void Start()
     {
-        stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         originalWidth = GetComponent<RectTransform>().rect.width;
     }
 
     private void Update()
     {
+        if(!stats)
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 
         float playerHpPercent = 0;
-        if (stats.currentHealth > 0)
+        if (stats.getCurrentHealth() > 0)
         {
-            playerHpPercent = stats.currentHealth / stats.GetActualMaxHealth();
+            playerHpPercent = stats.getCurrentHealth() / stats.GetActualMaxHealth();
         }
 
         Vector3 scale = GetComponent<RectTransform>().transform.localScale;
