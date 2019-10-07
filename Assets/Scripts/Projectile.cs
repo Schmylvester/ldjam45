@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
         {
             if (collision.transform.tag == "Enemy")
             {
-                collision.transform.GetComponent<Monster>().OnHit(damage);
+                collision.transform.GetComponent<Monster>().OnHit(damage, Vector2.zero);
                 Destroy(gameObject);
             }
         }

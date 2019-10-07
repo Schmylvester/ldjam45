@@ -15,8 +15,8 @@ public class AssignmentManager : MonoBehaviour
 
     private void Awake()
     {
-        if (!instance) { instance = this; DontDestroyOnLoad(gameObject); }
-        else Destroy(gameObject);
+        if (instance) Destroy(gameObject);
+        else { instance = this; DontDestroyOnLoad(gameObject); }
     }
 
     public void setBusiness(BusinessType to) { business = to; }
@@ -29,6 +29,7 @@ public class AssignmentManager : MonoBehaviour
             GameObservables.gamePaused = isVisible;
             transform.GetChild(i).gameObject.SetActive(isVisible);
         }
+        PlayerInventory.instance.togglePlayerHPBar(!isVisible);
     }
 
     public void staffAssign(int id)
@@ -76,10 +77,7 @@ public class AssignmentManager : MonoBehaviour
         buttons[4].interactable = getUnassignButtonEnabled(HireeType.Guard);
         buttons[5].interactable = getUnassignButtonEnabled(HireeType.Promoter);
 
-        for (int i = 0; i < 6; ++i)
-        { buttons[i].transform.parent = transform; }
-
-        foreach(TransferMenu transferMenu in transferMenus)
+        foreach (TransferMenu transferMenu in transferMenus)
             transferMenu.updateInventoryUI(business);
     }
 

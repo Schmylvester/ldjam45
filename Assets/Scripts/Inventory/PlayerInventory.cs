@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerInventory : MonoBehaviour
 
     [SerializeField] int itemsPerRow;
     [SerializeField] Vector2 gridSpacing;
+
+    int lastKnownScene = -1;
 
     public List<Item> m_items { get; } = new List<Item>();
     public List<int> m_counts { get; } = new List<int>();
@@ -38,26 +41,25 @@ public class PlayerInventory : MonoBehaviour
         if (instance)
         {
             Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
         else
         {
             instance = this;
+            toggleInventoryMenu(false);
+            gridSpacing = new Vector2(gridSpacing.x * ((float)Screen.width / 800), gridSpacing.y * ((float)Screen.height / 600));
+            DontDestroyOnLoad(transform.parent.gameObject);
         }
-        toggleInventoryMenu(false);
-        gridSpacing = new Vector2(gridSpacing.x * ((float)Screen.width / 800), gridSpacing.y * ((float)Screen.height / 600));
-        DontDestroyOnLoad(transform.parent.gameObject);
     }
 
     private void Start()
     {
-        for (int i = 0; i < 120; ++i)
-        {
-            addItem(ItemDatabase.instance.getRandomItem());
-        }
         for (int i = 0; i < m_equippedItems.Length; ++i)
         {
             m_equippedItems[i].isNull = true;
         }
+        for (int i = 0; i < 1000; ++i)
+            addItem(ItemDatabase.instance.getRandomItem());
     }
 
     private void Update()
@@ -65,7 +67,29 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             toggleInventoryMenu(true);
-            togglePlayerHPBar();
+            togglePlayerHPBar(!visible);
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex != lastKnownScene)
+        {
+            lastKnownScene = SceneManager.GetActiveScene().buildIndex;
+            sceneLoaded();
+        }
+    }
+
+    void sceneLoaded()
+    {
+        PlayerStats stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+        foreach (Item item in m_equippedItems)
+        {
+            if(item.isNull) continue;
+            stats.damageModifier += item.damage;
+            stats.armourModifier += item.armour;
+            stats.maxHealthModifier += item.health;
+            stats.moveSpeedModifier += item.speed;
+            stats.weaponRangeModifier += item.range;
+
+            stats.gameObject.GetComponent<Player>().OnWeaponEquip(item);
         }
     }
 
@@ -93,18 +117,18 @@ public class PlayerInventory : MonoBehaviour
             unequipItemType((ItemType)i);
         }
 
-        for (int i = 0; i < m_items.Count; ++i)
+        for (int i = 0; i < m_counts.Count; ++i)
         {
             m_counts[i] = 0;
-            m_counts.RemoveAt(i);
         }
+        m_counts.Clear();
         m_items.Clear();
     }
 
-    private void togglePlayerHPBar()
+    public void togglePlayerHPBar(bool to)
     {
         Transform hpBar = transform.parent.Find("PlayerPanel");
-        if (hpBar) hpBar.gameObject.SetActive(!visible);
+        if (hpBar) hpBar.gameObject.SetActive(to);
     }
 
     public void equipItem(Item item)
@@ -115,9 +139,10 @@ public class PlayerInventory : MonoBehaviour
             unequipItemType(ItemType.Weapon);
             unequipItemType(ItemType.Shield);
         }
-        if (item.type == ItemType.Shield && ArrayUtil.arrayContains(m_equippedItems[(int)ItemType.Weapon].traits, "Two Handed") != -1)
+        if (item.type == ItemType.Shield && !m_equippedItems[(int)ItemType.Weapon].isNull)
         {
-            unequipItemType(ItemType.Weapon);
+            if(ArrayUtil.arrayContains(m_equippedItems[(int)ItemType.Weapon].traits, "Two Handed") != -1)
+                unequipItemType(ItemType.Weapon);
         }
         PlayerStats stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         stats.damageModifier += item.damage;

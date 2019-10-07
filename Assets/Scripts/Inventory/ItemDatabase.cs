@@ -24,19 +24,19 @@ public class ItemDatabase : MonoBehaviour
         else
         {
             instance = this;
-        }
+            DontDestroyOnLoad(gameObject);
+            string filePath = Path.Combine(Application.streamingAssetsPath, "Items.json");
+            string dataAsJson = File.ReadAllText(filePath);
+            m_allItems = JsonUtility.FromJson<AllItems>(dataAsJson);
 
-        string filePath = Path.Combine(Application.streamingAssetsPath, "Items.json");
-        string dataAsJson = File.ReadAllText(filePath);
-        m_allItems = JsonUtility.FromJson<AllItems>(dataAsJson);
-
-        for (int i = 0; i < m_allItems.items.Length; ++i)
-        {
-            for (int j = i + 1; j < m_allItems.items.Length; ++j)
+            for (int i = 0; i < m_allItems.items.Length; ++i)
             {
-                if (m_allItems.items[i].name == m_allItems.items[j].name)
+                for (int j = i + 1; j < m_allItems.items.Length; ++j)
                 {
-                    Debug.LogWarning("Duplicate Item Found");
+                    if (m_allItems.items[i].name == m_allItems.items[j].name)
+                    {
+                        Debug.LogWarning("Duplicate Item Found");
+                    }
                 }
             }
         }
@@ -61,14 +61,14 @@ public class ItemDatabase : MonoBehaviour
         if (maxValue > 0)
         {
             List<Item> items = new List<Item>();
-            for(int i = 0; i < m_allItems.items.Length; ++i)
+            for (int i = 0; i < m_allItems.items.Length; ++i)
             {
-                if(m_allItems.items[i].baseValue < maxValue)
+                if (m_allItems.items[i].baseValue < maxValue)
                     items.Add(m_allItems.items[i]);
             }
-            if(items.Count > 0)
+            if (items.Count > 0)
                 return items[Random.Range(0, items.Count)];
-            return new Item(){ isNull = true };
+            return new Item() { isNull = true };
         }
         return m_allItems.items[Random.Range(0, m_allItems.items.Length)];
     }

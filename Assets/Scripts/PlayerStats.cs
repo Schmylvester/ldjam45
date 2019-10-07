@@ -17,7 +17,6 @@ public class PlayerStats : MonoBehaviour
         {
             multiplier *= 1.0f + mult;
         }
-
         return (baseDamage + damageModifier) * multiplier;
     }
 
@@ -32,7 +31,7 @@ public class PlayerStats : MonoBehaviour
             multiplier *= 1.0f + mult;
         }
 
-        return (baseMoveSpeed + moveSpeedModifier) * multiplier;
+        return Mathf.Max((baseMoveSpeed + moveSpeedModifier) * multiplier, 5);
     }
 
     public float baseMaxHealth = 10;
@@ -46,7 +45,7 @@ public class PlayerStats : MonoBehaviour
             multiplier *= 1.0f + mult;
         }
 
-        return (baseMaxHealth + maxHealthModifier) * multiplier;
+        return Mathf.Max((baseMaxHealth + maxHealthModifier) * multiplier, 1);
     }
 
     public float currentHealth = 10;

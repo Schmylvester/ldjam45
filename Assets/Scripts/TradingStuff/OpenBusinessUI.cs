@@ -17,8 +17,10 @@ public class OpenBusinessUI : MonoBehaviour
 
     public void toggleMenu()
     {
+        if(!businessUI) businessUI = PlayerInventory.instance.transform.parent.GetChild(2).gameObject;
         businessUI.SetActive(!businessUI.activeSelf);
         GameObservables.gamePaused = businessUI.activeSelf;
+        PlayerInventory.instance.togglePlayerHPBar(!businessUI.activeSelf);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

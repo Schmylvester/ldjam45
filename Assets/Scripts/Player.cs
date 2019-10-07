@@ -122,8 +122,13 @@ public class Player : MonoBehaviour
 
     void OnDeath()
     {
-        dead = true;
-        PlayerInventory.instance.removeAllItemsAndEquipment();
+        if (!dead)
+        {
+            MessageQueue.addToQueue("After being bullied by various forest monsters you decided to leave all your items behind and go home to teach them a lesson");
+            dead = true;
+            PlayerInventory.instance.removeAllItemsAndEquipment();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Shopping");
+        }
     }
 
     void Animate()
@@ -340,7 +345,8 @@ public class Player : MonoBehaviour
         {
             if (collider.transform.tag == "Enemy") //todo: tag/layer
             {
-                collider.transform.parent.GetComponent<Monster>().OnHit(stats.GetActualDamage());
+                Vector2 direction = (collider.transform.position - transform.position).normalized;
+                collider.transform.parent.GetComponent<Monster>().OnHit(stats.GetActualDamage(), direction * 0.3f);
             }
         }
     }
@@ -359,12 +365,12 @@ public class Player : MonoBehaviour
         }
 
         damage -= stats.GetActualArmour(); //yay heals
-        damage = Mathf.Max(damage, 1); //thomas is mean
+        damage = Mathf.Max(damage, 1); //ricardo is lazy
 
         GetComponent<PlayerStats>().currentHealth -= damage;
         StartCoroutine(MakeInvulnerable(0.8f));
 
-        if (stats.currentHealth <= 0) //todo: death animation or particles
+        if (stats.currentHealth <= 0 && !dead) //todo: death animation or particles
         {
             OnDeath();
         }

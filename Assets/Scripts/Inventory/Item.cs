@@ -38,9 +38,9 @@ public struct Item
     public Rarity rarity;
     public int spriteIdx;
     public string[] traits;
-    public int damage;
-    public int armour;
-    public int health;
-    public int speed;
-    public int range;
+    public float damage;
+    public float armour;
+    public float health;
+    public float speed;
+    public float range;
 }

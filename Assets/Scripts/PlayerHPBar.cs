@@ -15,6 +15,8 @@ public class PlayerHPBar : MonoBehaviour
 
     private void Update()
     {
+        stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+
         float playerHpPercent = 0;
         if (stats.currentHealth > 0)
         {

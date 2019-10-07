@@ -14,10 +14,12 @@ public class OpenTradingMenu : MonoBehaviour
         if (playerInTrigger && Input.GetKeyDown(KeyCode.Space))
         {
             menuActive = !menuActive;
+            if(!tradingMenu) tradingMenu = PlayerInventory.instance.transform.parent.GetChild(3).gameObject;
             tradingMenu.SetActive(menuActive);
             tradingMenu.GetComponentsInChildren<ShopMenu>()[0].setStoreIdx(storeIdx);
             tradingMenu.GetComponentsInChildren<ShopMenu>()[1].setStoreIdx(storeIdx);
             GameObservables.gamePaused = menuActive;
+            PlayerInventory.instance.togglePlayerHPBar(!menuActive);
         }
     }
 

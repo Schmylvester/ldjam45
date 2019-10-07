@@ -103,7 +103,6 @@ public class Monster : MonoBehaviour
 
     IEnumerator DoAttack()
     {
-        Debug.Log("yo");
         doneAttacking = false;
         transform.GetChild(3).gameObject.SetActive(true);
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -355,7 +354,7 @@ public class Monster : MonoBehaviour
         invulnerable = false;
     }
 
-    public void OnHit(float damage)
+    public void OnHit(float damage, Vector2 direction)
     {
         if (invulnerable)
         {
@@ -374,6 +373,10 @@ public class Monster : MonoBehaviour
         {
             ItemSpawner.instance.Spawn(GetComponent<LootTable>(), transform.position);
             Destroy(gameObject, 0.2f);
+        }
+        else
+        {
+            transform.Translate(direction);
         }
     }
     private void OnTriggerStay2D(Collider2D collider)

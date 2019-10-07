@@ -14,8 +14,8 @@ public class SFXManager : MonoBehaviour
         {
             Destroy(instance.gameObject);
         }
-
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void PlaySFX(string fileName, float volumeScale = 0.001f)
