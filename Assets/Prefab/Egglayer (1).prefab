@@ -603,7 +603,6 @@ MonoBehaviour:
   moveSpeedModifier: 0
   multiplicateMoveSpeedMultipliers: []
   baseMaxHealth: 3
-  maxHealthModifier: 0
   multiplicateMaxHealthMultipliers: []
   currentHealth: 3
   baseWeaponRange: 20
@@ -1408,15 +1407,15 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2130865522169357108, guid: 7333c38b802dd044abd0e13c9b5c6e18,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 59
-      objectReference: {fileID: 0}
     - target: {fileID: 3849758819498111709, guid: 7333c38b802dd044abd0e13c9b5c6e18,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -37.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130865522169357108, guid: 7333c38b802dd044abd0e13c9b5c6e18,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7333c38b802dd044abd0e13c9b5c6e18, type: 3}

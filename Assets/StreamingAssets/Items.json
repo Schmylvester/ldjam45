@@ -873,7 +873,7 @@
       "description": "If you chopped down a tree with this axe, axe connoisseurs would not take it well.",
       "type": 0,
       "rarity": 3,
-      "baseValue": 500,
+      "baseValue": 50,
       "spriteIdx": 398,
       "traits": [],
       "damage": 9,

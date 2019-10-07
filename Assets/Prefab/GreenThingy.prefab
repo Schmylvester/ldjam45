@@ -95,7 +95,6 @@ MonoBehaviour:
   moveSpeedModifier: 0
   multiplicateMoveSpeedMultipliers: []
   baseMaxHealth: 7
-  maxHealthModifier: 0
   multiplicateMaxHealthMultipliers: []
   currentHealth: 7
   baseWeaponRange: 20

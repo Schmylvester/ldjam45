@@ -163,6 +163,7 @@ public class Monster : MonoBehaviour
     {
         if (GameObservables.gamePaused)
         {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             return;
         }
 
@@ -346,7 +347,7 @@ public class Monster : MonoBehaviour
         if (cat) movement *= -1.5f;
         GetComponent<Rigidbody2D>().velocity = movement;
     }
-    
+
     IEnumerator MakeInvulnerable(float time)
     {
         invulnerable = true;
@@ -374,7 +375,7 @@ public class Monster : MonoBehaviour
             ItemSpawner.instance.Spawn(GetComponent<LootTable>(), transform.position);
             Destroy(gameObject, 0.2f);
         }
-        else
+        else if (Random.Range(0.0f, 1.0f) < 0.3f)
         {
             transform.Translate(direction);
         }

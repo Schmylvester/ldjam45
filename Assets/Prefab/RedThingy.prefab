@@ -1261,7 +1261,6 @@ MonoBehaviour:
   moveSpeedModifier: 0
   multiplicateMoveSpeedMultipliers: []
   baseMaxHealth: 10
-  maxHealthModifier: 0
   multiplicateMaxHealthMultipliers: []
   currentHealth: 10
   baseWeaponRange: 20
@@ -1305,26 +1304,12 @@ MonoBehaviour:
   - itemName: Silver Ring
     weight: 3
   - itemName: Log
-    weight: 10
+    weight: 1
+  - itemName: Blocks O Gold
+    weight: 3
   - itemName: Log
     weight: 10
   - itemName: Log
-    weight: 10
-  - itemName: Log
-    weight: 10
-  - itemName: Log
-    weight: 10
-  - itemName: Log
-    weight: 10
-  - itemName: Log
-    weight: 10
-  - itemName: Log
-    weight: 10
-  - itemName: Log
-    weight: 10
-  - itemName: Blocks o' Gold
-    weight: 5
-  - itemName: Cool Axe
     weight: 10
 --- !u!1 &5978991885696508007
 GameObject:

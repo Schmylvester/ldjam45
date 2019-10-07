@@ -58,8 +58,8 @@ public class PlayerInventory : MonoBehaviour
         {
             m_equippedItems[i].isNull = true;
         }
-        for (int i = 0; i < 1000; ++i)
-            addItem(ItemDatabase.instance.getRandomItem());
+        //for (int i = 0; i < 1000; ++i)
+            //addItem(ItemDatabase.instance.getRandomItem());
     }
 
     private void Update()
@@ -92,6 +92,10 @@ public class PlayerInventory : MonoBehaviour
             stats.gameObject.GetComponent<Player>().OnWeaponEquip(item);
         }
         stats.setCurrentHealth(stats.GetActualMaxHealth());
+        if (lastKnownScene == 0)
+            Game.AudioManager.instance.playMusic(Random.Range(0, 2));
+        else
+            Game.AudioManager.instance.playMusic(Random.Range(2, 5));
     }
 
     private void toggleInventoryMenu(bool playSound)

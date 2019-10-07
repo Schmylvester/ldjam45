@@ -6,6 +6,7 @@ namespace Game
 {
     public class AudioManager : MonoBehaviour
     {
+        public static AudioManager instance;
         [System.Serializable]
         public struct AudioBGM
         {
@@ -18,9 +19,17 @@ namespace Game
         [SerializeField] private AudioSource m_audioSource;
         int m_activeTrackIdx = -1;
 
+        private void Awake()
+        {
+            if (instance)
+                Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
         private void Start()
         {
-            playMusic(Random.Range(0,2));
+            playMusic(Random.Range(0, 2));
         }
 
         public void playMusic(int idx)
@@ -38,9 +47,9 @@ namespace Game
 
         public void playMusic(string id)
         {
-            for(int i = 0; i < m_tracks.Length; ++i)
+            for (int i = 0; i < m_tracks.Length; ++i)
             {
-                if(m_tracks[i].id == id)
+                if (m_tracks[i].id == id)
                 {
                     playMusic(i);
                 }

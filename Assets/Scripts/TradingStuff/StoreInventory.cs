@@ -95,7 +95,7 @@ public class StoreInventory : MonoBehaviour
         }
         while (money >= 10)
         {
-            Item item = ItemDatabase.instance.getRandomItem(money);
+            Item item = ItemDatabase.instance.getRandomItem(false, money);
             if (!item.isNull)
             {
                 money -= item.baseValue;

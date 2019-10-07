@@ -50,7 +50,7 @@ public class ItemSpawner : MonoBehaviour
 
                     itemPrefab.SetActive(false);
                     GameObject go = Instantiate(itemPrefab);
-                    Item item = ItemDatabase.instance.getRandomItem();
+                    Item item = ItemDatabase.instance.getRandomItem(false);
                     go.GetComponent<Loot>().itemName = item.name;
                     go.SetActive(true);
                     itemPrefab.SetActive(true);

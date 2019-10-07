@@ -12,9 +12,9 @@ public class Adventurer : MonoBehaviour
             for (int j = 0; j < itemsRetreived; ++j)
             {
                 if (Random.Range(0, 6) == 0)
-                    PlayerInventory.instance.addItem(ItemDatabase.instance.getRandomItem());
+                    PlayerInventory.instance.addItem(ItemDatabase.instance.getRandomItem(false));
                 else
-                    PlayerInventory.instance.addItem(ItemDatabase.instance.getRandomItem(40));
+                    PlayerInventory.instance.addItem(ItemDatabase.instance.getRandomItem(false, 40));
             }
             MessageQueue.addToQueue("An aventurer returned with " + itemsRetreived + " items for you.");
         }

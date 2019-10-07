@@ -38,6 +38,7 @@ public class PlayerStats : MonoBehaviour
     float maxHealthModifier = 0;
     public void maxHealthMod(float by)
     {
+        maxHealthModifier += by;
         if (by > 0)
             currentHealth += by;
     }

@@ -56,21 +56,30 @@ public class ItemDatabase : MonoBehaviour
         return new Item();
     }
 
-    public Item getRandomItem(int maxValue = -1)
+    public Item getRandomItem(bool includeCoolAxe, int maxValue = -1)
     {
-        if (maxValue > 0)
+        Item toReturn;
+        do
         {
-            List<Item> items = new List<Item>();
-            for (int i = 0; i < m_allItems.items.Length; ++i)
+            if (maxValue > 0)
             {
-                if (m_allItems.items[i].baseValue < maxValue)
-                    items.Add(m_allItems.items[i]);
+                List<Item> items = new List<Item>();
+                for (int i = 0; i < m_allItems.items.Length; ++i)
+                {
+                    if (m_allItems.items[i].baseValue < maxValue)
+                        items.Add(m_allItems.items[i]);
+                }
+                if (items.Count > 0)
+                    toReturn = items[Random.Range(0, items.Count)];
+                else
+                    toReturn = new Item() { isNull = true };
             }
-            if (items.Count > 0)
-                return items[Random.Range(0, items.Count)];
-            return new Item() { isNull = true };
-        }
-        return m_allItems.items[Random.Range(0, m_allItems.items.Length)];
+            else
+            {
+                toReturn = m_allItems.items[Random.Range(0, m_allItems.items.Length)];
+            }
+        } while (toReturn.name == "Cool Axe" && !includeCoolAxe);
+        return toReturn;
     }
 
     public Sprite getSprite(int idx)

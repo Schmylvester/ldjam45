@@ -23,7 +23,10 @@ public class AssignmentManager : MonoBehaviour
 
     public void toggleVisible()
     {
+        foreach(TransferMenu menu in GetComponentsInChildren<TransferMenu>())
+            menu.setStoreIdx(business);
         isVisible = !isVisible;
+        GameObservables.gamePaused = isVisible;
         for (int i = 0; i < transform.childCount; ++i)
         {
             GameObservables.gamePaused = isVisible;
