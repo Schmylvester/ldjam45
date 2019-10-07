@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+/*
+ * •	Buying and selling to stores
 
+•	Assigning items to stores
+•	Assigning staff to stores
+
+•	Sound
+
+ */
 public class BoardButtonManager : MonoBehaviour
 {
     [SerializeField] Button rentStallButton     = null;
