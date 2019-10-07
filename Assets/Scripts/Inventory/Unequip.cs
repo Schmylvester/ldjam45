@@ -23,7 +23,7 @@ public class Unequip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if(Input.GetMouseButtonDown(0) && highlighted)
         {
-            Player.PlayerInventory.instance.unequipItemType(myType);
+            PlayerInventory.instance.unequipItemType(myType);
             setInfo();
         }
     }

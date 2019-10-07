@@ -17,7 +17,7 @@ public class ItemDatabase : MonoBehaviour
 
     private void Awake()
     {
-        if(instance)
+        if (instance)
         {
             Destroy(gameObject);
         }
@@ -30,11 +30,11 @@ public class ItemDatabase : MonoBehaviour
         string dataAsJson = File.ReadAllText(filePath);
         m_allItems = JsonUtility.FromJson<AllItems>(dataAsJson);
 
-        for(int i = 0; i < m_allItems.items.Length; ++i)
+        for (int i = 0; i < m_allItems.items.Length; ++i)
         {
-            for(int j = i + 1; j < m_allItems.items.Length; ++j)
+            for (int j = i + 1; j < m_allItems.items.Length; ++j)
             {
-                if(m_allItems.items[i].name == m_allItems.items[j].name)
+                if (m_allItems.items[i].name == m_allItems.items[j].name)
                 {
                     Debug.LogWarning("Duplicate Item Found");
                 }
@@ -44,9 +44,9 @@ public class ItemDatabase : MonoBehaviour
 
     public Item getItem(string itemName)
     {
-        foreach(Item item in m_allItems.items)
+        foreach (Item item in m_allItems.items)
         {
-            if(item.name == itemName)
+            if (item.name == itemName)
             {
                 return item;
             }
@@ -56,8 +56,20 @@ public class ItemDatabase : MonoBehaviour
         return new Item();
     }
 
-    public Item getRandomItem()
+    public Item getRandomItem(int maxValue = -1)
     {
+        if (maxValue > 0)
+        {
+            List<Item> items = new List<Item>();
+            for(int i = 0; i < m_allItems.items.Length; ++i)
+            {
+                if(m_allItems.items[i].baseValue < maxValue)
+                    items.Add(m_allItems.items[i]);
+            }
+            if(items.Count > 0)
+                return items[Random.Range(0, items.Count)];
+            return new Item(){ isNull = true };
+        }
         return m_allItems.items[Random.Range(0, m_allItems.items.Length)];
     }
 

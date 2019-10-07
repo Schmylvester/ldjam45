@@ -6,12 +6,12 @@ public class SellMenu : ShopMenu
 {
     protected override List<Item> getItems()
     {
-        return Player.PlayerInventory.instance.m_items;
+        return PlayerInventory.instance.m_items;
     }
 
     protected override List<int> getCounts()
     {
-        return Player.PlayerInventory.instance.m_counts;
+        return PlayerInventory.instance.m_counts;
     }
 
     protected override int initValue(Item item)

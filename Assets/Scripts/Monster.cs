@@ -31,8 +31,8 @@ public class Monster : MonoBehaviour
     bool doneAttacking = true;
 
     float attackDelayTimer = 0;
-    Player.Player.Facing oldFacing = Player.Player.Facing.Down;
-    Player.Player.Facing facing = Player.Player.Facing.Down;
+    Player.Facing oldFacing = Player.Facing.Down;
+    Player.Facing facing = Player.Facing.Down;
 
     private void Start()
     {
@@ -184,11 +184,11 @@ public class Monster : MonoBehaviour
         bool horizontal = Mathf.Abs(facingDir.x) > Mathf.Abs(facingDir.y);
         if (horizontal)
         {
-            facing = facingDir.x < 0 ? Player.Player.Facing.Left : Player.Player.Facing.Right;
+            facing = facingDir.x < 0 ? Player.Facing.Left : Player.Facing.Right;
         }
         else
         {
-            facing = facingDir.y < 0 ? Player.Player.Facing.Down : Player.Player.Facing.Up;
+            facing = facingDir.y < 0 ? Player.Facing.Down : Player.Facing.Up;
         }
 
         Vector3 offset = new Vector3(-0.1f, 0, 0);
@@ -230,19 +230,19 @@ public class Monster : MonoBehaviour
         {
             if (facing != oldFacing)
             {
-                if (facing == Player.Player.Facing.Left)
+                if (facing == Player.Facing.Left)
                 {
                     GetComponentInChildren<AnimationStateController>().SetState("WalkLeft");
                 }
-                else if (facing == Player.Player.Facing.Right)
+                else if (facing == Player.Facing.Right)
                 {
                     GetComponentInChildren<AnimationStateController>().SetState("WalkRight");
                 }
-                else if (facing == Player.Player.Facing.Up)
+                else if (facing == Player.Facing.Up)
                 {
                     GetComponentInChildren<AnimationStateController>().SetState("WalkUp");
                 }
-                else if (facing == Player.Player.Facing.Down)
+                else if (facing == Player.Facing.Down)
                 {
                     GetComponentInChildren<AnimationStateController>().SetState("WalkDown");
                 }
@@ -252,38 +252,38 @@ public class Monster : MonoBehaviour
 
     private void SetAttackAnimationFromFacing()
     {
-        if (facing == Player.Player.Facing.Left)
+        if (facing == Player.Facing.Left)
         {
             GetComponentInChildren<AnimationStateController>().SetState("AttackLeft");
         }
-        else if (facing == Player.Player.Facing.Right)
+        else if (facing == Player.Facing.Right)
         {
             GetComponentInChildren<AnimationStateController>().SetState("AttackRight");
         }
-        else if (facing == Player.Player.Facing.Up)
+        else if (facing == Player.Facing.Up)
         {
             GetComponentInChildren<AnimationStateController>().SetState("AttackUp");
         }
-        else if (facing == Player.Player.Facing.Down)
+        else if (facing == Player.Facing.Down)
         {
             GetComponentInChildren<AnimationStateController>().SetState("AttackDown");
         }
     }
     private void SetDefendAnimationFromFacing()
     {
-        if (facing == Player.Player.Facing.Left)
+        if (facing == Player.Facing.Left)
         {
             GetComponentInChildren<AnimationStateController>().SetState("DefendLeft");
         }
-        else if (facing == Player.Player.Facing.Right)
+        else if (facing == Player.Facing.Right)
         {
             GetComponentInChildren<AnimationStateController>().SetState("DefendRight");
         }
-        else if (facing == Player.Player.Facing.Up)
+        else if (facing == Player.Facing.Up)
         {
             GetComponentInChildren<AnimationStateController>().SetState("DefendUp");
         }
-        else if (facing == Player.Player.Facing.Down)
+        else if (facing == Player.Facing.Down)
         {
             GetComponentInChildren<AnimationStateController>().SetState("DefendDown");
         }
@@ -382,7 +382,7 @@ public class Monster : MonoBehaviour
             collider.name == "Collider" &&
             collider.transform.parent.tag == "Player")
         {
-            collider.transform.parent.GetComponent<Player.Player>().OnHit(stats.GetActualDamage());
+            collider.transform.parent.GetComponent<Player>().OnHit(stats.GetActualDamage());
         }
     }
 

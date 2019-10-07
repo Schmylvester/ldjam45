@@ -50,7 +50,7 @@ public class Projectile : MonoBehaviour
         {
             if (collision.transform.tag == "Player")
             {
-                collision.transform.GetComponent<Player.Player>().OnHit(damage);
+                collision.transform.GetComponent<Player>().OnHit(damage);
                 Destroy(gameObject);
             }
         }

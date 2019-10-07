@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 /*
- * •	Buying and selling to stores
-
 •	Assigning items to stores
 •	Assigning staff to stores
 
@@ -73,7 +71,7 @@ public class BoardButtonManager : MonoBehaviour
 
     public void hireWorker(int idx)
     {
-        if(Player.PlayerInventory.instance.changeCash(-(BusinessManager.instance.getData((HireeType)idx).cost)))
+        if(PlayerInventory.instance.changeCash(-(BusinessManager.instance.getData((HireeType)idx).cost)))
         {
             countTexts[idx].text = (int.Parse(countTexts[idx].text) + 1).ToString();
             fireButtons[idx].interactable = true;
@@ -93,7 +91,7 @@ public class BoardButtonManager : MonoBehaviour
 
     bool attemptBuy(int cost)
     {
-        return Player.PlayerInventory.instance.changeCash(-cost);
+        return PlayerInventory.instance.changeCash(-cost);
     }
 
     public void updateUI()
@@ -110,6 +108,6 @@ public class BoardButtonManager : MonoBehaviour
         for(int i = 0; i < countTexts.Length; ++i)
             fireButtons[i].interactable = !(countTexts[i].text == "0");
 
-        moneyText.text = "£" + Player.PlayerInventory.instance.getCash();
+        moneyText.text = "£" + PlayerInventory.instance.getCash();
     }
 }

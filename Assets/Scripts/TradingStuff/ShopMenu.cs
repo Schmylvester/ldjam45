@@ -16,14 +16,18 @@ public abstract class ShopMenu : MonoBehaviour
 
     List<BuySellUIElement> elements = new List<BuySellUIElement>();
 
+    [SerializeField] GameObject nothingToBuy = null;
+    protected int storeIdx;
+
     private void Awake()
     {
         gridSpacing = new Vector2(gridSpacing.x * ((float)Screen.width / 800), gridSpacing.y * ((float)Screen.height / 600));
     }
 
-    private void Start()
+    public void setStoreIdx(int idx)
     {
-        updateInventoryUI();
+        storeIdx = idx;
+        updateInventoryUI(idx);
     }
 
     protected abstract List<Item> getItems();
@@ -31,9 +35,10 @@ public abstract class ShopMenu : MonoBehaviour
 
     protected abstract int initValue(Item item);
 
-    public void updateInventoryUI()
+    public void updateInventoryUI(int storeIdx, bool updateY = false)
     {
-        for(int i = elements.Count - 1; i >= 0; --i)
+        if(updateY)panel.GetChild(0).GetComponent<MenuScroll>().reset();
+        for (int i = elements.Count - 1; i >= 0; --i)
         {
             Destroy(elements[i].gameObject);
             elements.RemoveAt(i);
@@ -46,13 +51,13 @@ public abstract class ShopMenu : MonoBehaviour
                 Instantiate(itemPrefab, panel.GetChild(0)).GetComponent<BuySellUIElement>();
             elements.Add(buySellElement);
             (buySellElement.transform as RectTransform).Translate(new Vector3((i % itemsPerRow) * gridSpacing.x, -(i / itemsPerRow) * gridSpacing.y));
-            buySellElement.init((this as SellMenu) != null, initValue(items[i]), this, otherPanel);
+            buySellElement.init((this as SellMenu) != null, initValue(items[i]), this, otherPanel, storeIdx);
             buySellElement.setItem(items[i], counts[i]);
         }
-
-        if(playerMoney)
+        nothingToBuy.SetActive(items.Count == 0);
+        if (playerMoney)
         {
-            playerMoney.text = "£" + Player.PlayerInventory.instance.getCash();
+            playerMoney.text = "£" + PlayerInventory.instance.getCash();
         }
     }
 }

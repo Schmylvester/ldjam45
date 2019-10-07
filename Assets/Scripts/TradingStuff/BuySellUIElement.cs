@@ -19,6 +19,7 @@ public class BuySellUIElement : MonoBehaviour, IPointerEnterHandler, IPointerExi
     int value = 0;
     ShopMenu menu;
     ShopMenu otherMenu;
+    int storeIdx;
 
     private void Update()
     {
@@ -26,22 +27,20 @@ public class BuySellUIElement : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             if (belongToPlayer)
             {
-                StoreInventory.instance.addItem(item);
-                Player.PlayerInventory.instance.removeItem(item);
-                Player.PlayerInventory.instance.changeCash(value);
-                menu.updateInventoryUI();
-                otherMenu.updateInventoryUI();
+                StoreInventory.instance.addItem(item, storeIdx);
+                PlayerInventory.instance.removeItem(item);
+                PlayerInventory.instance.changeCash(value);
             }
             else
             {
-                if (Player.PlayerInventory.instance.changeCash(-value))
+                if (PlayerInventory.instance.changeCash(-value))
                 {
-                    Player.PlayerInventory.instance.addItem(item);
-                    StoreInventory.instance.removeItem(item.name);
-                    menu.updateInventoryUI();
-                    otherMenu.updateInventoryUI();
+                    PlayerInventory.instance.addItem(item);
+                    StoreInventory.instance.removeItem(item.name, storeIdx);
                 }
             }
+            menu.updateInventoryUI(storeIdx);
+            otherMenu.updateInventoryUI(storeIdx, true);
         }
     }
 
@@ -87,12 +86,13 @@ public class BuySellUIElement : MonoBehaviour, IPointerEnterHandler, IPointerExi
         selectedItem = false;
     }
 
-    public void init(bool _belongToPlayer, int _value, ShopMenu _menu, ShopMenu _otherMenu)
+    public void init(bool _belongToPlayer, int _value, ShopMenu _menu, ShopMenu _otherMenu, int _storeIdx)
     {
         menu = _menu;
         otherMenu = _otherMenu;
         value = _value;
         valueField.text = value.ToString();
         belongToPlayer = _belongToPlayer;
+        storeIdx = _storeIdx;
     }
 }

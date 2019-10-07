@@ -18,6 +18,11 @@ namespace Game
         [SerializeField] private AudioSource m_audioSource;
         int m_activeTrackIdx = -1;
 
+        private void Start()
+        {
+            playMusic(Random.Range(0,2));
+        }
+
         public void playMusic(int idx)
         {
             m_activeTrackIdx = idx;
@@ -48,17 +53,6 @@ namespace Game
             m_audioSource.clip = m_tracks[m_activeTrackIdx].loop;
             m_audioSource.loop = true;
             m_audioSource.Play();
-        }
-
-        private void Update()
-        {
-            for(int i = 49; i < 57; ++i)
-            {
-                if(Input.GetKeyDown((KeyCode)i))
-                {
-                    playMusic(i - 49);
-                }
-            }
         }
     }
 }

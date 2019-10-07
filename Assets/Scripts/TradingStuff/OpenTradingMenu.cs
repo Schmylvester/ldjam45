@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenTradingMenu : MonoBehaviour
 {
     [SerializeField] GameObject tradingMenu = null;
+    [SerializeField] int storeIdx;
     bool playerInTrigger = false;
     bool menuActive = false;
 
@@ -16,6 +17,8 @@ public class OpenTradingMenu : MonoBehaviour
                 menu.reset();
             menuActive = !menuActive;
             tradingMenu.SetActive(menuActive);
+            tradingMenu.GetComponentsInChildren<ShopMenu>()[0].setStoreIdx(storeIdx);
+            tradingMenu.GetComponentsInChildren<ShopMenu>()[1].setStoreIdx(storeIdx);
             GameObservables.gamePaused = menuActive;
         }
     }

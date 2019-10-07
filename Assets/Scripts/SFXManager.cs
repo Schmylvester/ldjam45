@@ -18,7 +18,7 @@ public class SFXManager : MonoBehaviour
         instance = this;
     }
 
-    public void PlaySFX(string fileName)
+    public void PlaySFX(string fileName, float volumeScale = 0.001f)
     {
         if (!clips.ContainsKey(fileName))
         {
@@ -47,6 +47,6 @@ public class SFXManager : MonoBehaviour
             audioSources.Add(src);
         }
 
-        src.PlayOneShot(clips[fileName], 0.001f);
+        src.PlayOneShot(clips[fileName], volumeScale);
     }
 }

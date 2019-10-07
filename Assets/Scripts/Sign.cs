@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Sign : MonoBehaviour
 {
-    [SerializeField] GameObject m_messageBox = null;
-    [SerializeField] UnityEngine.UI.Text m_messageText = null;
     [SerializeField] string[] m_messages;
     int m_activeMessage = 0;
     bool m_inTrigger = false;
@@ -23,7 +21,6 @@ public class Sign : MonoBehaviour
             else
             {
                 GameObservables.gamePaused = false;
-                m_messageBox.SetActive(false);
             }
         }
 
@@ -47,8 +44,7 @@ public class Sign : MonoBehaviour
     protected virtual void showMessage()
     {
         GameObservables.gamePaused = true;
-        m_messageBox.SetActive(true);
-        m_messageText.text = m_messages[m_activeMessage];
+        MessageQueue.addToQueue(m_messages[m_activeMessage]);
         ++m_activeMessage;
         m_activeMessage %= m_messages.Length;
     }

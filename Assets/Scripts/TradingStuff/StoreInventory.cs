@@ -5,8 +5,22 @@ using UnityEngine;
 public class StoreInventory : MonoBehaviour
 {
     public static StoreInventory instance = null;
-    public List<Item> items { get; } = new List<Item>();
-    public List<int> counts { get; } = new List<int>();
+    public List<Item>[] items = new List<Item>[3]
+    {
+        new List<Item>(),
+        new List<Item>(),
+        new List<Item>(),
+    };
+    public List<int>[] counts = new List<int>[3]
+    {
+        new List<int>(),
+        new List<int>(),
+        new List<int>(),
+    };
+
+    int[] profitForPlayer = new int[3] { 0, 0, 0 };
+
+    public string playerAtStall = "";
 
     private void Awake()
     {
@@ -21,41 +35,105 @@ public class StoreInventory : MonoBehaviour
 
     public void initStoreInventory()
     {
-        int num = Random.Range(0, 9);
-        for (int i = 0; i < num; ++i)
+        BusinessManager b = BusinessManager.instance;
+        if (b.getData(BusinessType.Stall).owned || b.getData(BusinessType.Stall).rented)
+            initPlayerInventory(2);
+        if (b.getData(BusinessType.LittleShop).owned)
+            initPlayerInventory(0);
+        else
+            initNPCInventory(0);
+        if (b.getData(BusinessType.BigShop).owned)
+            initPlayerInventory(1);
+        else
+            initNPCInventory(1);
+    }
+
+    void initPlayerInventory(int store)
+    {
+        BusinessData data;
+        switch (store)
         {
-            items.Add(ItemDatabase.instance.getRandomItem());
-            counts.Add((Random.Range(1, 10) / 9) + 1);
+            case 0:
+                data = BusinessManager.instance.getData(BusinessType.LittleShop);
+                break;
+            case 1:
+                data = BusinessManager.instance.getData(BusinessType.BigShop);
+                break;
+            default:
+                data = BusinessManager.instance.getData(BusinessType.Stall);
+                break;
+        }
+        for (int i = 0; i < data.itemsForSale.Count; ++i)
+        {
+            if (Random.Range(0.0f, 1.0f) < getStolenChance(data))
+            {
+                MessageQueue.addToQueue(data.itemsForSale[i].item.name + " was stolen from " + data.name + ". Assign a guard to this store to reduce the risk of this.");
+                data.itemsForSale.RemoveAt(i--);
+                continue;
+            }
+            else if (Random.Range(0.0f, 1.0f) < getSoldChance(data))
+            {
+                MessageQueue.addToQueue(data.itemsForSale[i].item.name + " was sold for £" + data.itemsForSale[i].cost + ".");
+                data.itemsForSale.RemoveAt(i--);
+                profitForPlayer[store] += data.itemsForSale[i].cost;
+            }
         }
     }
 
-    public void addItem(Item item, int count = 1)
+    void initNPCInventory(int store)
     {
-        for (int i = 0; i < items.Count; ++i)
+        int money = 0;
+        for (int i = 0; i < 6 && i < items[store].Count; ++i)
         {
-            if (items[i].name == item.name)
+            if (Random.Range(0, 2) == 0)
             {
-                counts[i] += count;
+                int idx = Random.Range(0, items[store].Count);
+                money += items[store][idx].baseValue;
+                removeItem(items[store][idx].name, store);
+            }
+        }
+        while (money >= 10)
+        {
+            Item item = ItemDatabase.instance.getRandomItem(money);
+            if (!item.isNull)
+            {
+                money -= item.baseValue;
+                addItem(item, store);
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
+    public void addItem(Item item, int store, int count = 1)
+    {
+        for (int i = 0; i < items[store].Count; ++i)
+        {
+            if (items[store][i].name == item.name)
+            {
+                counts[store][i] += count;
                 return;
             }
         }
-        items.Add(item);
-        counts.Add(count);
+        items[store].Add(item);
+        counts[store].Add(count);
     }
 
-    public bool removeItem(string item, int count = 1)
+    public bool removeItem(string item, int store, int count = 1)
     {
-        for (int i = 0; i < items.Count; ++i)
+        for (int i = 0; i < items[store].Count; ++i)
         {
-            if (items[i].name == item)
+            if (items[store][i].name == item)
             {
-                if (count <= counts[i])
+                if (count <= counts[store][i])
                 {
-                    counts[i] -= count;
-                    if (counts[i] == 0)
+                    counts[store][i] -= count;
+                    if (counts[store][i] == 0)
                     {
-                        counts.RemoveAt(i);
-                        items.RemoveAt(i);
+                        counts[store].RemoveAt(i);
+                        items[store].RemoveAt(i);
                     }
                     return true;
                 }
@@ -66,5 +144,36 @@ public class StoreInventory : MonoBehaviour
             }
         }
         return false;
+    }
+
+    float getStolenChance(BusinessData data)
+    {
+        float stolenChance = 0.1f;
+        foreach (HireeType hireeData in data.workersAssigned)
+        {
+            if (hireeData == HireeType.Guard)
+                stolenChance *= 0.3f;
+            if (hireeData == HireeType.Sales)
+                stolenChance *= 0.8f;
+        }
+        return stolenChance;
+    }
+
+    float getSoldChance(BusinessData data)
+    {
+        if (!data.workersAssigned.Contains(HireeType.Sales) && playerAtStall != data.name)
+        {
+            MessageQueue.addToQueue("You should assign a sales assistant to your " + data.name + " so it can operate while you are busy.");
+            return 0;
+        }
+        float soldChance = 0.6f;
+        foreach (HireeType hireeData in data.workersAssigned)
+        {
+            if (hireeData == HireeType.Promoter)
+                soldChance *= 1.7f;
+            if (hireeData == HireeType.Sales)
+                soldChance *= 1.2f;
+        }
+        return soldChance;
     }
 }

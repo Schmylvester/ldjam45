@@ -22,11 +22,18 @@ public class InventroryUIElement : MonoBehaviour, IPointerEnterHandler, IPointer
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && selectedItem)
         {
-            if(selectedItem && item.type >= 0)
+            if (item.type >= 0)
             {
-                Player.PlayerInventory.instance.equipItem(item);
+                PlayerInventory.instance.equipItem(item);
+            }
+            else if (item.type == ItemType.Consumable)
+            {
+                PlayerStats stats = FindObjectOfType<PlayerStats>();
+                stats.currentHealth = Mathf.Min(stats.currentHealth + item.health, stats.GetActualMaxHealth());
+                PlayerInventory.instance.removeItem(item);
+                SFXManager.instance.PlaySFX("Up1", 1);
             }
         }
     }

@@ -45,7 +45,7 @@ public struct BusinessData
     public int rentCost;
     public int maxWorkers;
     public int maxItems;
-    public List<HireeData> workersAssigned;
+    public List<HireeType> workersAssigned;
     public List<ItemForSale> itemsForSale;
 }
 
@@ -70,7 +70,7 @@ public class BusinessManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance)
+        if (instance)
         {
             Destroy(gameObject);
             return;
@@ -101,7 +101,7 @@ public class BusinessManager : MonoBehaviour
             rented = false,
             maxItems = 4,
             maxWorkers = 2,
-            workersAssigned = new List<HireeData>(),
+            workersAssigned = new List<HireeType>(),
             itemsForSale = new List<ItemForSale>()
         };
 
@@ -113,7 +113,7 @@ public class BusinessManager : MonoBehaviour
             rented = false,
             maxItems = 15,
             maxWorkers = 5,
-            workersAssigned = new List<HireeData>(),
+            workersAssigned = new List<HireeType>(),
             itemsForSale = new List<ItemForSale>()
         };
 
@@ -125,7 +125,7 @@ public class BusinessManager : MonoBehaviour
             rented = false,
             maxItems = 40,
             maxWorkers = 10,
-            workersAssigned = new List<HireeData>(),
+            workersAssigned = new List<HireeType>(),
             itemsForSale = new List<ItemForSale>()
         };
     }
@@ -169,35 +169,31 @@ public class BusinessManager : MonoBehaviour
         };
     }
 
-    public string handleExpenses()
+    public void handleExpenses()
     {
-        string returnString = "";
-        
-        foreach(HireeData hireeData in hireeDatas)
+        foreach (HireeData hireeData in hireeDatas)
         {
-            for(int i = 0; i < hireeData.numberHired; ++i)
+            for (int i = 0; i < hireeData.numberHired; ++i)
             {
-                if(!Player.PlayerInventory.instance.changeCash(-hireeData.cost))
+                if (!PlayerInventory.instance.changeCash(-hireeData.cost))
                 {
                     int numberLost = hireeData.numberHired - i;
-                    returnString += numberLost + " of your " + hireeData.type + " had to quit as you could not pay them.\n";
+                    MessageQueue.addToQueue(numberLost + " of your " + hireeData.type + "s had to quit as you could not pay them.");
                     break;
                 }
             }
         }
 
-        for(int i = 0; i < businessData.Length; ++i)
+        for (int i = 0; i < businessData.Length; ++i)
         {
-            if(businessData[i].rented)
+            if (businessData[i].rented)
             {
-                if(!Player.PlayerInventory.instance.changeCash(-businessData[i].rentCost))
+                if (!PlayerInventory.instance.changeCash(-businessData[i].rentCost))
                 {
-                    returnString += "You can not afford to keep renting the " + businessData[i].name + ".\n";
+                    MessageQueue.addToQueue("You could not afford to keep renting the " + businessData[i].name + ".");
                     businessData[i].rented = false;
                 }
             }
         }
-
-        return returnString;
     }
 }

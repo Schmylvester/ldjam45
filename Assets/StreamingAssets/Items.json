@@ -8,11 +8,11 @@
       "baseValue": 25,
       "spriteIdx": 140,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Simple Staff",
@@ -22,11 +22,11 @@
       "baseValue": 35,
       "spriteIdx": 142,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Simple Sword",
@@ -36,11 +36,11 @@
       "baseValue": 35,
       "spriteIdx": 143,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Simple Bow",
@@ -50,11 +50,11 @@
       "baseValue": 35,
       "spriteIdx": 145,
       "traits": [ "Two Handed", "Ranged" ],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Simple Knife",
@@ -64,11 +64,11 @@
       "baseValue": 30,
       "spriteIdx": 146,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Mushroom",
@@ -78,11 +78,11 @@
       "baseValue": 15,
       "spriteIdx": 289,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Wooden Shield",
@@ -92,11 +92,11 @@
       "baseValue": 30,
       "spriteIdx": 156,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Iron Shield",
@@ -106,11 +106,11 @@
       "baseValue": 35,
       "spriteIdx": 157,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Cool Hat",
@@ -120,11 +120,11 @@
       "baseValue": 50,
       "spriteIdx": 158,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Iron Helmet",
@@ -134,11 +134,11 @@
       "baseValue": 45,
       "spriteIdx": 160,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Wizard Hat",
@@ -148,11 +148,11 @@
       "baseValue": 45,
       "spriteIdx": 161,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Ruby Bracelet",
@@ -162,11 +162,11 @@
       "baseValue": 80,
       "spriteIdx": 162,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Clothes",
@@ -176,11 +176,11 @@
       "baseValue": 20,
       "spriteIdx": 164,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Leather Armour",
@@ -190,11 +190,11 @@
       "baseValue": 60,
       "spriteIdx": 165,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Iron Armour",
@@ -204,11 +204,11 @@
       "baseValue": 70,
       "spriteIdx": 166,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Fancy Cloak",
@@ -218,11 +218,11 @@
       "baseValue": 65,
       "spriteIdx": 167,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Leather Boots",
@@ -232,11 +232,11 @@
       "baseValue": 20,
       "spriteIdx": 168,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Iron Boots",
@@ -246,11 +246,11 @@
       "baseValue": 25,
       "spriteIdx": 169,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Gloves",
@@ -260,11 +260,11 @@
       "baseValue": 20,
       "spriteIdx": 170,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Iron Gauntlets",
@@ -274,11 +274,11 @@
       "baseValue": 25,
       "spriteIdx": 171,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Emerald Ring",
@@ -288,11 +288,11 @@
       "baseValue": 80,
       "spriteIdx": 172,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Cute Ribbon",
@@ -302,11 +302,11 @@
       "baseValue": 50,
       "spriteIdx": 178,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Cloak",
@@ -316,11 +316,11 @@
       "baseValue": 45,
       "spriteIdx": 179,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Diamond Jewel",
@@ -330,11 +330,11 @@
       "baseValue": 150,
       "spriteIdx": 180,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Onyx Jewel",
@@ -344,11 +344,11 @@
       "baseValue": 120,
       "spriteIdx": 181,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Fake Diamond Jewel",
@@ -358,11 +358,11 @@
       "baseValue": 95,
       "spriteIdx": 182,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Ruby Jewel",
@@ -372,11 +372,11 @@
       "baseValue": 100,
       "spriteIdx": 183,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Sapphire Jewel",
@@ -386,11 +386,11 @@
       "baseValue": 100,
       "spriteIdx": 184,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Emerald Jewel",
@@ -400,11 +400,11 @@
       "baseValue": 100,
       "spriteIdx": 185,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Health Potion",
@@ -414,11 +414,11 @@
       "baseValue": 40,
       "spriteIdx": 188,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Weak Poison",
@@ -428,11 +428,11 @@
       "baseValue": 35,
       "spriteIdx": 191,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Strong Poison",
@@ -442,11 +442,11 @@
       "baseValue": 80,
       "spriteIdx": 191,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Four Leaved Clover",
@@ -456,11 +456,11 @@
       "baseValue": 120,
       "spriteIdx": 198,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Magic Lamp",
@@ -470,11 +470,11 @@
       "baseValue": 120,
       "spriteIdx": 213,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Love Potion",
@@ -484,11 +484,11 @@
       "baseValue": 100,
       "spriteIdx": 218,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "New Book",
@@ -498,11 +498,11 @@
       "baseValue": 100,
       "spriteIdx": 222,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Old Book",
@@ -512,11 +512,11 @@
       "baseValue": 20,
       "spriteIdx": 225,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Used Book",
@@ -526,11 +526,11 @@
       "baseValue": 40,
       "spriteIdx": 226,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Mysterious Map",
@@ -540,11 +540,11 @@
       "baseValue": 150,
       "spriteIdx": 227,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Magic Scroll",
@@ -554,11 +554,11 @@
       "baseValue": 150,
       "spriteIdx": 234,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Lyre",
@@ -568,11 +568,11 @@
       "baseValue": 90,
       "spriteIdx": 244,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Cute Bag",
@@ -582,11 +582,11 @@
       "baseValue": 70,
       "spriteIdx": 259,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Dusty Bag",
@@ -596,11 +596,11 @@
       "baseValue": 20,
       "spriteIdx": 260,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Lower Case T",
@@ -610,11 +610,11 @@
       "baseValue": 100,
       "spriteIdx": 277,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Carrot",
@@ -624,11 +624,11 @@
       "baseValue": 10,
       "spriteIdx": 284,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Fish",
@@ -638,11 +638,11 @@
       "baseValue": 15,
       "spriteIdx": 288,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Log",
@@ -652,11 +652,11 @@
       "baseValue": 10,
       "spriteIdx": 327,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Feather",
@@ -666,11 +666,11 @@
       "baseValue": 10,
       "spriteIdx": 333,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Cool Feather",
@@ -680,11 +680,11 @@
       "baseValue": 90,
       "spriteIdx": 334,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Blocks o' Gold",
@@ -694,11 +694,11 @@
       "baseValue": 250,
       "spriteIdx": 356,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Sugar",
@@ -708,11 +708,11 @@
       "baseValue": 30,
       "spriteIdx": 345,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Crystal",
@@ -722,11 +722,11 @@
       "baseValue": 140,
       "spriteIdx": 341,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Crystal Ball",
@@ -736,11 +736,11 @@
       "baseValue": 90,
       "spriteIdx": 349,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Dying Plant",
@@ -750,11 +750,11 @@
       "baseValue": 35,
       "spriteIdx": 379,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Healthy Plant",
@@ -764,11 +764,11 @@
       "baseValue": 55,
       "spriteIdx": 376,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Golden Sword",
@@ -778,11 +778,11 @@
       "baseValue": 150,
       "spriteIdx": 388,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Holy Bow",
@@ -801,11 +801,11 @@
       "baseValue": 350,
       "spriteIdx": 424,
       "traits": [ "Two Handed", "Ranged" ],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Humble Staff",
@@ -815,11 +815,11 @@
       "baseValue": 350,
       "spriteIdx": 411,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Fancy Staff",
@@ -829,11 +829,11 @@
       "baseValue": 200,
       "spriteIdx": 419,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Legendary Sword",
@@ -843,11 +843,11 @@
       "baseValue": 350,
       "spriteIdx": 389,
       "traits": [],
-	  "damage": 10000,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 10000,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Hefty Sword",
@@ -857,11 +857,11 @@
       "baseValue": 200,
       "spriteIdx": 394,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Cool Axe",
@@ -871,11 +871,11 @@
       "baseValue": 500,
       "spriteIdx": 398,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Ebony Armour",
@@ -885,11 +885,11 @@
       "baseValue": 800,
       "spriteIdx": 431,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Samurai Armour",
@@ -899,11 +899,11 @@
       "baseValue": 400,
       "spriteIdx": 433,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Nice Dress",
@@ -913,11 +913,11 @@
       "baseValue": 70,
       "spriteIdx": 435,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Fancy Jacket",
@@ -927,11 +927,11 @@
       "baseValue": 150,
       "spriteIdx": 438,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Plain Dress",
@@ -941,11 +941,11 @@
       "baseValue": 80,
       "spriteIdx": 437,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Hoodie",
@@ -955,11 +955,11 @@
       "baseValue": 110,
       "spriteIdx": 436,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Trendy Scarf",
@@ -969,11 +969,11 @@
       "baseValue": 110,
       "spriteIdx": 444,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Yellow Bow",
@@ -983,11 +983,11 @@
       "baseValue": 90,
       "spriteIdx": 457,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Bunny Ears",
@@ -997,11 +997,11 @@
       "baseValue": 250,
       "spriteIdx": 458,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Purple Shield",
@@ -1011,11 +1011,11 @@
       "baseValue": 400,
       "spriteIdx": 496,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Gold Ring",
@@ -1025,11 +1025,11 @@
       "baseValue": 150,
       "spriteIdx": 508,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Silver Ring",
@@ -1039,11 +1039,11 @@
       "baseValue": 149,
       "spriteIdx": 509,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     },
     {
       "name": "Egg",
@@ -1053,11 +1053,11 @@
       "baseValue": 40,
       "spriteIdx": 295,
       "traits": [],
-	  "damage": 0,
-	  "armour": 0,
-	  "speed": 0,
-	  "health": 0,
-	  "range": 0
+      "damage": 0,
+      "armour": 0,
+      "speed": 0,
+      "health": 0,
+      "range": 0
     }
   ]
 }
