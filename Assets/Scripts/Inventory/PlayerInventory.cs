@@ -54,6 +54,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
+        for(int i = 0 ; i < 800; ++i)addItem(ItemDatabase.instance.getRandomItem(false));
         for (int i = 0; i < m_equippedItems.Length; ++i)
         {
             m_equippedItems[i].isNull = true;
